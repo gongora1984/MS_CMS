@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
-    public partial class CaseColdefendantCardInfo : Entity, IAuditableEntity
+    public partial class CaseColDefendantCardInfo : Entity, IAuditableEntity
     {
-        public int CaseColdefendantCardInfoId { get; set; }
         public string Cctype { get; set; } = null!;
         public string Ccnumber { get; set; } = null!;
         public string CcnumberLast4 { get; set; } = null!;
@@ -24,7 +21,7 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int CaseJobDefendantId { get; set; }
         public int? AccountTypeLid { get; set; }
 
-        public virtual ListItem? AccountTypeL { get; set; }
+        public virtual ListItem? AccountType { get; set; }
         public virtual CaseJobDefendant CaseJobDefendant { get; set; } = null!;
     }
 }

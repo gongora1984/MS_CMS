@@ -8,10 +8,11 @@ internal sealed class BkrConditionalOrderConfiguration : IEntityTypeConfiguratio
 {
     public void Configure(EntityTypeBuilder<BkrConditionalOrder> entity)
     {
-        entity.HasKey(e => e.Id)
-                    .HasName("PK_FileBankruptcyConditionalOrder");
-
         entity.ToTable(TableNames.BkrConditionalOrder);
+
+        entity.HasKey(e => e.Id).HasName("PKBkrConditionalOrder");
+
+        entity.Property(e => e.Id).HasColumnName("BkrConditionalOrderId");
 
         entity.HasIndex(e => e.CaseBkrId, "FKBKRConditionalOrderCaseBKRId");
 

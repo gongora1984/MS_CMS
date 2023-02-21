@@ -8,14 +8,13 @@ internal sealed class BkrMfrConfiguration : IEntityTypeConfiguration<BkrMfr>
 {
     public void Configure(EntityTypeBuilder<BkrMfr> entity)
     {
-        entity.HasKey(e => e.Id)
-                    .HasName("PKBkrMfrId");
-
         entity.ToTable(TableNames.BkrMfr);
 
-        entity.HasIndex(e => e.CaseBkrId, "FKBKRMFRCaseBKRId");
+        entity.HasKey(e => e.Id).HasName("PKBkrMfr");
 
         entity.Property(e => e.Id).HasColumnName("BkrMfrId");
+
+        entity.HasIndex(e => e.CaseBkrId, "FKBKRMFRCaseBKRId");
 
         entity.Property(e => e.Apoentered)
             .HasMaxLength(5)

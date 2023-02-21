@@ -10,6 +10,10 @@ internal sealed class CaseAutoBuyerInfoConfiguration : IEntityTypeConfiguration<
     {
         entity.ToTable(TableNames.CaseAutoBuyerInfo);
 
+        entity.HasKey(e => e.Id).HasName("PKCaseAutoBuyerInfo");
+
+        entity.Property(e => e.Id).HasColumnName("CaseAutoBuyerInfoId");
+
         entity.HasIndex(e => e.CaseAutoId, "FKCaseAutoBuyerInfoCaseAutoId");
 
         entity.Property(e => e.AltPhoneNum)

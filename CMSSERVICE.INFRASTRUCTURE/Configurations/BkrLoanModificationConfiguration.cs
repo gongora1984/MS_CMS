@@ -10,9 +10,11 @@ internal sealed class BkrLoanModificationConfiguration : IEntityTypeConfiguratio
     {
         entity.ToTable(TableNames.BkrLoanModification);
 
-        entity.HasIndex(e => e.CaseBkrId, "FKBKRLoanModificationCaseBKRId");
+        entity.HasKey(e => e.Id).HasName("PKBkrLoanModification");
 
-        entity.Property(e => e.Id).HasColumnName("BKRLoanModificationId");
+        entity.Property(e => e.Id).HasColumnName("BkrLoanModificationId");
+
+        entity.HasIndex(e => e.CaseBkrId, "FKBKRLoanModificationCaseBKRId");
 
         entity.Property(e => e.CaseBkrId).HasColumnName("CaseBKRId");
 

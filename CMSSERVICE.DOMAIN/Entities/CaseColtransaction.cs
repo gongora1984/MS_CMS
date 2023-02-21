@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
-    public partial class CaseColtransaction : Entity, IAuditableEntity
+    public partial class CaseColTransaction : Entity, IAuditableEntity
     {
-        public int CaseColtransactionId { get; set; }
         public DateTime TransactionDate { get; set; }
         public string TransactionDescription { get; set; } = null!;
         public string TransactionType { get; set; } = null!;

@@ -8,10 +8,11 @@ internal sealed class BkrJournalConfiguration : IEntityTypeConfiguration<BkrJour
 {
     public void Configure(EntityTypeBuilder<BkrJournal> entity)
     {
-        entity.HasKey(e => e.Id)
-                    .HasName("PK_FileBankruptcyJournal");
-
         entity.ToTable(TableNames.BkrJournal);
+
+        entity.HasKey(e => e.Id).HasName("PKBkrJournal");
+
+        entity.Property(e => e.Id).HasColumnName("BkrJournalId");
 
         entity.HasIndex(e => e.CaseBkrId, "FKBKRJournalCaseBKRId");
 

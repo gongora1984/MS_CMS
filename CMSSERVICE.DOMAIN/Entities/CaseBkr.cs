@@ -18,7 +18,6 @@
             BkrProperties = new HashSet<BkrProperty>();
         }
 
-        public int CaseBkrid { get; set; }
         public DateTime BkropenDate { get; set; }
         public string? BkrcaseNumber { get; set; }
         public DateTime FiledDate { get; set; }
@@ -85,17 +84,17 @@
         public int? BkrdistrictId { get; set; }
         public int? BkrcircuitLid { get; set; }
         public int? ClosedReasonLid { get; set; }
-        public int? Bkrsollid { get; set; }
+        public int? BkrSolLid { get; set; }
 
-        public virtual ListItem? BkrCircuitL { get; set; }
+        public virtual ListItem? BkrCircuit { get; set; }
         public virtual BkrDistrict? BkrDistrict { get; set; }
-        public virtual ListItem? Bkrsoll { get; set; }
-        public virtual ListItem? CaseBkrclientInvestorL { get; set; }
-        public virtual ListItem? CaseBkrclientInvestorTypeL { get; set; }
-        public virtual ListItem CaseBkrstatusL { get; set; } = null!;
-        public virtual ListItem CaseBkrtypeL { get; set; } = null!;
+        public virtual ListItem? BkrSol { get; set; }
+        public virtual ListItem? CaseBkrclientInvestor { get; set; }
+        public virtual ListItem? CaseBkrclientInvestorType { get; set; }
+        public virtual ListItem CaseBkrstatus { get; set; } = null!;
+        public virtual ListItem CaseBkrtype { get; set; } = null!;
         public virtual ClientJob ClientJob { get; set; } = null!;
-        public virtual ListItem? ClosedReasonL { get; set; }
+        public virtual ListItem? ClosedReason { get; set; }
         public virtual ICollection<BkrCaseSummary> BkrCaseSummaries { get; set; }
         public virtual ICollection<BkrConditionalOrder> BkrConditionalOrders { get; set; }
         public virtual ICollection<BkrFinInstallment> BkrFinInstallments { get; set; }

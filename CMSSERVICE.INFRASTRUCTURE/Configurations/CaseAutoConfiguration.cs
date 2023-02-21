@@ -10,6 +10,10 @@ internal sealed class CaseAutoConfiguration : IEntityTypeConfiguration<CaseAuto>
     {
         entity.ToTable(TableNames.CaseAuto);
 
+        entity.HasKey(e => e.Id).HasName("PKCaseAuto");
+
+        entity.Property(e => e.Id).HasColumnName("CaseAutoId");
+
         entity.HasIndex(e => e.AssignedCsrlid, "FKCaseAutoAssignedCSRLid");
 
         entity.HasIndex(e => e.ClientJobId, "FKCaseAutoClientJobId");

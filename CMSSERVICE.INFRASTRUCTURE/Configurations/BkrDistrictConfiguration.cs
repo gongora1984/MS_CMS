@@ -10,7 +10,9 @@ internal sealed class BkrDistrictConfiguration : IEntityTypeConfiguration<BkrDis
     {
         entity.ToTable(TableNames.BkrDistrict);
 
-        entity.Property(e => e.Id).HasColumnName("BKRDistrictId");
+        entity.HasKey(x => x.Id).HasName("PKBkrDistrict");
+
+        entity.Property(e => e.Id).HasColumnName("BkrDistrictId");
 
         entity.Property(e => e.ClientBkcourtJurisdiction)
             .HasMaxLength(50)

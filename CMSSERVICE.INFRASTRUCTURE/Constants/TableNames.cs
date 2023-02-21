@@ -38,11 +38,11 @@ internal static class TableNames
 
     internal const string CaseCol = nameof(domain.CaseCol);
 
-    internal const string CaseColDefendantBankInfo = nameof(domain.CaseColdefendantBankInfo);
+    internal const string CaseColDefendantBankInfo = nameof(domain.CaseColDefendantBankInfo);
 
-    internal const string CaseColDefendantCardInfo = nameof(domain.CaseColdefendantCardInfo);
+    internal const string CaseColDefendantCardInfo = nameof(domain.CaseColDefendantCardInfo);
 
-    internal const string CaseColTransaction = nameof(domain.CaseColtransaction);
+    internal const string CaseColTransaction = nameof(domain.CaseColTransaction);
 
     internal const string CaseComment = nameof(domain.CaseComment);
 

@@ -4,8 +4,8 @@
     {
         public CaseJobDefendant()
         {
-            CaseColdefendantBankInfos = new HashSet<CaseColdefendantBankInfo>();
-            CaseColdefendantCardInfos = new HashSet<CaseColdefendantCardInfo>();
+            CaseColDefendantBankInfos = new HashSet<CaseColDefendantBankInfo>();
+            CaseColDefendantCardInfos = new HashSet<CaseColDefendantCardInfo>();
             CaseJobDefendantAdditionalAddresses = new HashSet<CaseJobDefendantAdditionalAddress>();
             CaseJobDefendantByVirtueOfs = new HashSet<CaseJobDefendantByVirtueOf>();
             CaseJobDefendantSearchHistories = new HashSet<CaseJobDefendantSearchHistory>();
@@ -66,8 +66,8 @@
         public virtual ListItem PartyTypeL { get; set; } = null!;
         public virtual ListItem? RequestorOrganizationL { get; set; }
         public virtual ListItem? ServiceTypeL { get; set; }
-        public virtual ICollection<CaseColdefendantBankInfo> CaseColdefendantBankInfos { get; set; }
-        public virtual ICollection<CaseColdefendantCardInfo> CaseColdefendantCardInfos { get; set; }
+        public virtual ICollection<CaseColDefendantBankInfo> CaseColDefendantBankInfos { get; set; }
+        public virtual ICollection<CaseColDefendantCardInfo> CaseColDefendantCardInfos { get; set; }
         public virtual ICollection<CaseJobDefendantAdditionalAddress> CaseJobDefendantAdditionalAddresses { get; set; }
         public virtual ICollection<CaseJobDefendantByVirtueOf> CaseJobDefendantByVirtueOfs { get; set; }
         public virtual ICollection<CaseJobDefendantSearchHistory> CaseJobDefendantSearchHistories { get; set; }

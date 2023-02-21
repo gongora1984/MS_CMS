@@ -18,8 +18,8 @@
             CaseBkrClosedReasonLs = new HashSet<CaseBkr>();
             CaseColCaseColcloseReasonLs = new HashSet<CaseCol>();
             CaseColCaseColstatusLs = new HashSet<CaseCol>();
-            CaseColdefendantBankInfos = new HashSet<CaseColdefendantBankInfo>();
-            CaseColdefendantCardInfos = new HashSet<CaseColdefendantCardInfo>();
+            CaseColDefendantBankInfos = new HashSet<CaseColDefendantBankInfo>();
+            CaseColDefendantCardInfos = new HashSet<CaseColDefendantCardInfo>();
             CaseCommentWhiteboards = new HashSet<CaseCommentWhiteboard>();
             CaseComments = new HashSet<CaseComment>();
             CaseCourts = new HashSet<CaseCourt>();
@@ -123,8 +123,8 @@
         public virtual ICollection<CaseBkr> CaseBkrClosedReasonLs { get; set; }
         public virtual ICollection<CaseCol> CaseColCaseColcloseReasonLs { get; set; }
         public virtual ICollection<CaseCol> CaseColCaseColstatusLs { get; set; }
-        public virtual ICollection<CaseColdefendantBankInfo> CaseColdefendantBankInfos { get; set; }
-        public virtual ICollection<CaseColdefendantCardInfo> CaseColdefendantCardInfos { get; set; }
+        public virtual ICollection<CaseColDefendantBankInfo> CaseColDefendantBankInfos { get; set; }
+        public virtual ICollection<CaseColDefendantCardInfo> CaseColDefendantCardInfos { get; set; }
         public virtual ICollection<CaseCommentWhiteboard> CaseCommentWhiteboards { get; set; }
         public virtual ICollection<CaseComment> CaseComments { get; set; }
         public virtual ICollection<CaseCourt> CaseCourts { get; set; }

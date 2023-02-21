@@ -1,15 +1,12 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseCol : Entity, IAuditableEntity
     {
         public CaseCol()
         {
-            CaseColtransactions = new HashSet<CaseColtransaction>();
+            CaseColTransactions = new HashSet<CaseColTransaction>();
         }
 
-        public int CaseColid { get; set; }
         public string LoanNumber { get; set; } = null!;
         public string? ClientCaseNumber { get; set; }
         public string? Referance { get; set; }
@@ -41,11 +38,11 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int? CaseColstatusLid { get; set; }
         public int? CaseColcloseReasonLid { get; set; }
 
-        public virtual ListItem? CaseColcloseReasonL { get; set; }
-        public virtual ListItem? CaseColstatusL { get; set; }
+        public virtual ListItem? CaseColCloseReason { get; set; }
+        public virtual ListItem? CaseColStatus { get; set; }
         public virtual ClientJob ClientJob { get; set; } = null!;
         public virtual ClientAssignment? LastAssignment { get; set; }
         public virtual ClientAssignment? NextAssignment { get; set; }
-        public virtual ICollection<CaseColtransaction> CaseColtransactions { get; set; }
+        public virtual ICollection<CaseColTransaction> CaseColTransactions { get; set; }
     }
 }

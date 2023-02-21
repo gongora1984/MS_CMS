@@ -8,10 +8,11 @@ internal sealed class BkrFinInstallmentConfiguration : IEntityTypeConfiguration<
 {
     public void Configure(EntityTypeBuilder<BkrFinInstallment> entity)
     {
-        entity.HasKey(e => e.Id)
-                    .HasName("PK_FileBankruptcyFinInstallment");
-
         entity.ToTable(TableNames.BkrFinInstallment);
+
+        entity.HasKey(e => e.Id).HasName("PKBkrFinInstallment");
+
+        entity.Property(e => e.Id).HasColumnName("BkrFinInstallmentId");
 
         entity.HasIndex(e => e.CaseBkrId, "FKBKRFinInstallmentCaseBKRId");
 

@@ -10,9 +10,11 @@ internal sealed class BkrPropertyConfiguration : IEntityTypeConfiguration<BkrPro
     {
         entity.ToTable(TableNames.BkrProperty);
 
-        entity.HasIndex(e => e.CaseBkrId, "FKBKRPropertyCaseBKRId");
+        entity.HasKey(e => e.Id).HasName("PKBkrProperty");
 
         entity.Property(e => e.Id).HasColumnName("BKRPropertyId");
+
+        entity.HasIndex(e => e.CaseBkrId, "FKBKRPropertyCaseBKRId");
 
         entity.Property(e => e.Address1)
             .HasMaxLength(150)
