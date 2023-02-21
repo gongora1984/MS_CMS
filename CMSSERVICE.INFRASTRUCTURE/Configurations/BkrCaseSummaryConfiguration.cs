@@ -12,7 +12,7 @@ internal sealed class BkrCaseSummaryConfiguration : IEntityTypeConfiguration<Bkr
 
         entity.HasIndex(e => e.CaseBkrId, "FKBKRCaseSummaryCaseBKRId");
 
-        entity.Property(e => e.Id).HasColumnName("BKRCaseSummaryID");
+        entity.Property(e => e.Id).HasColumnName("BKRCaseSummaryId");
 
         entity.Property(e => e.ArrearageCured)
             .HasMaxLength(5)

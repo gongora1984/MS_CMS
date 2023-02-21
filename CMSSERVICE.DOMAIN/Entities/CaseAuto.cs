@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseAuto : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseAutoBuyerInfos = new HashSet<CaseAutoBuyerInfo>();
         }
 
-        public int CaseAutoId { get; set; }
         public string? VehicleVinNumber { get; set; }
         public string? VehicleMake { get; set; }
         public string? VehicleModel { get; set; }
@@ -35,10 +32,10 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int? ClosedReasonLid { get; set; }
 
         public virtual ListItem? AssignedCsrl { get; set; }
-        public virtual ListItem CaseAutoStatusL { get; set; } = null!;
+        public virtual ListItem CaseAutoStatus { get; set; } = null!;
         public virtual ClientJob ClientJob { get; set; } = null!;
-        public virtual ListItem? ClosedReasonL { get; set; }
-        public virtual ListItem? VehicleStatusL { get; set; }
+        public virtual ListItem? ClosedReason { get; set; }
+        public virtual ListItem? VehicleStatus { get; set; }
         public virtual ICollection<CaseAutoBuyerInfo> CaseAutoBuyerInfos { get; set; }
     }
 }

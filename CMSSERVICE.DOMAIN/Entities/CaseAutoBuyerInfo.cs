@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseAutoBuyerInfo : Entity, IAuditableEntity
     {
-        public int CaseAutoBuyerInfoId { get; set; }
         public string BuyerName { get; set; } = null!;
         public string? EmailAddress { get; set; }
         public int? BackgroundCheckLid { get; set; }
@@ -27,7 +24,6 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int? ClientJobId { get; set; }
         public string? TestDriveDate { get; set; }
         public int CaseAutoId { get; set; }
-
         public virtual CaseAuto CaseAuto { get; set; } = null!;
     }
 }

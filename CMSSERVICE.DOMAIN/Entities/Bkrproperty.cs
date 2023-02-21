@@ -2,7 +2,6 @@
 {
     public partial class BkrProperty : Entity, IAuditableEntity
     {
-        public int BkrpropertyId { get; set; }
         public string? PropertyName { get; set; }
         public string? Address1 { get; set; }
         public string? Address2 { get; set; }
@@ -23,8 +22,7 @@
         public string? BkyClientPaymentCity { get; set; }
         public string? BkyClientPaymentEmail { get; set; }
         public string? BkyClientPaymentState { get; set; }
-        public int CaseBkrid { get; set; }
-
+        public int CaseBkrId { get; set; }
         public virtual CaseBkr CaseBkr { get; set; } = null!;
     }
 }
