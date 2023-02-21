@@ -70,11 +70,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.APPLICATION\\CMSSERVICE.APPLICATION.csproj",
+      "projectUniqueName": "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.APPLICATION\\CMSSERVICE.APPLICATION.csproj",
       "projectName": "CMSSERVICE.APPLICATION",
-      "projectPath": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.APPLICATION\\CMSSERVICE.APPLICATION.csproj",
+      "projectPath": "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.APPLICATION\\CMSSERVICE.APPLICATION.csproj",
       "packagesPath": "C:\\Users\\hgongora\\.nuget\\packages\\",
-      "outputPath": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.APPLICATION\\obj\\",
+      "outputPath": "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.APPLICATION\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

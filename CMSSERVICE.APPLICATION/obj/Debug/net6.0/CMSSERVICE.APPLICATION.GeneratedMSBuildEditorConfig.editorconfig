@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CMSSERVICE.APPLICATION
-build_property.ProjectDir = E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\
+build_property.ProjectDir = E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.APPLICATION\

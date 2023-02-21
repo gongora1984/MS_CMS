@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.PRESENTATION\\CMSSERVICE.PRESENTATION.csproj": {}
+    "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.PRESENTATION\\CMSSERVICE.PRESENTATION.csproj": {}
   },
   "projects": {
-    "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.PRESENTATION\\CMSSERVICE.PRESENTATION.csproj": {
+    "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.PRESENTATION\\CMSSERVICE.PRESENTATION.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.PRESENTATION\\CMSSERVICE.PRESENTATION.csproj",
+        "projectUniqueName": "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.PRESENTATION\\CMSSERVICE.PRESENTATION.csproj",
         "projectName": "CMSSERVICE.PRESENTATION",
-        "projectPath": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.PRESENTATION\\CMSSERVICE.PRESENTATION.csproj",
+        "projectPath": "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.PRESENTATION\\CMSSERVICE.PRESENTATION.csproj",
         "packagesPath": "C:\\Users\\hgongora\\.nuget\\packages\\",
-        "outputPath": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.PRESENTATION\\obj\\",
+        "outputPath": "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.PRESENTATION\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

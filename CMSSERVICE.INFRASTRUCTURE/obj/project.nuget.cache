@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AzXCnY+f8XmzfPT7MKVi0grbaH/7D9w+Zx1PGfPtAoVI6IDtobpwRZxO+JXsN2kLD19l+yZfIziNyvgwz6SuXw==",
+  "dgSpecHash": "KQMZ1NDLp3V51VTC1wT7JqeOlBHH5zmi3MUhiyANH0wJ5U0OVLt25Cgj5hq/d4Gl7xjyj/9kg+nirsagOl6k6A==",
   "success": true,
-  "projectFilePath": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.INFRASTRUCTURE\\CMSSERVICE.INFRASTRUCTURE.csproj",
+  "projectFilePath": "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.INFRASTRUCTURE\\CMSSERVICE.INFRASTRUCTURE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hgongora\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\hgongora\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

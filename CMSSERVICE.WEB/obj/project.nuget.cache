@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5Kd+3XgtrTqi7ZOKJ9+pFfl+0rwsLqb1Q+b3x8j20Kb8lAio93ku/SG5Dtkepev5I7WabWIv6qGhrjyose2ykA==",
+  "dgSpecHash": "oNfUKIVJP/jWh7JRkwr55almGoVpchc5YENKa2YHYq5AAOyDWNn5YzgEPl6Igt0ZjhFSXlqrDQWTYPnsift3tw==",
   "success": true,
-  "projectFilePath": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.WEB\\CMSSERVICE.WEB.csproj",
+  "projectFilePath": "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.WEB\\CMSSERVICE.WEB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hgongora\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\hgongora\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

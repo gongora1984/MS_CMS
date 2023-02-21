@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.DOMAIN\\CMSSERVICE.DOMAIN.csproj": {}
+    "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.DOMAIN\\CMSSERVICE.DOMAIN.csproj": {}
   },
   "projects": {
-    "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.DOMAIN\\CMSSERVICE.DOMAIN.csproj": {
+    "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.DOMAIN\\CMSSERVICE.DOMAIN.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.DOMAIN\\CMSSERVICE.DOMAIN.csproj",
+        "projectUniqueName": "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.DOMAIN\\CMSSERVICE.DOMAIN.csproj",
         "projectName": "CMSSERVICE.DOMAIN",
-        "projectPath": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.DOMAIN\\CMSSERVICE.DOMAIN.csproj",
+        "projectPath": "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.DOMAIN\\CMSSERVICE.DOMAIN.csproj",
         "packagesPath": "C:\\Users\\hgongora\\.nuget\\packages\\",
-        "outputPath": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.DOMAIN\\obj\\",
+        "outputPath": "E:\\HGC\\Work\\.NetCore\\GIT_HGC\\MS_CMS\\CMSSERVICE.DOMAIN\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
