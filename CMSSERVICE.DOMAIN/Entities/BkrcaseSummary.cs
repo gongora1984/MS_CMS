@@ -19,6 +19,5 @@ public partial class BkrCaseSummary : Entity, IAuditableEntity
     public string? PropertyProvidedPlan { get; set; }
     public string? DischargeOder { get; set; }
     public int CaseBkrId { get; set; }
-
     public virtual CaseBkr CaseBkr { get; set; } = null!;
 }
