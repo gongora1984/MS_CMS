@@ -1,8 +1,6 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
-    public partial class Bkrjournal : Entity, IAuditableEntity
+    public partial class BkrJournal : Entity, IAuditableEntity
     {
         public int BkrjourneyId { get; set; }
         public string? OtherKey { get; set; }

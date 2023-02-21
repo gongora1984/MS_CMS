@@ -8,7 +8,7 @@ public abstract class Entity : IEqualityComparer<Entity>
     {
     }
 
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public DateTime CreatedOnUtc { get; set; }
     public DateTime? ModifiedOnUtc { get; set; }
 

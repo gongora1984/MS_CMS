@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
-    public partial class BkrfinOtherCost : Entity, IAuditableEntity
+    public partial class BkrFinOtherCost : Entity, IAuditableEntity
     {
-        public int BkrotherCostId { get; set; }
         public string? CostName { get; set; }
         public decimal CostAmount { get; set; }
         public string? DateIncurred { get; set; }
@@ -16,10 +13,10 @@ namespace CMSSERVICE.DOMAIN.Entities
         public string? WriteOffNote { get; set; }
         public int? WriteOffBy { get; set; }
         public string? ActionNeededNote { get; set; }
-        public int CaseBkrid { get; set; }
+        public int CaseBkrId { get; set; }
         public int CostDecriptionLid { get; set; }
 
         public virtual CaseBkr CaseBkr { get; set; } = null!;
-        public virtual ListItem CostDecriptionL { get; set; } = null!;
+        public virtual ListItem CostDecription { get; set; } = null!;
     }
 }

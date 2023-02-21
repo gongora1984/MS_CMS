@@ -14,4 +14,8 @@
     <ProjectReference Include="..\CMSSERVICE.DOMAIN\CMSSERVICE.DOMAIN.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>

@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
-    public partial class Bkrfinancial : Entity, IAuditableEntity
+    public partial class BkrFinancial : Entity, IAuditableEntity
     {
-        public int BkrfinancialId { get; set; }
         public DateTime? LastBreakDownRequest { get; set; }
         public DateTime? LastBreakDownReceived { get; set; }
         public decimal? UnpaidPrincipal { get; set; }
@@ -34,7 +31,7 @@ namespace CMSSERVICE.DOMAIN.Entities
         public decimal? PrePetitionUnappliedFunds { get; set; }
         public decimal? PrePetitionRefund { get; set; }
         public DateTime? LastMonetaryDate { get; set; }
-        public int CaseBkrid { get; set; }
+        public int CaseBkrId { get; set; }
 
         public virtual CaseBkr CaseBkr { get; set; } = null!;
     }

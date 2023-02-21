@@ -1,8 +1,6 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
-    public partial class Bkrmfr : Entity, IAuditableEntity
+    public partial class BkrMfr : Entity, IAuditableEntity
     {
         public int Mfrid { get; set; }
         public string? ReliefByPlan { get; set; }

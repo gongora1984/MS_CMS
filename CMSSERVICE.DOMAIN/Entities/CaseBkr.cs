@@ -1,23 +1,21 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseBkr : Entity, IAuditableEntity
     {
         public CaseBkr()
         {
-            BkrcaseSummaries = new HashSet<BkrcaseSummary>();
-            BkrconditionalOrders = new HashSet<BkrconditionalOrder>();
-            BkrfinInstallments = new HashSet<BkrfinInstallment>();
-            BkrfinInterestRates = new HashSet<BkrfinInterestRate>();
-            BkrfinMissedPayments = new HashSet<BkrfinMissedPayment>();
-            BkrfinOtherCosts = new HashSet<BkrfinOtherCost>();
-            Bkrfinancials = new HashSet<Bkrfinancial>();
-            Bkrjournals = new HashSet<Bkrjournal>();
-            BkrloanModifications = new HashSet<BkrloanModification>();
-            Bkrmfrs = new HashSet<Bkrmfr>();
-            BkrpaymentChanges = new HashSet<BkrpaymentChange>();
-            Bkrproperties = new HashSet<Bkrproperty>();
+            BkrCaseSummaries = new HashSet<BkrCaseSummary>();
+            BkrConditionalOrders = new HashSet<BkrConditionalOrder>();
+            BkrFinInstallments = new HashSet<BkrFinInstallment>();
+            BkrFinInterestRates = new HashSet<BkrFinInterestRate>();
+            BkrFinMissedPayments = new HashSet<BkrFinMissedPayment>();
+            BkrFinOtherCosts = new HashSet<BkrFinOtherCost>();
+            BkrFinancials = new HashSet<BkrFinancial>();
+            BkrJournals = new HashSet<BkrJournal>();
+            BkrLoanModifications = new HashSet<BkrLoanModification>();
+            BkrMfrs = new HashSet<BkrMfr>();
+            BkrPaymentChanges = new HashSet<BkrPaymentChange>();
+            BkrProperties = new HashSet<BkrProperty>();
         }
 
         public int CaseBkrid { get; set; }
@@ -89,8 +87,8 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int? ClosedReasonLid { get; set; }
         public int? Bkrsollid { get; set; }
 
-        public virtual ListItem? BkrcircuitL { get; set; }
-        public virtual Bkrdistrict? Bkrdistrict { get; set; }
+        public virtual ListItem? BkrCircuitL { get; set; }
+        public virtual BkrDistrict? BkrDistrict { get; set; }
         public virtual ListItem? Bkrsoll { get; set; }
         public virtual ListItem? CaseBkrclientInvestorL { get; set; }
         public virtual ListItem? CaseBkrclientInvestorTypeL { get; set; }
@@ -98,17 +96,17 @@ namespace CMSSERVICE.DOMAIN.Entities
         public virtual ListItem CaseBkrtypeL { get; set; } = null!;
         public virtual ClientJob ClientJob { get; set; } = null!;
         public virtual ListItem? ClosedReasonL { get; set; }
-        public virtual ICollection<BkrcaseSummary> BkrcaseSummaries { get; set; }
-        public virtual ICollection<BkrconditionalOrder> BkrconditionalOrders { get; set; }
-        public virtual ICollection<BkrfinInstallment> BkrfinInstallments { get; set; }
-        public virtual ICollection<BkrfinInterestRate> BkrfinInterestRates { get; set; }
-        public virtual ICollection<BkrfinMissedPayment> BkrfinMissedPayments { get; set; }
-        public virtual ICollection<BkrfinOtherCost> BkrfinOtherCosts { get; set; }
-        public virtual ICollection<Bkrfinancial> Bkrfinancials { get; set; }
-        public virtual ICollection<Bkrjournal> Bkrjournals { get; set; }
-        public virtual ICollection<BkrloanModification> BkrloanModifications { get; set; }
-        public virtual ICollection<Bkrmfr> Bkrmfrs { get; set; }
-        public virtual ICollection<BkrpaymentChange> BkrpaymentChanges { get; set; }
-        public virtual ICollection<Bkrproperty> Bkrproperties { get; set; }
+        public virtual ICollection<BkrCaseSummary> BkrCaseSummaries { get; set; }
+        public virtual ICollection<BkrConditionalOrder> BkrConditionalOrders { get; set; }
+        public virtual ICollection<BkrFinInstallment> BkrFinInstallments { get; set; }
+        public virtual ICollection<BkrFinInterestRate> BkrFinInterestRates { get; set; }
+        public virtual ICollection<BkrFinMissedPayment> BkrFinMissedPayments { get; set; }
+        public virtual ICollection<BkrFinOtherCost> BkrFinOtherCosts { get; set; }
+        public virtual ICollection<BkrFinancial> BkrFinancials { get; set; }
+        public virtual ICollection<BkrJournal> BkrJournals { get; set; }
+        public virtual ICollection<BkrLoanModification> BkrLoanModifications { get; set; }
+        public virtual ICollection<BkrMfr> BkrMfrs { get; set; }
+        public virtual ICollection<BkrPaymentChange> BkrPaymentChanges { get; set; }
+        public virtual ICollection<BkrProperty> BkrProperties { get; set; }
     }
 }

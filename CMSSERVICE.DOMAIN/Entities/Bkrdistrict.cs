@@ -1,15 +1,12 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
-    public partial class Bkrdistrict : Entity, IAuditableEntity
+    public partial class BkrDistrict : Entity, IAuditableEntity
     {
-        public Bkrdistrict()
+        public BkrDistrict()
         {
             CaseBkrs = new HashSet<CaseBkr>();
         }
 
-        public int BkrdistrictId { get; set; }
         public string StateId { get; set; } = null!;
         public string DistrictName { get; set; } = null!;
         public int ListOrder { get; set; }

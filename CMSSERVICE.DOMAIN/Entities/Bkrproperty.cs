@@ -1,8 +1,6 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
-    public partial class Bkrproperty : Entity, IAuditableEntity
+    public partial class BkrProperty : Entity, IAuditableEntity
     {
         public int BkrpropertyId { get; set; }
         public string? PropertyName { get; set; }

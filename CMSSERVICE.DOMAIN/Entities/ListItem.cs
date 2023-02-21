@@ -1,12 +1,10 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ListItem : Entity, IAuditableEntity
     {
         public ListItem()
         {
-            BkrfinOtherCosts = new HashSet<BkrfinOtherCost>();
+            BkrfinOtherCosts = new HashSet<BkrFinOtherCost>();
             CaseAutoAssignedCsrls = new HashSet<CaseAuto>();
             CaseAutoCaseAutoStatusLs = new HashSet<CaseAuto>();
             CaseAutoClosedReasonLs = new HashSet<CaseAuto>();
@@ -111,7 +109,7 @@ namespace CMSSERVICE.DOMAIN.Entities
         public string? MergeValue { get; set; }
         public string? InvokeAssignment { get; set; }
 
-        public virtual ICollection<BkrfinOtherCost> BkrfinOtherCosts { get; set; }
+        public virtual ICollection<BkrFinOtherCost> BkrfinOtherCosts { get; set; }
         public virtual ICollection<CaseAuto> CaseAutoAssignedCsrls { get; set; }
         public virtual ICollection<CaseAuto> CaseAutoCaseAutoStatusLs { get; set; }
         public virtual ICollection<CaseAuto> CaseAutoClosedReasonLs { get; set; }

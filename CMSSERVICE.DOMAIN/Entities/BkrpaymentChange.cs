@@ -1,8 +1,6 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
-    public partial class BkrpaymentChange : Entity, IAuditableEntity
+    public partial class BkrPaymentChange : Entity, IAuditableEntity
     {
         public int BkrpaymentChangeId { get; set; }
         public decimal? CurrentEscrowPayment { get; set; }
