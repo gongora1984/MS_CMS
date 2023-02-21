@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "GDZgooyXnloTekcouVI9+zodmiJr1Ss1saG6sa/timh3weNKUqu4kDyLES8vILAmvUhu1B43Bp6jykJOFltEPw==",
+  "success": true,
+  "projectFilePath": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.PRESENTATION\\CMSSERVICE.PRESENTATION.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hgongora\\.nuget\\packages\\sonaranalyzer.csharp\\8.51.0.59060\\sonaranalyzer.csharp.8.51.0.59060.nupkg.sha512",
+    "C:\\Users\\hgongora\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
+  ],
+  "logs": []
+}

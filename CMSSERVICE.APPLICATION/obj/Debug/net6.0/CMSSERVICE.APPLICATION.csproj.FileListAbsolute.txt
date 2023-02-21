@@ -1,0 +1,13 @@
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\bin\Debug\net6.0\CMSSERVICE.APPLICATION.deps.json
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\bin\Debug\net6.0\CMSSERVICE.APPLICATION.dll
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\bin\Debug\net6.0\CMSSERVICE.APPLICATION.pdb
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\bin\Debug\net6.0\CMSSERVICE.APPLICATION.xml
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\obj\Debug\net6.0\CMSSERVICE.APPLICATION.csproj.AssemblyReference.cache
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\obj\Debug\net6.0\CMSSERVICE.APPLICATION.GeneratedMSBuildEditorConfig.editorconfig
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\obj\Debug\net6.0\CMSSERVICE.APPLICATION.AssemblyInfoInputs.cache
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\obj\Debug\net6.0\CMSSERVICE.APPLICATION.AssemblyInfo.cs
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\obj\Debug\net6.0\CMSSERVICE.APPLICATION.csproj.CoreCompileInputs.cache
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\obj\Debug\net6.0\CMSSERVICE.APPLICATION.dll
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\obj\Debug\net6.0\refint\CMSSERVICE.APPLICATION.dll
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\obj\Debug\net6.0\CMSSERVICE.APPLICATION.pdb
+E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.APPLICATION\obj\Debug\net6.0\ref\CMSSERVICE.APPLICATION.dll

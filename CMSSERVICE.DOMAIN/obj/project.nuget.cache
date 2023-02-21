@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "V0bhrs6OteeUUsHV9ImM42E7PdVN+pI+KSZnDVaNS0L8GArkUJFXABW/OWLyuFT56IcmMTJ+NoUjo4Jr2UAV9Q==",
+  "success": true,
+  "projectFilePath": "E:\\HGC\\C$\\Documents\\Visual Studio 2022\\Projects\\CMSSERVICE\\CMSSERVICE.DOMAIN\\CMSSERVICE.DOMAIN.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hgongora\\.nuget\\packages\\mediatr.contracts\\2.0.0\\mediatr.contracts.2.0.0.nupkg.sha512",
+    "C:\\Users\\hgongora\\.nuget\\packages\\sonaranalyzer.csharp\\8.51.0.59060\\sonaranalyzer.csharp.8.51.0.59060.nupkg.sha512",
+    "C:\\Users\\hgongora\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
+  ],
+  "logs": []
+}
