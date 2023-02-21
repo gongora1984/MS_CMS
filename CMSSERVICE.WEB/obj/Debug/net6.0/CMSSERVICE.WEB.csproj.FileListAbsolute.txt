@@ -31,3 +31,36 @@ E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.WEB\obj\De
 E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.pdb
 E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.genruntimeconfig.cache
 E:\HGC\C$\Documents\Visual Studio 2022\Projects\CMSSERVICE\CMSSERVICE.WEB\obj\Debug\net6.0\ref\CMSSERVICE.WEB.dll
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\appsettings.Development.json
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\appsettings.json
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\CMSSERVICE.WEB.exe
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\CMSSERVICE.WEB.deps.json
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\CMSSERVICE.WEB.runtimeconfig.json
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\CMSSERVICE.WEB.dll
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\CMSSERVICE.WEB.pdb
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\CMSSERVICE.WEB.xml
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.csproj.AssemblyReference.cache
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.GeneratedMSBuildEditorConfig.editorconfig
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.AssemblyInfoInputs.cache
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.AssemblyInfo.cs
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.csproj.CoreCompileInputs.cache
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.MvcApplicationPartsAssemblyInfo.cs
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.MvcApplicationPartsAssemblyInfo.cache
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\staticwebassets\msbuild.CMSSERVICE.WEB.Microsoft.AspNetCore.StaticWebAssets.props
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\staticwebassets\msbuild.build.CMSSERVICE.WEB.props
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CMSSERVICE.WEB.props
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.CMSSERVICE.WEB.props
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\staticwebassets.pack.json
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\staticwebassets.build.json
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\staticwebassets.development.json
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\scopedcss\bundle\CMSSERVICE.WEB.styles.css
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.csproj.CopyComplete
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.dll
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\refint\CMSSERVICE.WEB.dll
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.pdb
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\CMSSERVICE.WEB.genruntimeconfig.cache
+E:\HGC\Work\.NetCore\GIT_HGC\MS_CMS\CMSSERVICE.WEB\obj\Debug\net6.0\ref\CMSSERVICE.WEB.dll

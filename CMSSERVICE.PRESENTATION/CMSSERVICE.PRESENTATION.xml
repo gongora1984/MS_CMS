@@ -4,5 +4,10 @@
         <name>CMSSERVICE.PRESENTATION</name>
     </assembly>
     <members>
+        <member name="T:CMSSERVICE.PRESENTATION.AssemblyReference">
+            <summary>
+            Assembly Reference.
+            </summary>
+        </member>
     </members>
 </doc>
