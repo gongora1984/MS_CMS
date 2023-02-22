@@ -1,6 +1,6 @@
-﻿using CMSSERVICE.APPLICATION.Persistence.Accounts;
+﻿using CMSSERVICE.APPLICATION.Persistence.Accounts.Commands;
 using CMSSERVICE.DOMAIN.Contracts.Requests;
-using CMSSERVICE.DOMAIN.Contracts.Responses;
+using CMSSERVICE.DOMAIN.Contracts.Responses.Authentication;
 using CMSSERVICE.PRESENTATION.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 
