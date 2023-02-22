@@ -31,6 +31,7 @@ internal sealed class ApiProvider : IApiProvider
         if (loginDetailInfo != null)
         {
             loginDetailInfo.AccessToken = accessToken;
+            _dbContext.Set<LoginDetail>().Update(loginDetailInfo);
         }
         ////var companyLogin = new CompanyLogin
         ////{
