@@ -90,6 +90,11 @@ internal sealed class LoginDetailConfiguration : IEntityTypeConfiguration<LoginD
             .IsUnicode(false)
             .HasColumnName("LoginPWD");
 
+        entity.Property(e => e.AccessToken)
+            .HasMaxLength(2500)
+            .IsUnicode(false)
+            .HasColumnName("AccessToken");
+
         entity.Property(e => e.LoginUserName)
             .HasMaxLength(50)
             .IsUnicode(false);

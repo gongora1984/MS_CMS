@@ -4,5 +4,17 @@
         <name>CMSSERVICE.WEB</name>
     </assembly>
     <members>
+        <member name="M:CMSSERVICE.WEB.AuthSetup.ApiOptionsSetup.Configure(CMSSERVICE.INFRASTRUCTURE.Authentication.ApiOptions)">
+            <summary>
+            Bind Api configuration from application configuration  file.
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:CMSSERVICE.WEB.AuthSetup.JwtOptionsSetup.Configure(CMSSERVICE.INFRASTRUCTURE.Authentication.JwtOptions)">
+            <summary>
+            Bind Jwt Configuration Section.
+            </summary>
+            <param name="options"></param>
+        </member>
     </members>
 </doc>

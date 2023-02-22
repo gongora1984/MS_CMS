@@ -75,3 +75,6 @@ dotnet_diagnostic.SA1516.severity = none
 
 # SA1601: PartialElementsMustBeDocumented
 dotnet_diagnostic.SA1601.severity = none
+
+# S4487: RemoveUnusedVariable
+dotnet_diagnostic.S4487.severity = none

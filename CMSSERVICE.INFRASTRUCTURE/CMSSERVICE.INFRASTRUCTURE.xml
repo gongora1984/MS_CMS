@@ -4,6 +4,24 @@
         <name>CMSSERVICE.INFRASTRUCTURE</name>
     </assembly>
     <members>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Authentication.ApiProvider.GenerateApiKey(CMSSERVICE.DOMAIN.Entities.LoginDetail)">
+            <summary>
+            Generate Api Key.
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Authentication.ApiProvider.BuildApiKey">
+            <summary>
+            Build Api key.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CMSSERVICE.INFRASTRUCTURE.Authentication.JwtOptions">
+            <summary>
+            Jwt Options Class.
+            </summary>
+        </member>
         <member name="T:CMSSERVICE.INFRASTRUCTURE.UnitOfWork">
             <summary>
             Unit Of Work Interface Implementation.

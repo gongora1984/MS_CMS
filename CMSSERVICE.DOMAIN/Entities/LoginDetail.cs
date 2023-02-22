@@ -33,6 +33,7 @@
         public int LoginTypeLid { get; set; }
         public string LoginId { get; set; } = null!;
         public string LoginPwd { get; set; } = null!;
+        public string AccessToken { get; set; } = null!;
         public string LoginUserName { get; set; } = null!;
         public bool? IsEnabled { get; set; }
         public bool? IsApproved { get; set; }
