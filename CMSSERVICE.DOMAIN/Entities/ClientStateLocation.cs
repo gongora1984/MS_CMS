@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientStateLocation : Entity, IAuditableEntity
     {
-        public int ClientStateLocationId { get; set; }
         public string StateId { get; set; } = null!;
         public string? EntityName { get; set; }
         public string? DivisionName { get; set; }

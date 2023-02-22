@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class JobType : Entity, IAuditableEntity
     {
@@ -15,7 +13,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             LoginDetailJobListings = new HashSet<LoginDetailJobListing>();
         }
 
-        public int JobTypeId { get; set; }
         public string JobName { get; set; } = null!;
         public int JobDepartmentId { get; set; }
         public string? JobIconLocation { get; set; }

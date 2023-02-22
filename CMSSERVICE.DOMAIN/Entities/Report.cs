@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class Report : Entity, IAuditableEntity
     {
@@ -13,7 +11,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             ReportParameters = new HashSet<ReportParameter>();
         }
 
-        public int ReportId { get; set; }
         public string ReportName { get; set; } = null!;
         public string MasterSql { get; set; } = null!;
         public bool? Enabled { get; set; }

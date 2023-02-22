@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class DocumentRepository : Entity, IAuditableEntity
     {
@@ -18,7 +16,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             InverseNextVersionDocument = new HashSet<DocumentRepository>();
         }
 
-        public int DocumentRepositoryId { get; set; }
         public int? NextVersionDocumentId { get; set; }
         public int? LastVersionDocumentId { get; set; }
         public string? DocumentName { get; set; }
@@ -49,7 +46,7 @@ namespace CMSSERVICE.DOMAIN.Entities
         public virtual CaseJobDefendant? BoundCaseDefendant { get; set; }
         public virtual CaseJobDefendantService? BoundServiceDefendant { get; set; }
         public virtual ClientJob ClientJob { get; set; } = null!;
-        public virtual ListItem? DeliveryMethodL { get; set; }
+        public virtual ListItem? DeliveryMethod { get; set; }
         public virtual DocumentType DocumentType { get; set; } = null!;
         public virtual ClientAssignmentTaskCheckList? FromCheckList { get; set; }
         public virtual DocumentRepository? LastVersionDocument { get; set; }

@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class LawPractice : Entity, IAuditableEntity
     {
@@ -16,7 +14,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             ReportMappings = new HashSet<ReportMapping>();
         }
 
-        public int LawPracticeId { get; set; }
         public int LawPracticeUserId { get; set; }
         public string PracticeName { get; set; } = null!;
         public string PracticeContact { get; set; } = null!;
@@ -47,7 +44,7 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int PracticeTypeLid { get; set; }
 
         public virtual Client? Client { get; set; }
-        public virtual ListItem PracticeTypeL { get; set; } = null!;
+        public virtual ListItem PracticeType { get; set; } = null!;
         public virtual ICollection<CaseSubpoena> CaseSubpoenas { get; set; }
         public virtual ICollection<ClientAssignmentHold> ClientAssignmentHolds { get; set; }
         public virtual ICollection<ClientJob> ClientJobs { get; set; }

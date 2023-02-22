@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ThirdPartyConvertion : Entity, IAuditableEntity
     {
-        public int ThirdPartyConvertionId { get; set; }
         public int LawPracticeId { get; set; }
         public string? ThirdPartyName { get; set; }
         public string? ConvertionTag { get; set; }

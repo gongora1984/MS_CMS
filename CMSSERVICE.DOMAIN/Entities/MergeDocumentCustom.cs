@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class MergeDocumentCustom : Entity, IAuditableEntity
     {
-        public int MergeDocumentCustomId { get; set; }
         public int? ClientId { get; set; }
         public int? LawPracticeId { get; set; }
         public int? CountyId { get; set; }

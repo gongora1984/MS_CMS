@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ReportParameter : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             ReportJobParameters = new HashSet<ReportJobParameter>();
         }
 
-        public int ReportParameterId { get; set; }
         public string Name { get; set; } = null!;
         public string Token { get; set; } = null!;
         public string ValueType { get; set; } = null!;

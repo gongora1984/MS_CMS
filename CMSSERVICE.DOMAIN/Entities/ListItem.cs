@@ -88,7 +88,6 @@
             LoginDetailsAccessRoles = new HashSet<LoginDetailsAccessRole>();
         }
 
-        public int ListItemId { get; set; }
         public int ClientId { get; set; }
         public int LawPracticeId { get; set; }
         public string SystemCategory { get; set; } = null!;

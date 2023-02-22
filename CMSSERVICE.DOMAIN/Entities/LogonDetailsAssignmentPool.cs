@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class LogonDetailsAssignmentPool : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             LogonDetailsAssignmentPoolTasks = new HashSet<LogonDetailsAssignmentPoolTask>();
         }
 
-        public int LogonDetailsAssignmentPoolId { get; set; }
         public bool IsQueueAdmin { get; set; }
         public int MaxQueueQuota { get; set; }
         public bool? IsAvailible { get; set; }

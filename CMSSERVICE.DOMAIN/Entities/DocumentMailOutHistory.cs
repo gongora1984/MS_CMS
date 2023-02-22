@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class DocumentMailOutHistory : Entity, IAuditableEntity
     {
-        public int DocumentMailOutHistoryId { get; set; }
         public DateTime SentOutDate { get; set; }
         public DateTime? VenderSentOut { get; set; }
         public string? RecipientName { get; set; }
@@ -51,7 +48,7 @@ namespace CMSSERVICE.DOMAIN.Entities
         public virtual ClientJob ClientJob { get; set; } = null!;
         public virtual DocumentType DocumentType { get; set; } = null!;
         public virtual DocumentRepository? EnvelopeDocument { get; set; }
-        public virtual ListItem MailServiceTypeL { get; set; } = null!;
+        public virtual ListItem MailServiceType { get; set; } = null!;
         public virtual ListItem MailVendorL { get; set; } = null!;
         public virtual ClientAssignment? SentByAssignment { get; set; }
     }

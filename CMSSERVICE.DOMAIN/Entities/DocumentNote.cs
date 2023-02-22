@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class DocumentNote : Entity, IAuditableEntity
     {
-        public int DocumentNoteId { get; set; }
         public DateTime NoteOn { get; set; }
         public string NoteText { get; set; } = null!;
         public int LoginDetailId { get; set; }

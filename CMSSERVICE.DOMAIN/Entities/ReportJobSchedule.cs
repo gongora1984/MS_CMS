@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ReportJobSchedule : Entity, IAuditableEntity
     {
-        public int ReportJobScheduleId { get; set; }
         public string ScheduleDate { get; set; } = null!;
         public string? ProcessStart { get; set; }
         public string? ProcessEnd { get; set; }

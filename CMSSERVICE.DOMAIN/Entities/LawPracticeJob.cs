@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class LawPracticeJob : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             DocumentRepositories = new HashSet<DocumentRepository>();
         }
 
-        public int LawPracticeJobId { get; set; }
         public bool? Enabled { get; set; }
         public int ContectMemberId { get; set; }
         public string? LpfileNumber { get; set; }

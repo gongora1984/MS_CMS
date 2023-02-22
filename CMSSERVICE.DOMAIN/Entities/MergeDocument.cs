@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class MergeDocument : Entity, IAuditableEntity
     {
@@ -10,7 +8,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             MergeDocumentCustoms = new HashSet<MergeDocumentCustom>();
         }
 
-        public int MergeDocumentId { get; set; }
         public int? JobTypeId { get; set; }
         public string? Category1 { get; set; }
         public string? Category2 { get; set; }

@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class DefendantAddress : Entity, IAuditableEntity
     {
-        public int CaseDefendantAddressId { get; set; }
         public bool AddressIsPrimary { get; set; }
         public string Address1 { get; set; } = null!;
         public string? Address2 { get; set; }

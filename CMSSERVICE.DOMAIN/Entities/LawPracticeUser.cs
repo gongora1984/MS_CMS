@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class LawPracticeUser : Entity, IAuditableEntity
     {
@@ -10,7 +8,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseReplevinAssignedParaNavigations = new HashSet<CaseReplevin>();
         }
 
-        public int LawPracticeUserId { get; set; }
         public bool Enabled { get; set; }
         public bool IsAttorney { get; set; }
         public bool IsPara { get; set; }

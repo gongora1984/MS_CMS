@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class LocalCounsel : Entity, IAuditableEntity
     {
@@ -12,7 +10,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             ReportMappings = new HashSet<ReportMapping>();
         }
 
-        public int LocalCounselId { get; set; }
         public string? Lcname { get; set; }
         public string? LccompanyName { get; set; }
         public string? LcphoneNumber { get; set; }

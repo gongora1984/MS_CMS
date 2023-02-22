@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class LoginDetailJobListing : Entity, IAuditableEntity
     {
@@ -11,7 +9,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseSubpoenaTriageMsrspecialists = new HashSet<CaseSubpoena>();
         }
 
-        public int LoginDetailJobListingId { get; set; }
         public int JobTypeId { get; set; }
         public int LoginDetailId { get; set; }
 

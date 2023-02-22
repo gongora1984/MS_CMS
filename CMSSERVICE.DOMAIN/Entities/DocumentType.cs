@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class DocumentType : Entity, IAuditableEntity
     {
@@ -12,7 +10,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             DocumentRepositories = new HashSet<DocumentRepository>();
         }
 
-        public int DocumentTypeId { get; set; }
         public string DocumentFileBase { get; set; } = null!;
         public string DocumentTitle { get; set; } = null!;
         public bool IsSecureDocument { get; set; }
@@ -35,7 +32,7 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int? JobTypeId { get; set; }
 
         public virtual Client Client { get; set; } = null!;
-        public virtual ListItem DocumentCategoryL { get; set; } = null!;
+        public virtual ListItem DocumentCategory { get; set; } = null!;
         public virtual JobType? JobType { get; set; }
         public virtual ICollection<CaseJobDefendantService> CaseJobDefendantServices { get; set; }
         public virtual ICollection<ClientAssignmentTask> ClientAssignmentTasks { get; set; }

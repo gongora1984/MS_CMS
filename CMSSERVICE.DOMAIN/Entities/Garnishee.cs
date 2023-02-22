@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class Garnishee : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseWrits = new HashSet<CaseWrit>();
         }
 
-        public int GarnisheeId { get; set; }
         public string GarnisheeName { get; set; } = null!;
         public string? GarnisheeAddress1 { get; set; }
         public string? GarnisheeAddress2 { get; set; }

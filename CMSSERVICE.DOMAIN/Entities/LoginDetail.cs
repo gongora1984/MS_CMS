@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class LoginDetail : Entity, IAuditableEntity
     {
@@ -32,7 +30,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             LogonDetailsAssignmentPools = new HashSet<LogonDetailsAssignmentPool>();
         }
 
-        public int LoginDetailId { get; set; }
         public int LoginTypeLid { get; set; }
         public string LoginId { get; set; } = null!;
         public string LoginPwd { get; set; } = null!;

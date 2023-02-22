@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ReportMapping : Entity, IAuditableEntity
     {
-        public int ReportMappingId { get; set; }
         public int ReportId { get; set; }
         public int? LocalCounselId { get; set; }
         public int? LawPracticeId { get; set; }
