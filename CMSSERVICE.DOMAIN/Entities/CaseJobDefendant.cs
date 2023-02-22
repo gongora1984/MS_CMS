@@ -16,7 +16,6 @@
             DocumentRepositories = new HashSet<DocumentRepository>();
         }
 
-        public int CaseJobDefendantId { get; set; }
         public int PartyTypeLid { get; set; }
         public bool? Active { get; set; }
         public string? DefendantName { get; set; }
@@ -63,9 +62,9 @@
         public virtual CaseJobDefendantAtty? CaseJobDefendantAtty { get; set; }
         public virtual ClientJob ClientJob { get; set; } = null!;
         public virtual DocumentRepository? PacerDocument { get; set; }
-        public virtual ListItem PartyTypeL { get; set; } = null!;
-        public virtual ListItem? RequestorOrganizationL { get; set; }
-        public virtual ListItem? ServiceTypeL { get; set; }
+        public virtual ListItem PartyType { get; set; } = null!;
+        public virtual ListItem? RequestorOrganization { get; set; }
+        public virtual ListItem? ServiceType { get; set; }
         public virtual ICollection<CaseColDefendantBankInfo> CaseColDefendantBankInfos { get; set; }
         public virtual ICollection<CaseColDefendantCardInfo> CaseColDefendantCardInfos { get; set; }
         public virtual ICollection<CaseJobDefendantAdditionalAddress> CaseJobDefendantAdditionalAddresses { get; set; }

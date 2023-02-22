@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleAssignmentItem : Entity, IAuditableEntity
     {
-        public int TitleAssignmentItemId { get; set; }
         public string TitleAssignmentDescription { get; set; } = null!;
         public decimal? TitleAssignmentCost { get; set; }
         public decimal? TitleAssignmentFee { get; set; }

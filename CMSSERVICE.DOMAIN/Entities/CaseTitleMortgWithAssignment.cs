@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleMortgWithAssignment : Entity, IAuditableEntity
     {
-        public int CaseTitleMortgWithAssignmentId { get; set; }
         public string? Priority { get; set; }
         public string? CurrHolder { get; set; }
         public string? OrigHolder { get; set; }

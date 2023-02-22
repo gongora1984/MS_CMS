@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseReplevin : Entity, IAuditableEntity
     {
-        public int CaseReplevinId { get; set; }
         public string AccountNumber { get; set; } = null!;
         public string LoanNumber { get; set; } = null!;
         public decimal? VehicleValue { get; set; }
@@ -73,16 +70,16 @@ namespace CMSSERVICE.DOMAIN.Entities
         public virtual LocalCounsel? AssignedLocalCounselNavigation { get; set; }
         public virtual LawPracticeUser? AssignedParaNavigation { get; set; }
         public virtual LoginDetail? AssignedRepNavigation { get; set; }
-        public virtual ListItem CaseReplevinStatusL { get; set; } = null!;
-        public virtual ListItem CaseReplevinTypeL { get; set; } = null!;
+        public virtual ListItem CaseReplevinStatus { get; set; } = null!;
+        public virtual ListItem CaseReplevinType { get; set; } = null!;
         public virtual ClientJob ClientJob { get; set; } = null!;
-        public virtual ListItem? ClosedReasonL { get; set; }
+        public virtual ListItem? ClosedReason { get; set; }
         public virtual CaseCounty? CountyFiled { get; set; }
         public virtual CaseCounty? DebtorCounty { get; set; }
-        public virtual ListItem? DefaultReasonL { get; set; }
+        public virtual ListItem? DefaultReason { get; set; }
         public virtual CaseDistrict? Division { get; set; }
-        public virtual ListItem? InvestorTypeL { get; set; }
-        public virtual ListItem? OccupancyStatusL { get; set; }
+        public virtual ListItem? InvestorType { get; set; }
+        public virtual ListItem? OccupancyStatus { get; set; }
         public virtual CaseState? StateFiledNavigation { get; set; }
     }
 }

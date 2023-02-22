@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseJobDefendantSearchHistory : Entity, IAuditableEntity
     {
-        public int CaseJobDefendantSearchHistoryId { get; set; }
         public string CameFrom { get; set; } = null!;
         public DateTime SentOutDate { get; set; }
         public string? SendOutRequest { get; set; }
@@ -16,6 +13,6 @@ namespace CMSSERVICE.DOMAIN.Entities
 
         public virtual ClientAssignment? CameFromAssignment { get; set; }
         public virtual CaseJobDefendant CaseJobDefendant { get; set; } = null!;
-        public virtual ListItem CaseJobDefendantSearchTypeL { get; set; } = null!;
+        public virtual ListItem CaseJobDefendantSearchType { get; set; } = null!;
     }
 }

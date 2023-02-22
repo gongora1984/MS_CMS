@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleModParagraph : Entity, IAuditableEntity
     {
-        public int CaseTitleModParagraphId { get; set; }
         public DateTime? RecordedDate { get; set; }
         public string? Book { get; set; }
         public string? Page { get; set; }

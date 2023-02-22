@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseWrit : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseWritFinancials = new HashSet<CaseWritFinancial>();
         }
 
-        public int CaseWritId { get; set; }
         public DateTime? CaseOpenedDate { get; set; }
         public DateTime? ClosedDate { get; set; }
         public string? LpreferenceId { get; set; }
@@ -40,16 +37,16 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int? RtgLid { get; set; }
         public int? AdditionalDocumentationLid { get; set; }
 
-        public virtual ListItem? AdditionalDocumentationL { get; set; }
-        public virtual ListItem? CaseDetailL { get; set; }
-        public virtual ListItem? CaseTypeL { get; set; }
-        public virtual ListItem CaseWritStatusL { get; set; } = null!;
+        public virtual ListItem? AdditionalDocumentation { get; set; }
+        public virtual ListItem? CaseDetail { get; set; }
+        public virtual ListItem? CaseType { get; set; }
+        public virtual ListItem CaseWritStatus { get; set; } = null!;
         public virtual ClientJob ClientJob { get; set; } = null!;
-        public virtual ListItem? ClosedReasonL { get; set; }
+        public virtual ListItem? ClosedReason { get; set; }
         public virtual CaseCounty? County { get; set; }
         public virtual CaseCourt? CourtType { get; set; }
         public virtual Garnishee? Garnishee { get; set; }
-        public virtual ListItem? RtgL { get; set; }
+        public virtual ListItem? Rtg { get; set; }
         public virtual ICollection<CaseWritFinancial> CaseWritFinancials { get; set; }
     }
 }

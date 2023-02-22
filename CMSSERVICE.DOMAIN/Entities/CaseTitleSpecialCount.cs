@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleSpecialCount : Entity, IAuditableEntity
     {
-        public int CaseTitleSpecialCountId { get; set; }
         public string TitleSpecialCountText { get; set; } = null!;
         public string? TitleSpecialCountTitle { get; set; }
         public string? ByVirtueOf { get; set; }

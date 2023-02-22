@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseState : Entity, IAuditableEntity
     {
@@ -12,7 +10,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseReplevins = new HashSet<CaseReplevin>();
         }
 
-        public int CaseStateId { get; set; }
         public string StateAbbrev { get; set; } = null!;
         public string StateName { get; set; } = null!;
 

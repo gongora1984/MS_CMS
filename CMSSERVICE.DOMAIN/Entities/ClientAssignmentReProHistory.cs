@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientAssignmentReProHistory : Entity, IAuditableEntity
     {
-        public int ClientAssignmentReProHistoryId { get; set; }
         public DateTime ReprojectedOn { get; set; }
         public DateTime? NewTargetDate { get; set; }
         public DateTime? OldTargetDate { get; set; }

@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseWritFinancial : Entity, IAuditableEntity
     {
-        public int CaseWritFinancialId { get; set; }
         public string? AcctLast4 { get; set; }
         public decimal? AmtinAcct { get; set; }
         public decimal? FedBenefitsOverLookback { get; set; }
@@ -18,8 +15,8 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int? AcctStatusLid { get; set; }
         public int? AcctStylingLid { get; set; }
 
-        public virtual ListItem? AcctStatusL { get; set; }
-        public virtual ListItem? AcctStylingL { get; set; }
+        public virtual ListItem? AcctStatus { get; set; }
+        public virtual ListItem? AcctStyling { get; set; }
         public virtual CaseWrit CaseWrit { get; set; } = null!;
     }
 }

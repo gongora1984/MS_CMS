@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleReRecorded : Entity, IAuditableEntity
     {
-        public int CaseTitleReRecordedId { get; set; }
         public DateTime ReRecorderDate { get; set; }
         public string? Book { get; set; }
         public string? Page { get; set; }

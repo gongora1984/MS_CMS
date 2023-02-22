@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleIrstaxLien : Entity, IAuditableEntity
     {
-        public int CaseTitleIrstaxLienId { get; set; }
         public string? Priority { get; set; }
         public string? FileBy { get; set; }
         public string? FileAgainst { get; set; }

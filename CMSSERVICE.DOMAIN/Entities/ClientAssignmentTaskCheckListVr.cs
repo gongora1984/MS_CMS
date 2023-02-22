@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientAssignmentTaskCheckListVr : Entity, IAuditableEntity
     {
-        public int ClientAssignmentTaskCheckListVrid { get; set; }
         public string CompareValue { get; set; } = null!;
         public string? StartAssigmnmentOnMatch { get; set; }
         public string? RunCommandOnMatch { get; set; }

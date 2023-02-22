@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseJobDefendantService : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             DocumentRepositories = new HashSet<DocumentRepository>();
         }
 
-        public int CaseJobDefendantServiceId { get; set; }
         public int LpdefendantId { get; set; }
         public string? Lpkey1 { get; set; }
         public string? DefendantWorkFlowKey { get; set; }
@@ -37,8 +34,8 @@ namespace CMSSERVICE.DOMAIN.Entities
         public virtual CaseJobDefendant CaseJobDefendant { get; set; } = null!;
         public virtual ClientAssignment ClientAssignment { get; set; } = null!;
         public virtual DocumentType DocumentType { get; set; } = null!;
-        public virtual ListItem ServiceStatusL { get; set; } = null!;
-        public virtual ListItem ServiceTypeL { get; set; } = null!;
+        public virtual ListItem ServiceStatus { get; set; } = null!;
+        public virtual ListItem ServiceType { get; set; } = null!;
         public virtual ICollection<DocumentRepository> DocumentRepositories { get; set; }
     }
 }

@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseJobDefendantAtty : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseJobDefendants = new HashSet<CaseJobDefendant>();
         }
 
-        public int CaseJobDefendantAttyId { get; set; }
         public string AttorneyName { get; set; } = null!;
         public string? LawPracticeName { get; set; }
         public string? AttyBarNumber { get; set; }

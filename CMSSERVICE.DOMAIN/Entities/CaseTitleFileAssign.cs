@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleFileAssign : Entity, IAuditableEntity
     {
-        public int CaseTitleFileAssignId { get; set; }
         public string? AssignFrom { get; set; }
         public string? AssignTo { get; set; }
         public DateTime? RecordedDate { get; set; }

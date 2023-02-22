@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseCounty : Entity, IAuditableEntity
     {
@@ -15,7 +13,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseWrits = new HashSet<CaseWrit>();
         }
 
-        public int CaseCountyId { get; set; }
         public string County { get; set; } = null!;
         public int CaseStateId { get; set; }
 

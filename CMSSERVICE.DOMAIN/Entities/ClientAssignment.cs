@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientAssignment : Entity, IAuditableEntity
     {
@@ -26,7 +24,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             InverseStartedByAssignment = new HashSet<ClientAssignment>();
         }
 
-        public int ClientAssignmentId { get; set; }
         public int? StartedByAssignmentId { get; set; }
         public int ParentAssignmentId { get; set; }
         public int? ChainCompletedAssignmentId { get; set; }

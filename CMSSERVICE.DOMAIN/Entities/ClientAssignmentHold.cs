@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientAssignmentHold : Entity, IAuditableEntity
     {
-        public int ClientAssignmentHoldId { get; set; }
         public string? OpenNote { get; set; }
         public string? CloseNote { get; set; }
         public DateTime? ApprovedOn { get; set; }

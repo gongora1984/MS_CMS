@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientAssignmentTaskCheckList : Entity, IAuditableEntity
     {
@@ -13,7 +11,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             DocumentRepositories = new HashSet<DocumentRepository>();
         }
 
-        public int ClientAssignmentTaskCheckListId { get; set; }
         public string TaskListName { get; set; } = null!;
         public int ListOrder { get; set; }
         public string? ProcessCommand { get; set; }
@@ -49,7 +46,7 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int ClientAssignmentTaskId { get; set; }
         public int CheckListTypeLid { get; set; }
 
-        public virtual ListItem CheckListTypeL { get; set; } = null!;
+        public virtual ListItem CheckListType { get; set; } = null!;
         public virtual ClientAssignmentTask ClientAssignmentTask { get; set; } = null!;
         public virtual ICollection<ClientAssignmentCheckListCr> ClientAssignmentCheckListCrs { get; set; }
         public virtual ICollection<ClientAssignmentCheckListVr> ClientAssignmentCheckListVrs { get; set; }

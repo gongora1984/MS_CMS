@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleSpecialCountTemplate : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseTitleSpecialCounts = new HashSet<CaseTitleSpecialCount>();
         }
 
-        public int CaseTitleSpecialCountTemplateId { get; set; }
         public string TitleSpecialCountTemplateName { get; set; } = null!;
         public string? TitleSpecialCountTemplateTitle { get; set; }
         public string TitleSpecialCountTemplateText { get; set; } = null!;
@@ -19,7 +16,7 @@ namespace CMSSERVICE.DOMAIN.Entities
         public string? StateId { get; set; }
         public int? CountTypeLid { get; set; }
 
-        public virtual ListItem? CountTypeL { get; set; }
+        public virtual ListItem? CountType { get; set; }
         public virtual ICollection<CaseTitleSpecialCount> CaseTitleSpecialCounts { get; set; }
     }
 }

@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseJudge : Entity, IAuditableEntity
     {
@@ -10,7 +8,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseFcls = new HashSet<CaseFcl>();
         }
 
-        public int CaseJudgeId { get; set; }
         public string JudgeName { get; set; } = null!;
         public string? JudgeCourtName { get; set; }
         public string? Address1 { get; set; }

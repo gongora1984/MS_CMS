@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientAssignmentTaskRecurrence : Entity, IAuditableEntity
     {
-        public int ClientAssignmentTaskRecurrenceId { get; set; }
         public int ClientAssignmentTaskScheduledId { get; set; }
         public string RecurrenceType { get; set; } = null!;
         public int? EveryNumberType { get; set; }

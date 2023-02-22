@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseMaster : Entity, IAuditableEntity
     {
@@ -11,7 +9,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             ClientJobs = new HashSet<ClientJob>();
         }
 
-        public int CaseId { get; set; }
         public string CaseReferance { get; set; } = null!;
         public string ClientReferance { get; set; } = null!;
         public string ClientInternalRef { get; set; } = null!;

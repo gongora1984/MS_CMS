@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleUnderWriter : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseTitles = new HashSet<CaseTitle>();
         }
 
-        public int CaseTitleUnderWriterId { get; set; }
         public string UnderWriterName { get; set; } = null!;
         public string UnderWriterSendVia { get; set; } = null!;
         public string? UnderWriterAttentionTo { get; set; }

@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseFcl : Entity, IAuditableEntity
     {
@@ -10,7 +8,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseTitles = new HashSet<CaseTitle>();
         }
 
-        public int CaseFclid { get; set; }
         public string FclloanNumber { get; set; } = null!;
         public string FclclientReferanceNumber { get; set; } = null!;
         public string? FclcourtCaseNumber { get; set; }
@@ -73,11 +70,11 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int? CountyFiled { get; set; }
         public int? StateFiled { get; set; }
 
-        public virtual ListItem? CaseFclcaseTypeL { get; set; }
-        public virtual ListItem? CaseFclclientInvestorTypeL { get; set; }
-        public virtual ListItem? CaseFclclosedReasonL { get; set; }
-        public virtual ListItem? CaseFclpropertyTypeL { get; set; }
-        public virtual ListItem CaseFclstatusL { get; set; } = null!;
+        public virtual ListItem? CaseFclcaseType { get; set; }
+        public virtual ListItem? CaseFclclientInvestorType { get; set; }
+        public virtual ListItem? CaseFclclosedReason { get; set; }
+        public virtual ListItem? CaseFclpropertyType { get; set; }
+        public virtual ListItem CaseFclstatus { get; set; } = null!;
         public virtual CaseJudge? CaseJudge { get; set; }
         public virtual ClientJob ClientJob { get; set; } = null!;
         public virtual CaseCounty? CountyFiledNavigation { get; set; }

@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientJobActivity : Entity, IAuditableEntity
     {
-        public int ClientJobActivityId { get; set; }
         public string ActionNote { get; set; } = null!;
         public DateTime ActionStartDate { get; set; }
         public DateTime? ActionEndDate { get; set; }

@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientAssignmentTaskCheckListCr : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             ClientAssignmentCheckListCrs = new HashSet<ClientAssignmentCheckListCr>();
         }
 
-        public int ClientAssignmentTaskCheckListCrid { get; set; }
         public string? ConditionName { get; set; }
         public string? SelectValueSql { get; set; }
         public bool? IsSql { get; set; }

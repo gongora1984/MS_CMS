@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleDlinqTax : Entity, IAuditableEntity
     {
-        public int TitleDlinqTaxId { get; set; }
         public int ForYear { get; set; }
         public string? TaxId { get; set; }
         public decimal TaxAmount { get; set; }

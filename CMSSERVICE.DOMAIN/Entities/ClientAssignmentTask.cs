@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientAssignmentTask : Entity, IAuditableEntity
     {
@@ -15,7 +13,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             LogonDetailsAssignmentPools = new HashSet<LogonDetailsAssignmentPool>();
         }
 
-        public int ClientAssignmentTaskId { get; set; }
         public int ParentTaskId { get; set; }
         public int ClientDepartmentId { get; set; }
         public string Category { get; set; } = null!;

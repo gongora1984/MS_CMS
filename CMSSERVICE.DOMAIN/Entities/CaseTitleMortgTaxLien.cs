@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleMortgTaxLien : Entity, IAuditableEntity
     {
-        public int CaseTitleMortgTaxLienId { get; set; }
         public string? Priority { get; set; }
         public string? FileBy { get; set; }
         public decimal? LienAmt { get; set; }
@@ -19,6 +16,6 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int CaseTitleId { get; set; }
 
         public virtual CaseTitle CaseTitle { get; set; } = null!;
-        public virtual ListItem? LienTypeL { get; set; }
+        public virtual ListItem? LienType { get; set; }
     }
 }

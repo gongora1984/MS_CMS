@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseSubpoenaOrderInfo : Entity, IAuditableEntity
     {
-        public int CaseSubpoenaOrderInfoId { get; set; }
         public DateTime? RequestedDateFrom { get; set; }
         public DateTime? RequestedDateTo { get; set; }
         public DateTime? InformationReceivedDate { get; set; }
@@ -20,8 +17,8 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int? IsOrderAskingForRecordsLid { get; set; }
 
         public virtual CaseSubpoena CaseSubpoena { get; set; } = null!;
-        public virtual ListItem? InformationRequestedL { get; set; }
-        public virtual ListItem? InformationRequestedStatusL { get; set; }
-        public virtual ListItem? IsOrderAskingForRecordsL { get; set; }
+        public virtual ListItem? InformationRequested { get; set; }
+        public virtual ListItem? InformationRequestedStatus { get; set; }
+        public virtual ListItem? IsOrderAskingForRecords { get; set; }
     }
 }

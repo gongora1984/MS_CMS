@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleJudgmentLien : Entity, IAuditableEntity
     {
-        public int CaseTitleJudgmentLienId { get; set; }
         public string? Priority { get; set; }
         public string? FileBy { get; set; }
         public decimal? AttachmentAmt { get; set; }

@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientLawPracticeJobType : Entity, IAuditableEntity
     {
-        public int ClientLawPracticeJobTypeId { get; set; }
         public int ReferralPercent { get; set; }
         public string? AlertReferralAddress { get; set; }
         public int TotalOpenCases { get; set; }

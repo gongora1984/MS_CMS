@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientAssignmentTaskRule : Entity, IAuditableEntity
     {
-        public int ClientAssignmentTaskRuleId { get; set; }
         public bool Active { get; set; }
         public string? EffectiveStartDate { get; set; }
         public string? EffectiveEndDate { get; set; }

@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientAssignmentTaskScheduled : Entity, IAuditableEntity
     {
@@ -10,7 +8,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             ClientAssignmentTaskRecurrences = new HashSet<ClientAssignmentTaskRecurrence>();
         }
 
-        public int ClientAssignmentTaskScheduledId { get; set; }
         public int DaysFromTargetDate { get; set; }
         public string? AlertWhenStarted { get; set; }
         public bool Enabled { get; set; }

@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitleAssignment : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseTitleAssignmentItems = new HashSet<CaseTitleAssignmentItem>();
         }
 
-        public int CaseTitleAssignmentId { get; set; }
         public decimal? BillingFee { get; set; }
         public decimal? AssigmCost { get; set; }
         public string AssignedTo { get; set; } = null!;

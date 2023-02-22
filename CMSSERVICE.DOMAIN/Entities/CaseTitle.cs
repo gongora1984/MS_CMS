@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseTitle : Entity, IAuditableEntity
     {
@@ -18,7 +16,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseTitleSpecialCounts = new HashSet<CaseTitleSpecialCount>();
         }
 
-        public int CaseTitleId { get; set; }
         public int? LastPreparedBy { get; set; }
         public int? PreparedBy { get; set; }
         public DateTime? LastPreparedDate { get; set; }
@@ -102,14 +99,14 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int? ClientInvestorTypeLid { get; set; }
 
         public virtual CaseFcl CaseFcl { get; set; } = null!;
-        public virtual ListItem? CaseTitleStatusL { get; set; }
-        public virtual ListItem? ClientInvestorTypeL { get; set; }
+        public virtual ListItem? CaseTitleStatus { get; set; }
+        public virtual ListItem? ClientInvestorType { get; set; }
         public virtual DocumentRepository? CurrentTisdoc { get; set; }
-        public virtual ListItem? MortgagePositionL { get; set; }
-        public virtual ListItem? TitleCompanyL { get; set; }
+        public virtual ListItem? MortgagePosition { get; set; }
+        public virtual ListItem? TitleCompany { get; set; }
         public virtual CaseTitleUnderWriter? TitleUnderWriterNavigation { get; set; }
-        public virtual ListItem? TypeOfMortL { get; set; }
-        public virtual ListItem? UnderwriterL { get; set; }
+        public virtual ListItem? TypeOfMort { get; set; }
+        public virtual ListItem? Underwriter { get; set; }
         public virtual ICollection<CaseTitleAssignment> CaseTitleAssignments { get; set; }
         public virtual ICollection<CaseTitleDlinqTax> CaseTitleDlinqTaxes { get; set; }
         public virtual ICollection<CaseTitleFileAssign> CaseTitleFileAssigns { get; set; }

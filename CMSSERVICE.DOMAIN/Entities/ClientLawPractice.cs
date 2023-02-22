@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientLawPractice : Entity, IAuditableEntity
     {
-        public int ClientLawPracticeId { get; set; }
         public decimal AttyHourRate { get; set; }
         public bool? FirmwareUser { get; set; }
         public int ReferralPercent { get; set; }

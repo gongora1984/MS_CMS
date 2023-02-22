@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class ClientJob : Entity, IAuditableEntity
     {
@@ -25,8 +23,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             DocumentMailOutHistories = new HashSet<DocumentMailOutHistory>();
             DocumentRepositories = new HashSet<DocumentRepository>();
         }
-
-        public int ClientJobId { get; set; }
 
         /// <summary>
         /// Gets or sets get - This column represents the module id( casebkyid, casewritid).

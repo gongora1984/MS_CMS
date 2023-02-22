@@ -1,10 +1,7 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseCommentWhiteboard : Entity, IAuditableEntity
     {
-        public int CommentId { get; set; }
         public string CommentText { get; set; } = null!;
         public int? ClientJobId { get; set; }
         public int CaseId { get; set; }
@@ -12,6 +9,6 @@ namespace CMSSERVICE.DOMAIN.Entities
 
         public virtual CaseMaster Case { get; set; } = null!;
         public virtual ClientJob? ClientJob { get; set; }
-        public virtual ListItem CommentTypeL { get; set; } = null!;
+        public virtual ListItem CommentType { get; set; } = null!;
     }
 }

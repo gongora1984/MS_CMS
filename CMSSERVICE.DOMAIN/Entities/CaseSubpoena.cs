@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseSubpoena : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseSubpoenaOrderInfos = new HashSet<CaseSubpoenaOrderInfo>();
         }
 
-        public int CaseSubpoenaId { get; set; }
         public string OpenedDate { get; set; } = null!;
         public string? State { get; set; }
         public string LpreferenceId { get; set; } = null!;
@@ -33,12 +30,12 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int ServicingMsrspecialistId { get; set; }
         public int? CertificationMsrspecialistId { get; set; }
 
-        public virtual ListItem? CaseSubpoenaClosedReasonL { get; set; }
-        public virtual ListItem? CaseSubpoenaDocTransmissionMethodL { get; set; }
-        public virtual ListItem? CaseSubpoenaPcidataIncludedL { get; set; }
-        public virtual ListItem CaseSubpoenaStatusL { get; set; } = null!;
-        public virtual ListItem? CaseSubpoenaSubTypeL { get; set; }
-        public virtual ListItem? CaseSubpoenaTypeL { get; set; }
+        public virtual ListItem? CaseSubpoenaClosedReason { get; set; }
+        public virtual ListItem? CaseSubpoenaDocTransmissionMethod { get; set; }
+        public virtual ListItem? CaseSubpoenaPcidataIncluded { get; set; }
+        public virtual ListItem CaseSubpoenaStatus { get; set; } = null!;
+        public virtual ListItem? CaseSubpoenaSubType { get; set; }
+        public virtual ListItem? CaseSubpoenaType { get; set; }
         public virtual LoginDetailJobListing? CertificationMsrspecialist { get; set; }
         public virtual ClientJob ClientJob { get; set; } = null!;
         public virtual LawPractice LawPractice { get; set; } = null!;

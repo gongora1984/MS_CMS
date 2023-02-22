@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseEviction : Entity, IAuditableEntity
     {
@@ -9,7 +7,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseEvictionJournals = new HashSet<CaseEvictionJournal>();
         }
 
-        public int CaseEvictionId { get; set; }
         public string FileNumber { get; set; } = null!;
         public DateTime? FirstLegalActionDt { get; set; }
         public DateTime? OptionLetterSentDt { get; set; }
@@ -55,12 +52,12 @@ namespace CMSSERVICE.DOMAIN.Entities
         public virtual CaseCounty? CaseCounty { get; set; }
         public virtual CaseDistrict? CaseDistrict { get; set; }
         public virtual CaseJudge? CaseJudge { get; set; }
-        public virtual ListItem? CircuitL { get; set; }
+        public virtual ListItem? Circuit { get; set; }
         public virtual ClientJob ClientJob { get; set; } = null!;
-        public virtual ListItem? ClosedReasonL { get; set; }
-        public virtual ListItem? DivisionL { get; set; }
-        public virtual ListItem EvictionStatusL { get; set; } = null!;
-        public virtual ListItem EvictionTypeL { get; set; } = null!;
+        public virtual ListItem? ClosedReason { get; set; }
+        public virtual ListItem? Division { get; set; }
+        public virtual ListItem EvictionStatus { get; set; } = null!;
+        public virtual ListItem EvictionType { get; set; } = null!;
         public virtual ICollection<CaseEvictionJournal> CaseEvictionJournals { get; set; }
     }
 }

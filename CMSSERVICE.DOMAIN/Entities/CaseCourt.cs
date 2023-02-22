@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseCourt : Entity, IAuditableEntity
     {
@@ -10,7 +8,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseWrits = new HashSet<CaseWrit>();
         }
 
-        public int CaseCourtId { get; set; }
         public string CourtName { get; set; } = null!;
         public string? CountOfficalName { get; set; }
         public string? Address1 { get; set; }
@@ -32,7 +29,7 @@ namespace CMSSERVICE.DOMAIN.Entities
 
         public virtual CaseCounty CaseCounty { get; set; } = null!;
         public virtual CaseDistrict? CaseDistrict { get; set; }
-        public virtual ListItem? CourtTypeL { get; set; }
+        public virtual ListItem? CourtType { get; set; }
         public virtual ICollection<CaseJudge> CaseJudges { get; set; }
         public virtual ICollection<CaseWrit> CaseWrits { get; set; }
     }

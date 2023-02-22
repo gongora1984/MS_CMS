@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class CaseSale : Entity, IAuditableEntity
     {
@@ -10,7 +8,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             CaseSalePubDates = new HashSet<CaseSalePubDate>();
         }
 
-        public int CaseSaleId { get; set; }
         public int CaseFclid { get; set; }
         public decimal? BidAmt { get; set; }
         public decimal? SaleAmt { get; set; }
@@ -52,10 +49,10 @@ namespace CMSSERVICE.DOMAIN.Entities
         public int? CancelReasonLid { get; set; }
         public int CaseSaleStatusLid { get; set; }
 
-        public virtual ListItem? CancelReasonL { get; set; }
+        public virtual ListItem? CancelReason { get; set; }
         public virtual CaseFcl CaseFcl { get; set; } = null!;
-        public virtual ListItem CaseSaleStatusL { get; set; } = null!;
-        public virtual ListItem? RescheduleReasonL { get; set; }
+        public virtual ListItem CaseSaleStatus { get; set; } = null!;
+        public virtual ListItem? RescheduleReason { get; set; }
         public virtual ICollection<CaseSalePubCost> CaseSalePubCosts { get; set; }
         public virtual ICollection<CaseSalePubDate> CaseSalePubDates { get; set; }
     }

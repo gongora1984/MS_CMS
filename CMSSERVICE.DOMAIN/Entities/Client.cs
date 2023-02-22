@@ -1,6 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Primitives;
-
-namespace CMSSERVICE.DOMAIN.Entities
+﻿namespace CMSSERVICE.DOMAIN.Entities
 {
     public partial class Client : Entity, IAuditableEntity
     {
@@ -21,7 +19,6 @@ namespace CMSSERVICE.DOMAIN.Entities
             Reports = new HashSet<Report>();
         }
 
-        public int ClientId { get; set; }
         public string ClientName { get; set; } = null!;
         public string ClientAddress1 { get; set; } = null!;
         public string ClientAddress2 { get; set; } = null!;
