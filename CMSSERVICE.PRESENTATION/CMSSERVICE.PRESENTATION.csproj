@@ -1,9 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CMSSERVICE.APPLICATION\CMSSERVICE.APPLICATION.csproj" />
+    <ProjectReference Include="..\CMSSERVICE.INFRASTRUCTURE\CMSSERVICE.INFRASTRUCTURE.csproj" />
+  </ItemGroup>
 
 </Project>

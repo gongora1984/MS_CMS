@@ -1,4 +1,4 @@
-﻿using MAILSYSTEM.DOMAIN.Primitives;
+﻿using CMSSERVICE.DOMAIN.Primitives;
 using MediatR;
 
 namespace CMSSERVICE.APPLICATION.Abstractions.Messaging;

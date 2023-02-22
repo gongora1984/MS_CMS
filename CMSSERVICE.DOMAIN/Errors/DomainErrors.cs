@@ -2,30 +2,30 @@
 
 public static class DomainErrors
 {
-    public static class Company
+    public static class LoginError
     {
-        public static readonly Error CompanyNameInUse = new(
-            "Company.CompanyName",
-            "The specified company name is already in use");
+        ////public static readonly Error CompanyNameInUse = new(
+        ////    "Company.CompanyName",
+        ////    "The specified company name is already in use");
 
-        public static readonly Error CompanyUsernameInUse = new(
-            "Company.CompanyUsername",
-            "The specified company username is already in use");
+        ////public static readonly Error CompanyUsernameInUse = new(
+        ////    "Company.CompanyUsername",
+        ////    "The specified company username is already in use");
 
-        public static readonly Func<Guid, Error> NotFound = id => new Error(
-            "Company.Id",
-            $"The company with the identifier {id} was not found.");
+        ////public static readonly Func<Guid, Error> NotFound = id => new Error(
+        ////    "Company.Id",
+        ////    $"The company with the identifier {id} was not found.");
 
-        public static readonly Func<string, Error> NotFoundByName = name => new Error(
-            "Company.CompanyName",
-            $"The company with the identifier {name} was not found.");
+        ////public static readonly Func<string, Error> NotFoundByName = name => new Error(
+        ////    "Company.CompanyName",
+        ////    $"The company with the identifier {name} was not found.");
 
         public static readonly Error InvalidUsername = new(
-            "Company.CompanyUsername",
+            "LoginDetail.LoginId",
             "The provided username is invalid");
 
         public static readonly Error InvalidCredentials = new(
-            "Company.CompanyPassword",
+            "LoginDetail.LoginPwd",
             "The provided credentials are invalid");
     }
 
