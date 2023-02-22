@@ -9,4 +9,6 @@ public class LoginResponse
     public bool LoginStatus { get; set; }
 
     public LoginDetail UserInformation { get; set; }
+
+    public string ErrorMessage { get; set; }
 }

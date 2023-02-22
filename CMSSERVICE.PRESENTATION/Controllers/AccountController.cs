@@ -24,17 +24,18 @@ public sealed class AccountController : ApiController
     {
         var command = new LoginCommand(request.email, request.password);
 
-        Result<string> tokenResult = await Sender.Send(command, cancellationToken);
+        Result<LoginResponse> result = await Sender.Send(command, cancellationToken);
 
-        if (tokenResult.IsFailure)
+        if (result.IsFailure)
         {
-            return HandleFailure(tokenResult);
+            return HandleFailure(result);
         }
 
         var response = new LoginResponse
         {
             LoginStatus = true,
-            ApiKey = tokenResult.Value
+            ApiKey = result.Value.ApiKey,
+            UserInformation = result.Value.UserInformation
         };
 
         return Ok(response);
