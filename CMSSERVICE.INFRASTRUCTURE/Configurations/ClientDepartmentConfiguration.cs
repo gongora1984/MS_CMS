@@ -26,9 +26,9 @@ internal sealed class ClientDepartmentConfiguration : IEntityTypeConfiguration<C
         .HasColumnName("sysCode");
 
         entity.HasOne(d => d.Client)
-            .WithMany()
-            .HasForeignKey(d => d.ClientId)
-            .OnDelete(DeleteBehavior.ClientSetNull)
-            .HasConstraintName("FKClientDepartmentClientId");
+                    .WithMany(p => p.ClientDepartments)
+                    .HasForeignKey(d => d.ClientId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FKClientDepartmentClientId");
     }
 }

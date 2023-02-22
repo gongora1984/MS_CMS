@@ -54,7 +54,7 @@ internal sealed class BkrFinOtherCostConfiguration : IEntityTypeConfiguration<Bk
             .HasConstraintName("FKBKRFinOtherCostCaseBKRId");
 
         entity.HasOne(d => d.CostDecription)
-            .WithMany(p => p.BkrfinOtherCosts)
+            .WithMany(p => p.BkrFinOtherCosts)
             .HasForeignKey(d => d.CostDecriptionLid)
             .OnDelete(DeleteBehavior.ClientSetNull)
             .HasConstraintName("FKBKRFinOtherCostCostDecriptionLid");

@@ -4,7 +4,7 @@
     {
         public ListItem()
         {
-            BkrfinOtherCosts = new HashSet<BkrFinOtherCost>();
+            BkrFinOtherCosts = new HashSet<BkrFinOtherCost>();
             CaseAutoAssignedCsrls = new HashSet<CaseAuto>();
             CaseAutoCaseAutoStatusLs = new HashSet<CaseAuto>();
             CaseAutoClosedReasonLs = new HashSet<CaseAuto>();
@@ -78,7 +78,6 @@
             ClientAssignmentTaskCheckLists = new HashSet<ClientAssignmentTaskCheckList>();
             ClientFacilities = new HashSet<ClientFacility>();
             ClientJobLegals = new HashSet<ClientJobLegal>();
-            Clients = new HashSet<Client>();
             DocumentMailOutHistoryMailServiceTypeLs = new HashSet<DocumentMailOutHistory>();
             DocumentMailOutHistoryMailVendorLs = new HashSet<DocumentMailOutHistory>();
             DocumentRepositories = new HashSet<DocumentRepository>();
@@ -88,8 +87,8 @@
             LoginDetailsAccessRoles = new HashSet<LoginDetailsAccessRole>();
         }
 
-        public int ClientId { get; set; }
-        public int LawPracticeId { get; set; }
+        public int? ClientId { get; set; }
+        public int? LawPracticeId { get; set; }
         public string SystemCategory { get; set; } = null!;
         public string SystemTag { get; set; } = null!;
         public string DisplayText { get; set; } = null!;
@@ -108,7 +107,8 @@
         public string? MergeValue { get; set; }
         public string? InvokeAssignment { get; set; }
 
-        public virtual ICollection<BkrFinOtherCost> BkrfinOtherCosts { get; set; }
+        public virtual Client? Client { get; set; }
+        public virtual ICollection<BkrFinOtherCost> BkrFinOtherCosts { get; set; }
         public virtual ICollection<CaseAuto> CaseAutoAssignedCsrls { get; set; }
         public virtual ICollection<CaseAuto> CaseAutoCaseAutoStatusLs { get; set; }
         public virtual ICollection<CaseAuto> CaseAutoClosedReasonLs { get; set; }
@@ -182,7 +182,6 @@
         public virtual ICollection<ClientAssignmentTaskCheckList> ClientAssignmentTaskCheckLists { get; set; }
         public virtual ICollection<ClientFacility> ClientFacilities { get; set; }
         public virtual ICollection<ClientJobLegal> ClientJobLegals { get; set; }
-        public virtual ICollection<Client> Clients { get; set; }
         public virtual ICollection<DocumentMailOutHistory> DocumentMailOutHistoryMailServiceTypeLs { get; set; }
         public virtual ICollection<DocumentMailOutHistory> DocumentMailOutHistoryMailVendorLs { get; set; }
         public virtual ICollection<DocumentRepository> DocumentRepositories { get; set; }

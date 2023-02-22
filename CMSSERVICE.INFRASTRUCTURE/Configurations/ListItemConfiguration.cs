@@ -76,5 +76,11 @@ internal sealed class ListItemConfiguration : IEntityTypeConfiguration<ListItem>
         entity.Property(e => e.Value2)
             .HasMaxLength(150)
             .IsUnicode(false);
+
+        entity.HasOne(d => d.Client)
+                    .WithMany(p => p.ListItems)
+                    .HasForeignKey(d => d.ClientId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ListItem_Client");
     }
 }

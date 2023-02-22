@@ -14,8 +14,6 @@ internal sealed class ClientConfiguration : IEntityTypeConfiguration<Client>
 
         entity.Property(e => e.Id).HasColumnName("ClientId");
 
-        entity.HasIndex(e => e.ClientTypeLid, "FKClientTypeId");
-
         entity.Property(e => e.ClientAddress1)
             .HasMaxLength(200)
         .IsUnicode(false);
@@ -91,11 +89,5 @@ internal sealed class ClientConfiguration : IEntityTypeConfiguration<Client>
             .IsUnicode(false);
 
         entity.Property(e => e.UseNativeTasksOnly).HasColumnName("useNativeTasksOnly");
-
-        entity.HasOne(d => d.ClientTypeL)
-            .WithMany(p => p.Clients)
-            .HasForeignKey(d => d.ClientTypeLid)
-            .OnDelete(DeleteBehavior.ClientSetNull)
-            .HasConstraintName("FKClientTypeId");
     }
 }
