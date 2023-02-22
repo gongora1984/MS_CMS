@@ -6,7 +6,7 @@ using CMSSERVICE.DOMAIN.Entities;
 using CMSSERVICE.DOMAIN.Repositories;
 using static CMSSERVICE.DOMAIN.Errors.DomainErrors;
 
-namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Commands;
+namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.LoginCommands;
 
 internal sealed class LoginCommandHandler : ICommandHandler<LoginCommand, LoginResponse>
 {

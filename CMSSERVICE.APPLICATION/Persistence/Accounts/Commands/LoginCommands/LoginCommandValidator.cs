@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Commands;
+namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.LoginCommands;
 
 internal class LoginCommandValidator : AbstractValidator<LoginCommand>
 {

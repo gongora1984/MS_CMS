@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Mapper;
+namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Mapper.LoginDetailMappers;
 
 public static class LoginDetailMapper
 {
