@@ -34,6 +34,18 @@
         <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateClient">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateClient.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateClient.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateClient.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
         <member name="T:CMSSERVICE.INFRASTRUCTURE.UnitOfWork">
             <summary>
             Unit Of Work Interface Implementation.
