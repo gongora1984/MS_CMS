@@ -8,9 +8,9 @@ public static class DomainErrors
         ////    "Company.CompanyName",
         ////    "The specified company name is already in use");
 
-        ////public static readonly Error CompanyUsernameInUse = new(
-        ////    "Company.CompanyUsername",
-        ////    "The specified company username is already in use");
+        public static readonly Error UsernameInUse = new(
+            "LoginDetail.LoginId",
+            "The specified email is already in use");
 
         ////public static readonly Func<Guid, Error> NotFound = id => new Error(
         ////    "Company.Id",

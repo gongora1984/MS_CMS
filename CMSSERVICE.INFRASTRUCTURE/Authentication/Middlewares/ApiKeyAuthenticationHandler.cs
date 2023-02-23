@@ -47,7 +47,7 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<AuthenticationS
             return AuthenticateResult.Fail("Invalid key.");
         }
 
-        if ((userLogin.CreatedOnUtc.Date - DateTime.UtcNow.Date).Minutes > Convert.ToInt32(_apiOptions.ApiKeyExpirationMinutes))
+        if ((Convert.ToDateTime(userLogin.LastLogin).Date - DateTime.UtcNow.Date).Minutes > Convert.ToInt32(_apiOptions.ApiKeyExpirationMinutes))
         {
             return AuthenticateResult.Fail("Api key expired. Please re-authenticate");
         }
@@ -57,11 +57,29 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<AuthenticationS
 
     private AuthenticationTicket CreateTicket(LoginDetail user)
     {
+        var role = string.Empty;
+
+        if (user.ClientId != null)
+        {
+            role = "Client";
+        }
+
+        if (user.LawPracticeId != null)
+        {
+            role = "LP";
+        }
+
+        if (user.LocalCounselId != null)
+        {
+            role = "LC";
+        }
+
         var claims = new[]
         {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.LoginUserName),
-                new Claim(ClaimTypes.Email, user.LoginId)
+                new Claim(ClaimTypes.Email, user.LoginId),
+                new Claim(ClaimTypes.Role, role)
         };
 
         var identity = new ClaimsIdentity(claims, Scheme.Name);

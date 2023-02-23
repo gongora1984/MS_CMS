@@ -82,6 +82,18 @@
         <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailTbl.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLawPracticeTbl">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLawPracticeTbl.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLawPracticeTbl.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLawPracticeTbl.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
         <member name="T:CMSSERVICE.INFRASTRUCTURE.UnitOfWork">
             <summary>
             Unit Of Work Interface Implementation.

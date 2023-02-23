@@ -1,0 +1,25 @@
+﻿namespace CMSSERVICE.DOMAIN.Contracts.Requests;
+
+public record UserRequest(
+    int loginTypeLid,
+    string loginId,
+    string loginPwd,
+    string loginUserName,
+    bool isEnabled,
+    bool isApproved,
+    string address1,
+    string address2,
+    string city,
+    string state,
+    string zip,
+    string phone,
+    string fax,
+    bool canAccessMenu,
+    bool canAccessReports,
+    bool isClientAdmin,
+    bool isAdmin,
+    bool isSysAdmin,
+    bool isSuperAdmin,
+    int lawPracticeId,
+    int clientId,
+    int localCounselId);

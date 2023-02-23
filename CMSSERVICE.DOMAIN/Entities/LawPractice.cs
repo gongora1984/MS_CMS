@@ -14,7 +14,6 @@
             ReportMappings = new HashSet<ReportMapping>();
         }
 
-        public int LawPracticeUserId { get; set; }
         public string PracticeName { get; set; } = null!;
         public string PracticeContact { get; set; } = null!;
         public string Address1 { get; set; } = null!;

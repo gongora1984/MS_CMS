@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CMSSERVICE.DOMAIN.Contracts.Requests;
 using CMSSERVICE.DOMAIN.Contracts.Responses.LoginDetails;
 using CMSSERVICE.DOMAIN.Entities;
 
@@ -9,6 +10,8 @@ public class LoginDetailMapperProfile : Profile
     public LoginDetailMapperProfile()
     {
         CreateMap<LoginDetail, LoginDetailResponse>().ReverseMap();
+
+        CreateMap<LoginDetail, UserRequest>().ReverseMap();
 
         CreateMap<LoginDetail, AllLoginDetailResponse>().ReverseMap();
 

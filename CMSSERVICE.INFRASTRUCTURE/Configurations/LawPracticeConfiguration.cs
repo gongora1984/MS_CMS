@@ -72,8 +72,6 @@ internal sealed class LawPracticeConfiguration : IEntityTypeConfiguration<LawPra
             .HasColumnName("HasEFileAbility")
             .HasDefaultValueSql("((0))");
 
-        entity.Property(e => e.LawPracticeUserId).HasColumnName("LawPracticeUserID");
-
         entity.Property(e => e.PaymentType)
             .HasMaxLength(50)
             .IsUnicode(false);

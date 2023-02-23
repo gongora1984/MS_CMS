@@ -4,5 +4,35 @@
         <name>CMSSERVICE.APPLICATION</name>
     </assembly>
     <members>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationCommands.RegisterClientUserCommandHandler">
+            <summary>
+            Register Client User Command Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationCommands.RegisterLPUserCommandHandler">
+            <summary>
+            Register Law Practice User Command Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationCommands.RegisterLCUserCommandHandler">
+            <summary>
+            Register Local Counsel User Command Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationCommands.RegisterClientUserCommandValidator">
+            <summary>
+            Register Client User Command Validator.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationCommands.RegisterLPUserCommandValidator">
+            <summary>
+            Register Law Practice User Command Validator.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationCommands.RegisterLCUserCommandValidator">
+            <summary>
+            Register Local Counsel User Command Validator.
+            </summary>
+        </member>
     </members>
 </doc>
