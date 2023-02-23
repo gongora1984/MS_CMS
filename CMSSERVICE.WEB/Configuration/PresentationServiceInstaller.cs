@@ -22,6 +22,15 @@ public class PresentationServiceInstaller : IServiceInstaller
         services.AddSwaggerGen(c =>
         {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "CMS SERVICE v1", Version = "v1" });
+            ////c.AddSecurityDefinition("BearerAuth", new OpenApiSecurityScheme
+            ////{
+            ////    Type = SecuritySchemeType.Http,
+            ////    Scheme = JwtBearerDefaults.AuthenticationScheme.ToLowerInvariant(),
+            ////    In = ParameterLocation.Header,
+            ////    Name = "Authorization",
+            ////    BearerFormat = "JWT",
+            ////    Description = "JWT Authorization header using the Bearer scheme."
+            ////});
         });
 
         #region CONFIGURING CORS

@@ -4,6 +4,16 @@
         <name>CMSSERVICE.APPLICATION</name>
     </assembly>
     <members>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.LoginCommands.LoginCommandHandler">
+            <summary>
+            Login Command Handler Api Key.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.LoginCommands.LoginCommandHandlerJwt">
+            <summary>
+            Login Command Handler Jwt.
+            </summary>
+        </member>
         <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationCommands.RegisterClientUserCommandHandler">
             <summary>
             Register Client User Command Handler.

@@ -9,6 +9,7 @@ namespace CMSSERVICE.PRESENTATION.Controllers;
 
 [Authorize(AuthenticationSchemes = "ApiKey")]
 ////[Authorize(AuthenticationSchemes = $"{JwtBearerDefaults.AuthenticationScheme},ApiKey")]
+////[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 [Route("api/Account")]
 public sealed class AccountController : ApiController
 {
@@ -43,7 +44,34 @@ public sealed class AccountController : ApiController
     }
 
     [AllowAnonymous]
+    [HttpPost("loginjwt")]
+    public async Task<IActionResult> LoginJwt(
+        [FromBody] LoginRequest request,
+        CancellationToken cancellationToken)
+    {
+        var command = new LoginCommandJwt(request.email, request.password);
+
+        Result<LoginResponse> result = await Sender.Send(command, cancellationToken);
+
+        if (result.IsFailure)
+        {
+            return HandleFailure(result);
+        }
+
+        var response = new LoginResponse
+        {
+            LoginStatus = true,
+            ApiKey = result.Value.ApiKey,
+            UserInformation = result.Value.UserInformation
+        };
+
+        return Ok(response);
+    }
+
+    [AllowAnonymous]
     [HttpPost("registerclient")]
+    ////[Authorize(Policy = "ClientPolicy")]
+    ////[HasPermission(Permission.Client)]
     public async Task<IActionResult> RegisterClientUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)
@@ -67,8 +95,9 @@ public sealed class AccountController : ApiController
         return Ok(response);
     }
 
-    [AllowAnonymous]
+    ////[AllowAnonymous]
     [HttpPost("registerlp")]
+    [Authorize(Policy = "LawPracticePolicy")]
     public async Task<IActionResult> RegisterLawPracticeUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)
@@ -92,8 +121,9 @@ public sealed class AccountController : ApiController
         return Ok(response);
     }
 
-    [AllowAnonymous]
+    ////[AllowAnonymous]
     [HttpPost("registerlc")]
+    [Authorize(Policy = "LocalCounselPolicy")]
     public async Task<IActionResult> RegisterLocalCounselUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)

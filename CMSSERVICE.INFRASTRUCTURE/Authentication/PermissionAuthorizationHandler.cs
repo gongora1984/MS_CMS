@@ -20,7 +20,7 @@ public class PermissionAuthorizationHandler : AuthorizationHandler<PermissionReq
         string? memberId = context.User.Claims.FirstOrDefault(
             x => x.Type == ClaimTypes.NameIdentifier)?.Value;
 
-        if (!Guid.TryParse(memberId, out Guid parsedMemberId))
+        if (!int.TryParse(memberId, out int parsedMemberId))
         {
             return;
         }

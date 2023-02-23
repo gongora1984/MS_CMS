@@ -62,7 +62,7 @@
         public bool? CanAccessMenu { get; set; }
         public bool? CanAccessReports { get; set; }
         public bool IsClientAdmin { get; set; }
-        public bool IsAdmin { get; set; }
+        public bool? IsAdmin { get; set; }
         public bool? IsSysAdmin { get; set; }
         public bool? IsSuperAdmin { get; set; }
         public int? LawPracticeId { get; set; }

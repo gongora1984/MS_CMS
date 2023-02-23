@@ -34,13 +34,6 @@ internal sealed class ApiProvider : IApiProvider
             loginDetailInfo.LastLogin = DateTime.UtcNow;
             _dbContext.Set<LoginDetail>().Update(loginDetailInfo);
         }
-        ////var companyLogin = new CompanyLogin
-        ////{
-        ////    CompanyId = company.Id,
-        ////    CompanyAccessToken = accessToken,
-        ////    CompanyLastAccess = DateTime.UtcNow,
-        ////};
-        ////_dbContext.Set<CompanyLogin>().Add(companyLogin);
 
         _unitOfWork.SaveChangesAsync();
 

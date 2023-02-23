@@ -71,9 +71,11 @@ internal sealed class LoginDetailConfiguration : IEntityTypeConfiguration<LoginD
 
         entity.Property(e => e.IsLocked).HasColumnName("isLocked");
 
+        entity.Property(e => e.IsAdmin).HasDefaultValueSql("((0))");
+
         entity.Property(e => e.IsSuperAdmin).HasDefaultValueSql("((0))");
 
-        entity.Property(e => e.IsSysAdmin).HasColumnName("isSysAdmin");
+        entity.Property(e => e.IsSysAdmin).HasColumnName("isSysAdmin").HasDefaultValueSql("((0))");
 
         entity.Property(e => e.LastPasswordChange)
             .HasMaxLength(10)

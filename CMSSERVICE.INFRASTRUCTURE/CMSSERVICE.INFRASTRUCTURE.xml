@@ -22,6 +22,13 @@
             Jwt Options Class.
             </summary>
         </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Authentication.JwtProvider.GetAllValidClaims(CMSSERVICE.DOMAIN.Entities.LoginDetail)">
+            <summary>
+            Get All Valid Claims.
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
         <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.InitialDbMigration">
             <inheritdoc />
         </member>
@@ -92,6 +99,18 @@
             <inheritdoc />
         </member>
         <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLawPracticeTbl.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailIsAdmin">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailIsAdmin.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailIsAdmin.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailIsAdmin.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="T:CMSSERVICE.INFRASTRUCTURE.UnitOfWork">
