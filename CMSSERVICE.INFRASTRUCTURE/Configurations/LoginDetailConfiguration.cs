@@ -69,7 +69,7 @@ internal sealed class LoginDetailConfiguration : IEntityTypeConfiguration<LoginD
             .IsRequired()
             .HasDefaultValueSql("((1))");
 
-        entity.Property(e => e.IsLocked).HasColumnName("isLocked");
+        entity.Property(e => e.IsLocked).HasColumnName("isLocked").HasDefaultValueSql("((0))");
 
         entity.Property(e => e.IsAdmin).HasDefaultValueSql("((0))");
 
@@ -88,12 +88,12 @@ internal sealed class LoginDetailConfiguration : IEntityTypeConfiguration<LoginD
             .HasColumnName("LoginID");
 
         entity.Property(e => e.LoginPwd)
-            .HasMaxLength(500)
+            .HasMaxLength(1500)
             .IsUnicode(false)
             .HasColumnName("LoginPWD");
 
         entity.Property(e => e.AccessToken)
-            .HasMaxLength(2500)
+            .HasMaxLength(3500)
             .IsUnicode(false)
             .HasColumnName("AccessToken");
 
