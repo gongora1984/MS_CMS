@@ -11,7 +11,54 @@ namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationComma
 /// <summary>
 /// Register Client User Command Handler.
 /// </summary>
-internal sealed class RegisterClientUserCommandHandler : ICommandHandler<RegisterClientUserCommand, LoginResponse>
+internal sealed class RegisterAdminUserCommandHandler : ICommandHandler<RegisterAdminUserCommand, RegistrationResponse>
+{
+    private readonly IAuthenticationRepository _authenticationRepository;
+    private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IApiProvider _apiProvider;
+
+    public RegisterAdminUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider)
+    {
+        _authenticationRepository = authenticationRepository;
+        _mapper = mapper;
+        _unitOfWork = unitOfWork;
+        _apiProvider = apiProvider;
+    }
+
+    public async Task<Result<RegistrationResponse>> Handle(RegisterAdminUserCommand request, CancellationToken cancellationToken)
+    {
+        if (!await _authenticationRepository.IsEmailUniqueAsync(request.newAdminUser.loginId, cancellationToken))
+        {
+            return Result.Failure<RegistrationResponse>(
+                LoginError.UsernameInUse);
+        }
+
+        var newUser = _mapper.Map<LoginDetail>(request.newAdminUser);
+
+        newUser.ClientId = null;
+        newUser.LawPracticeId = null;
+        newUser.LocalCounselId = null;
+        newUser.IsAdmin = true;
+
+        _authenticationRepository.Add(newUser);
+
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+        ////string token = _apiProvider.GenerateApiKey(newUser);
+
+        return new RegistrationResponse
+        {
+            RegistrationStatus = true,
+            UserInformation = _mapper.Map<LoginDetailResponse>(newUser)
+        };
+    }
+}
+
+/// <summary>
+/// Register Client User Command Handler.
+/// </summary>
+internal sealed class RegisterClientUserCommandHandler : ICommandHandler<RegisterClientUserCommand, RegistrationResponse>
 {
     private readonly IAuthenticationRepository _authenticationRepository;
     private readonly IMapper _mapper;
@@ -26,11 +73,11 @@ internal sealed class RegisterClientUserCommandHandler : ICommandHandler<Registe
         _apiProvider = apiProvider;
     }
 
-    public async Task<Result<LoginResponse>> Handle(RegisterClientUserCommand request, CancellationToken cancellationToken)
+    public async Task<Result<RegistrationResponse>> Handle(RegisterClientUserCommand request, CancellationToken cancellationToken)
     {
         if (!await _authenticationRepository.IsEmailUniqueAsync(request.newClientUser.loginId, cancellationToken))
         {
-            return Result.Failure<LoginResponse>(
+            return Result.Failure<RegistrationResponse>(
                 LoginError.UsernameInUse);
         }
 
@@ -43,11 +90,11 @@ internal sealed class RegisterClientUserCommandHandler : ICommandHandler<Registe
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        string token = _apiProvider.GenerateApiKey(newUser);
+        ////string token = _apiProvider.GenerateApiKey(newUser);
 
-        return new LoginResponse
+        return new RegistrationResponse
         {
-            ApiKey = token,
+            RegistrationStatus = true,
             UserInformation = _mapper.Map<LoginDetailResponse>(newUser)
         };
     }
@@ -56,7 +103,7 @@ internal sealed class RegisterClientUserCommandHandler : ICommandHandler<Registe
 /// <summary>
 /// Register Law Practice User Command Handler.
 /// </summary>
-internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPUserCommand, LoginResponse>
+internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPUserCommand, RegistrationResponse>
 {
     private readonly IAuthenticationRepository _authenticationRepository;
     private readonly IMapper _mapper;
@@ -71,11 +118,11 @@ internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPU
         _apiProvider = apiProvider;
     }
 
-    public async Task<Result<LoginResponse>> Handle(RegisterLPUserCommand request, CancellationToken cancellationToken)
+    public async Task<Result<RegistrationResponse>> Handle(RegisterLPUserCommand request, CancellationToken cancellationToken)
     {
         if (!await _authenticationRepository.IsEmailUniqueAsync(request.newClientUser.loginId, cancellationToken))
         {
-            return Result.Failure<LoginResponse>(
+            return Result.Failure<RegistrationResponse>(
                 LoginError.UsernameInUse);
         }
 
@@ -88,11 +135,11 @@ internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPU
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        string token = _apiProvider.GenerateApiKey(newUser);
+        ////string token = _apiProvider.GenerateApiKey(newUser);
 
-        return new LoginResponse
+        return new RegistrationResponse
         {
-            ApiKey = token,
+            RegistrationStatus = true,
             UserInformation = _mapper.Map<LoginDetailResponse>(newUser)
         };
     }
@@ -101,7 +148,7 @@ internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPU
 /// <summary>
 /// Register Local Counsel User Command Handler.
 /// </summary>
-internal sealed class RegisterLCUserCommandHandler : ICommandHandler<RegisterLCUserCommand, LoginResponse>
+internal sealed class RegisterLCUserCommandHandler : ICommandHandler<RegisterLCUserCommand, RegistrationResponse>
 {
     private readonly IAuthenticationRepository _authenticationRepository;
     private readonly IMapper _mapper;
@@ -116,11 +163,11 @@ internal sealed class RegisterLCUserCommandHandler : ICommandHandler<RegisterLCU
         _apiProvider = apiProvider;
     }
 
-    public async Task<Result<LoginResponse>> Handle(RegisterLCUserCommand request, CancellationToken cancellationToken)
+    public async Task<Result<RegistrationResponse>> Handle(RegisterLCUserCommand request, CancellationToken cancellationToken)
     {
         if (!await _authenticationRepository.IsEmailUniqueAsync(request.newClientUser.loginId, cancellationToken))
         {
-            return Result.Failure<LoginResponse>(
+            return Result.Failure<RegistrationResponse>(
                 LoginError.UsernameInUse);
         }
 
@@ -133,11 +180,11 @@ internal sealed class RegisterLCUserCommandHandler : ICommandHandler<RegisterLCU
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        string token = _apiProvider.GenerateApiKey(newUser);
+        ////string token = _apiProvider.GenerateApiKey(newUser);
 
-        return new LoginResponse
+        return new RegistrationResponse
         {
-            ApiKey = token,
+            RegistrationStatus = true,
             UserInformation = _mapper.Map<LoginDetailResponse>(newUser)
         };
     }

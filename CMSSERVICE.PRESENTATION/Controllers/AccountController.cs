@@ -3,12 +3,13 @@ using CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationCommands;
 using CMSSERVICE.DOMAIN.Contracts.Requests;
 using CMSSERVICE.DOMAIN.Contracts.Responses.Authentication;
 using CMSSERVICE.PRESENTATION.Abstractions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 
 namespace CMSSERVICE.PRESENTATION.Controllers;
 
-[Authorize(AuthenticationSchemes = "ApiKey")]
-////[Authorize(AuthenticationSchemes = $"{JwtBearerDefaults.AuthenticationScheme},ApiKey")]
+////[Authorize(AuthenticationSchemes = "ApiKey")]
+[Authorize(AuthenticationSchemes = $"{JwtBearerDefaults.AuthenticationScheme},ApiKey")]
 ////[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 [Route("api/Account")]
 public sealed class AccountController : ApiController
@@ -36,7 +37,7 @@ public sealed class AccountController : ApiController
         var response = new LoginResponse
         {
             LoginStatus = true,
-            ApiKey = result.Value.ApiKey,
+            AccessToken = result.Value.AccessToken,
             UserInformation = result.Value.UserInformation
         };
 
@@ -61,34 +62,58 @@ public sealed class AccountController : ApiController
         var response = new LoginResponse
         {
             LoginStatus = true,
-            ApiKey = result.Value.ApiKey,
+            AccessToken = result.Value.AccessToken,
             UserInformation = result.Value.UserInformation
         };
 
         return Ok(response);
     }
 
-    [AllowAnonymous]
-    [HttpPost("registerclient")]
-    ////[Authorize(Policy = "ClientPolicy")]
-    ////[HasPermission(Permission.Client)]
-    public async Task<IActionResult> RegisterClientUser(
+    [HttpPost("registeradmin")]
+    [Authorize(Policy = "AdminPolicy")]
+    public async Task<IActionResult> RegisterAdminUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)
     {
-        var command = new RegisterClientUserCommand(request);
+        var command = new RegisterAdminUserCommand(request);
 
-        Result<LoginResponse> result = await Sender.Send(command, cancellationToken);
+        Result<RegistrationResponse> result = await Sender.Send(command, cancellationToken);
 
         if (result.IsFailure)
         {
             return HandleFailure(result);
         }
 
-        var response = new LoginResponse
+        var response = new RegistrationResponse
         {
-            LoginStatus = true,
-            ApiKey = result.Value.ApiKey,
+            RegistrationStatus = true,
+            ////AccessToken = result.Value.AccessToken,
+            UserInformation = result.Value.UserInformation
+        };
+
+        return Ok(response);
+    }
+
+    ////[AllowAnonymous]
+    [HttpPost("registerclient")]
+    [Authorize(Policy = "ClientPolicy")]
+    public async Task<IActionResult> RegisterClientUser(
+        [FromBody] UserRequest request,
+        CancellationToken cancellationToken)
+    {
+        var command = new RegisterClientUserCommand(request);
+
+        Result<RegistrationResponse> result = await Sender.Send(command, cancellationToken);
+
+        if (result.IsFailure)
+        {
+            return HandleFailure(result);
+        }
+
+        var response = new RegistrationResponse
+        {
+            RegistrationStatus = true,
+            ////AccessToken = result.Value.AccessToken,
             UserInformation = result.Value.UserInformation
         };
 
@@ -104,17 +129,17 @@ public sealed class AccountController : ApiController
     {
         var command = new RegisterLPUserCommand(request);
 
-        Result<LoginResponse> result = await Sender.Send(command, cancellationToken);
+        Result<RegistrationResponse> result = await Sender.Send(command, cancellationToken);
 
         if (result.IsFailure)
         {
             return HandleFailure(result);
         }
 
-        var response = new LoginResponse
+        var response = new RegistrationResponse
         {
-            LoginStatus = true,
-            ApiKey = result.Value.ApiKey,
+            RegistrationStatus = true,
+            ////AccessToken = result.Value.AccessToken,
             UserInformation = result.Value.UserInformation
         };
 
@@ -130,17 +155,17 @@ public sealed class AccountController : ApiController
     {
         var command = new RegisterLCUserCommand(request);
 
-        Result<LoginResponse> result = await Sender.Send(command, cancellationToken);
+        Result<RegistrationResponse> result = await Sender.Send(command, cancellationToken);
 
         if (result.IsFailure)
         {
             return HandleFailure(result);
         }
 
-        var response = new LoginResponse
+        var response = new RegistrationResponse
         {
-            LoginStatus = true,
-            ApiKey = result.Value.ApiKey,
+            RegistrationStatus = true,
+            ////AccessToken = result.Value.AccessToken,
             UserInformation = result.Value.UserInformation
         };
 

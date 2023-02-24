@@ -46,7 +46,7 @@ internal sealed class LoginCommandHandler : ICommandHandler<LoginCommand, LoginR
 
         return new LoginResponse
         {
-            ApiKey = token,
+            AccessToken = token,
             UserInformation = _mapper.Map<LoginDetailResponse>(user)
         };
     }
@@ -90,7 +90,7 @@ internal sealed class LoginCommandHandlerJwt : ICommandHandler<LoginCommandJwt, 
 
         return new LoginResponse
         {
-            ApiKey = token,
+            AccessToken = token,
             UserInformation = _mapper.Map<LoginDetailResponse>(user)
         };
     }

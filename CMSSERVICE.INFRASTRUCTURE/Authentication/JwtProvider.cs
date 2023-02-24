@@ -21,10 +21,6 @@ internal sealed class JwtProvider : IJwtProvider
 
     public string Generate(LoginDetail user)
     {
-        var jwtTokenHandler = new JwtSecurityTokenHandler();
-
-        ////var key = Convert.FromBase64String(_options.SecretKey);
-
         var key = Encoding.UTF8.GetBytes(_options.SecretKey);
 
         var claims = GetAllValidClaims(user);
@@ -32,25 +28,16 @@ internal sealed class JwtProvider : IJwtProvider
         var signingCredentials = new SigningCredentials(
             new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature);
 
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddMinutes(Convert.ToDouble(_options.ExpiryTimeFrame)),
-            SigningCredentials = signingCredentials
-        };
+        var token = new JwtSecurityToken(
+            _options.Issuer,
+            _options.Audience,
+            claims,
+            null,
+            DateTime.UtcNow.AddHours(1),
+            signingCredentials);
 
-        var token = jwtTokenHandler.CreateToken(tokenDescriptor);
-
-        ////var token = new JwtSecurityToken(
-        ////    _options.Issuer,
-        ////    _options.Audience,
-        ////    claims,
-        ////    null,
-        ////    DateTime.UtcNow.AddHours(1),
-        ////    signingCredentials);
-
-        ////var tokenValue = new JwtSecurityTokenHandler().WriteToken(token);
-        var tokenValue = jwtTokenHandler.WriteToken(token);
+        var tokenValue = new JwtSecurityTokenHandler()
+            .WriteToken(token);
 
         var loginDetailInfo = _dbContext.Set<LoginDetail>().FirstOrDefault(x => x.Id == user.Id);
         if (loginDetailInfo != null)
@@ -70,7 +57,7 @@ internal sealed class JwtProvider : IJwtProvider
     /// </summary>
     /// <param name="user"></param>
     /// <returns></returns>
-    public List<Claim> GetAllValidClaims(LoginDetail user)
+    public Claim[] GetAllValidClaims(LoginDetail user)
     {
         var claims = new List<Claim>
         {
@@ -110,6 +97,6 @@ internal sealed class JwtProvider : IJwtProvider
             claims.Add(new Claim(role.Split("|")[0], role.Split("|")[1]));
         }
 
-        return claims;
+        return claims.ToArray();
     }
 }
