@@ -2,6 +2,8 @@
 using CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationCommands;
 using CMSSERVICE.DOMAIN.Contracts.Requests;
 using CMSSERVICE.DOMAIN.Contracts.Responses.Authentication;
+using CMSSERVICE.DOMAIN.Enums;
+using CMSSERVICE.INFRASTRUCTURE.Authentication;
 using CMSSERVICE.PRESENTATION.Abstractions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -69,8 +71,10 @@ public sealed class AccountController : ApiController
         return Ok(response);
     }
 
+    ////[AllowAnonymous]
     [HttpPost("registeradmin")]
-    [Authorize(Policy = "AdminPolicy")]
+    ////[Authorize(Policy = "AdminPolicy")]
+    [HasPermission(Permission.Admin)]
     public async Task<IActionResult> RegisterAdminUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)
@@ -96,7 +100,8 @@ public sealed class AccountController : ApiController
 
     ////[AllowAnonymous]
     [HttpPost("registerclient")]
-    [Authorize(Policy = "ClientPolicy")]
+    ////[Authorize(Policy = "ClientPolicy")]
+    [HasPermission(Permission.Client)]
     public async Task<IActionResult> RegisterClientUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)
@@ -122,7 +127,8 @@ public sealed class AccountController : ApiController
 
     ////[AllowAnonymous]
     [HttpPost("registerlp")]
-    [Authorize(Policy = "LawPracticePolicy")]
+    ////[Authorize(Policy = "LawPracticePolicy")]
+    [HasPermission(Permission.LawPractice)]
     public async Task<IActionResult> RegisterLawPracticeUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)
@@ -148,7 +154,8 @@ public sealed class AccountController : ApiController
 
     ////[AllowAnonymous]
     [HttpPost("registerlc")]
-    [Authorize(Policy = "LocalCounselPolicy")]
+    ////[Authorize(Policy = "LocalCounselPolicy")]
+    [HasPermission(Permission.LocalCounsel)]
     public async Task<IActionResult> RegisterLocalCounselUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)

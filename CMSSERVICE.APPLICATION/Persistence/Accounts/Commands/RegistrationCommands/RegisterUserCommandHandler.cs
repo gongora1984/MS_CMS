@@ -17,13 +17,15 @@ internal sealed class RegisterAdminUserCommandHandler : ICommandHandler<Register
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IApiProvider _apiProvider;
+    private readonly ISecurityProvider _securityProvider;
 
-    public RegisterAdminUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider)
+    public RegisterAdminUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider, ISecurityProvider securityProvider)
     {
         _authenticationRepository = authenticationRepository;
         _mapper = mapper;
         _unitOfWork = unitOfWork;
         _apiProvider = apiProvider;
+        _securityProvider = securityProvider;
     }
 
     public async Task<Result<RegistrationResponse>> Handle(RegisterAdminUserCommand request, CancellationToken cancellationToken)
@@ -40,6 +42,7 @@ internal sealed class RegisterAdminUserCommandHandler : ICommandHandler<Register
         newUser.LawPracticeId = null;
         newUser.LocalCounselId = null;
         newUser.IsAdmin = true;
+        newUser.LoginPwd = _securityProvider.Hash(request.newAdminUser.loginPwd);
 
         _authenticationRepository.Add(newUser);
 
@@ -64,13 +67,15 @@ internal sealed class RegisterClientUserCommandHandler : ICommandHandler<Registe
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IApiProvider _apiProvider;
+    private readonly ISecurityProvider _securityProvider;
 
-    public RegisterClientUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider)
+    public RegisterClientUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider, ISecurityProvider securityProvider)
     {
         _authenticationRepository = authenticationRepository;
         _mapper = mapper;
         _unitOfWork = unitOfWork;
         _apiProvider = apiProvider;
+        _securityProvider = securityProvider;
     }
 
     public async Task<Result<RegistrationResponse>> Handle(RegisterClientUserCommand request, CancellationToken cancellationToken)
@@ -85,6 +90,7 @@ internal sealed class RegisterClientUserCommandHandler : ICommandHandler<Registe
 
         newUser.LawPracticeId = null;
         newUser.LocalCounselId = null;
+        newUser.LoginPwd = _securityProvider.Hash(request.newClientUser.loginPwd);
 
         _authenticationRepository.Add(newUser);
 
@@ -109,27 +115,30 @@ internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPU
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IApiProvider _apiProvider;
+    private readonly ISecurityProvider _securityProvider;
 
-    public RegisterLPUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider)
+    public RegisterLPUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider, ISecurityProvider securityProvider)
     {
         _authenticationRepository = authenticationRepository;
         _mapper = mapper;
         _unitOfWork = unitOfWork;
         _apiProvider = apiProvider;
+        _securityProvider = securityProvider;
     }
 
     public async Task<Result<RegistrationResponse>> Handle(RegisterLPUserCommand request, CancellationToken cancellationToken)
     {
-        if (!await _authenticationRepository.IsEmailUniqueAsync(request.newClientUser.loginId, cancellationToken))
+        if (!await _authenticationRepository.IsEmailUniqueAsync(request.newLPUser.loginId, cancellationToken))
         {
             return Result.Failure<RegistrationResponse>(
                 LoginError.UsernameInUse);
         }
 
-        var newUser = _mapper.Map<LoginDetail>(request.newClientUser);
+        var newUser = _mapper.Map<LoginDetail>(request.newLPUser);
 
         newUser.ClientId = null;
         newUser.LocalCounselId = null;
+        newUser.LoginPwd = _securityProvider.Hash(request.newLPUser.loginPwd);
 
         _authenticationRepository.Add(newUser);
 
@@ -154,27 +163,30 @@ internal sealed class RegisterLCUserCommandHandler : ICommandHandler<RegisterLCU
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IApiProvider _apiProvider;
+    private readonly ISecurityProvider _securityProvider;
 
-    public RegisterLCUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider)
+    public RegisterLCUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider, ISecurityProvider securityProvider)
     {
         _authenticationRepository = authenticationRepository;
         _mapper = mapper;
         _unitOfWork = unitOfWork;
         _apiProvider = apiProvider;
+        _securityProvider = securityProvider;
     }
 
     public async Task<Result<RegistrationResponse>> Handle(RegisterLCUserCommand request, CancellationToken cancellationToken)
     {
-        if (!await _authenticationRepository.IsEmailUniqueAsync(request.newClientUser.loginId, cancellationToken))
+        if (!await _authenticationRepository.IsEmailUniqueAsync(request.newLCUser.loginId, cancellationToken))
         {
             return Result.Failure<RegistrationResponse>(
                 LoginError.UsernameInUse);
         }
 
-        var newUser = _mapper.Map<LoginDetail>(request.newClientUser);
+        var newUser = _mapper.Map<LoginDetail>(request.newLCUser);
 
         newUser.ClientId = null;
         newUser.LawPracticeId = null;
+        newUser.LoginPwd = _securityProvider.Hash(request.newLCUser.loginPwd);
 
         _authenticationRepository.Add(newUser);
 

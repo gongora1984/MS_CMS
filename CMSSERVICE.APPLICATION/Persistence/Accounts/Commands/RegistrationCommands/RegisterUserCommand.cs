@@ -5,5 +5,5 @@ namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationComma
 
 public record RegisterAdminUserCommand(UserRequest newAdminUser) : ICommand<RegistrationResponse>;
 public record RegisterClientUserCommand(UserRequest newClientUser) : ICommand<RegistrationResponse>;
-public record RegisterLPUserCommand(UserRequest newClientUser) : ICommand<RegistrationResponse>;
-public record RegisterLCUserCommand(UserRequest newClientUser) : ICommand<RegistrationResponse>;
+public record RegisterLPUserCommand(UserRequest newLPUser) : ICommand<RegistrationResponse>;
+public record RegisterLCUserCommand(UserRequest newLCUser) : ICommand<RegistrationResponse>;

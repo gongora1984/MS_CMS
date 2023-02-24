@@ -4,5 +4,5 @@ namespace CMSSERVICE.DOMAIN.Abstractions;
 
 public interface IJwtProvider
 {
-    string Generate(LoginDetail user);
+    Task<string> Generate(LoginDetail user);
 }

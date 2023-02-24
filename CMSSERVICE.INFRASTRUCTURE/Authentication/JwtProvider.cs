@@ -12,18 +12,20 @@ internal sealed class JwtProvider : IJwtProvider
     private readonly JwtOptions _options;
     private readonly ApplicationDbContext _dbContext;
     private readonly IUnitOfWork _unitOfWork;
-    public JwtProvider(IOptions<JwtOptions> options, ApplicationDbContext dbContext, IUnitOfWork unitOfWork)
+    private readonly IPermissionService _permissionService;
+    public JwtProvider(IOptions<JwtOptions> options, ApplicationDbContext dbContext, IUnitOfWork unitOfWork, IPermissionService permissionService)
     {
         _options = options.Value;
         _dbContext = dbContext;
         _unitOfWork = unitOfWork;
+        _permissionService = permissionService;
     }
 
-    public string Generate(LoginDetail user)
+    public async Task<string> Generate(LoginDetail user)
     {
         var key = Encoding.UTF8.GetBytes(_options.SecretKey);
 
-        var claims = GetAllValidClaims(user);
+        var claims = await GetAllValidClaims(user);
 
         var signingCredentials = new SigningCredentials(
             new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature);
@@ -47,7 +49,7 @@ internal sealed class JwtProvider : IJwtProvider
             _dbContext.Set<LoginDetail>().Update(loginDetailInfo);
         }
 
-        _unitOfWork.SaveChangesAsync();
+        await _unitOfWork.SaveChangesAsync();
 
         return tokenValue;
     }
@@ -57,7 +59,7 @@ internal sealed class JwtProvider : IJwtProvider
     /// </summary>
     /// <param name="user"></param>
     /// <returns></returns>
-    public Claim[] GetAllValidClaims(LoginDetail user)
+    public async Task<Claim[]> GetAllValidClaims(LoginDetail user)
     {
         var claims = new List<Claim>
         {
@@ -69,32 +71,38 @@ internal sealed class JwtProvider : IJwtProvider
         };
 
         // Getting the claims that we have assigned to the user
-        var role = string.Empty;
+        ////var role = string.Empty;
 
-        if (user.ClientId != null)
-        {
-            role = string.Format("Client|{0}", user.ClientId);
-        }
+        ////if (user.ClientId != null)
+        ////{
+        ////    role = string.Format("Client|{0}", user.ClientId);
+        ////}
 
-        if (user.LawPracticeId != null)
-        {
-            role = string.Format("LawPractice|{0}", user.LawPracticeId);
-        }
+        ////if (user.LawPracticeId != null)
+        ////{
+        ////    role = string.Format("LawPractice|{0}", user.LawPracticeId);
+        ////}
 
-        if (user.LocalCounselId != null)
-        {
-            role = string.Format("LocalCounsel|{0}", user.LawPracticeId);
-        }
+        ////if (user.LocalCounselId != null)
+        ////{
+        ////    role = string.Format("LocalCounsel|{0}", user.LawPracticeId);
+        ////}
 
-        if (Convert.ToBoolean(user.IsAdmin) || Convert.ToBoolean(user.IsSuperAdmin) || Convert.ToBoolean(user.IsSysAdmin))
-        {
-            role = string.Format("Admin|{0}", "Admin");
-        }
+        ////if (Convert.ToBoolean(user.IsAdmin) || Convert.ToBoolean(user.IsSuperAdmin) || Convert.ToBoolean(user.IsSysAdmin))
+        ////{
+        ////    role = string.Format("Admin|{0}", "Admin");
+        ////}
 
-        if (!string.IsNullOrEmpty(role))
+        ////if (!string.IsNullOrEmpty(role))
+        ////{
+        ////    claims.Add(new Claim(ClaimTypes.Role, role.Split("|")[0]));
+        ////    claims.Add(new Claim(role.Split("|")[0], role.Split("|")[1]));
+        ////}
+        var permissions = await _permissionService.GetPermissionsAsync(user.Id);
+
+        foreach (var permission in permissions)
         {
-            claims.Add(new Claim(ClaimTypes.Role, role.Split("|")[0]));
-            claims.Add(new Claim(role.Split("|")[0], role.Split("|")[1]));
+            claims.Add(new(CustomClaims.Permissions, permission));
         }
 
         return claims.ToArray();

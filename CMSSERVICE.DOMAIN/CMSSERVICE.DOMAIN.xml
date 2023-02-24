@@ -29,6 +29,11 @@
             LC.
             </summary>
         </member>
+        <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.Admin">
+            <summary>
+            LC.
+            </summary>
+        </member>
         <member name="T:CMSSERVICE.DOMAIN.Primitives.Enumeration`1">
             <summary>
             Represents an enumeration of objects with a unique numeric identifier and a name.

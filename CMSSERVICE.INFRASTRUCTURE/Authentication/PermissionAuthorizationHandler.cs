@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
-using System.Security.Claims;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Authentication;
 
@@ -13,29 +12,62 @@ public class PermissionAuthorizationHandler : AuthorizationHandler<PermissionReq
         _serviceScopeFactory = serviceScopeFactory;
     }
 
-    protected override async Task HandleRequirementAsync(
-    AuthorizationHandlerContext context,
-    PermissionRequirement requirement)
+    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, PermissionRequirement requirement)
     {
-        string? memberId = context.User.Claims.FirstOrDefault(
-            x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+        ////string? userId = context.User.Claims.FirstOrDefault(
+        ////    x => x.Type == ClaimTypes.NameIdentifier)?.Value;
 
-        if (!int.TryParse(memberId, out int parsedMemberId))
-        {
-            return;
-        }
+        ////if (!int.TryParse(userId, out int parsedUserId))
+        ////{
+        ////    return;
+        ////}
 
-        using IServiceScope scope = _serviceScopeFactory.CreateScope();
+        ////using IServiceScope scope = _serviceScopeFactory.CreateScope();
 
-        IPermissionService permissionService = scope.ServiceProvider
-            .GetRequiredService<IPermissionService>();
+        ////IPermissionService permissionService = scope.ServiceProvider
+        ////    .GetRequiredService<IPermissionService>();
 
-        HashSet<string> permissions = await permissionService
-            .GetPermissionsAsync(parsedMemberId);
+        ////HashSet<string> permissions = await permissionService
+        ////    .GetPermissionsAsync(parsedUserId);
+
+        var permissions = context
+            .User
+            .Claims
+            .Where(x => x.Type == CustomClaims.Permissions)
+            .Select(x => x.Value)
+            .ToHashSet();
 
         if (permissions.Contains(requirement.Permission))
         {
             context.Succeed(requirement);
         }
+
+        return Task.CompletedTask;
     }
+
+    ////protected override async Task HandleRequirementAsync(
+    ////AuthorizationHandlerContext context,
+    ////PermissionRequirement requirement)
+    ////{
+    ////    string? memberId = context.User.Claims.FirstOrDefault(
+    ////        x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+
+    ////    if (!int.TryParse(memberId, out int parsedMemberId))
+    ////    {
+    ////        return;
+    ////    }
+
+    ////    using IServiceScope scope = _serviceScopeFactory.CreateScope();
+
+    ////    IPermissionService permissionService = scope.ServiceProvider
+    ////        .GetRequiredService<IPermissionService>();
+
+    ////    HashSet<string> permissions = await permissionService
+    ////        .GetPermissionsAsync(parsedMemberId);
+
+    ////    if (permissions.Contains(requirement.Permission))
+    ////    {
+    ////        context.Succeed(requirement);
+    ////    }
+    ////}
 }

@@ -29,25 +29,27 @@ public class AuthenticationAuthorizationServiceInstaller : IServiceInstaller
 
         services.AddAuthorization(options =>
         {
-            options.AddPolicy(
-                "AdminPolicy",
-                policy => policy.AddRequirements(new ClaimRequirement("Admin")));
+            ////options.AddPolicy(
+            ////    "Admin",
+            ////    policy => policy.AddRequirements(new ClaimRequirement("Admin")));
 
-            options.AddPolicy(
-                "ClientPolicy",
-                policy => policy.AddRequirements(new ClaimRequirement("Client")));
+            ////options.AddPolicy(
+            ////    "Client",
+            ////    policy => policy.AddRequirements(new ClaimRequirement("Client")));
 
-            options.AddPolicy(
-                "LawPractice",
-                policy => policy.AddRequirements(new ClaimRequirement("LawPractice")));
+            ////options.AddPolicy(
+            ////    "LawPractice",
+            ////    policy => policy.AddRequirements(new ClaimRequirement("LawPractice")));
 
-            options.AddPolicy(
-                "LocalCounselPolicy",
-                policy => policy.AddRequirements(new ClaimRequirement("LocalCounsel")));
+            ////options.AddPolicy(
+            ////    "LocalCounsel",
+            ////    policy => policy.AddRequirements(new ClaimRequirement("LocalCounsel")));
         });
 
         ////services.AddSingleton<IAuthorizationHandler, ApiKeyAuthenticationHandler>();
         ////services.AddSingleton<IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider>();
-        services.AddSingleton<IAuthorizationHandler, ClaimRequirementAuthorizationHandler>();
+        services.AddSingleton<IAuthorizationHandler, PermissionAuthorizationHandler>();
+        services.AddSingleton<IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider>();
+        ////services.AddSingleton<IAuthorizationHandler, ClaimRequirementAuthorizationHandler>();
     }
 }

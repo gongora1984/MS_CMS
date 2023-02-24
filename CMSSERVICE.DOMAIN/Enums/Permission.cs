@@ -18,5 +18,10 @@ public enum Permission
     /// <summary>
     /// LC.
     /// </summary>
-    LocalCounsel = 3
+    LocalCounsel = 3,
+
+    /// <summary>
+    /// LC.
+    /// </summary>
+    Admin = 4
 }

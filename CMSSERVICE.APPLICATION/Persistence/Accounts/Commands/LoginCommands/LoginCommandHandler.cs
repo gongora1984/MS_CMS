@@ -60,12 +60,14 @@ internal sealed class LoginCommandHandlerJwt : ICommandHandler<LoginCommandJwt, 
     private readonly IJwtProvider _jwtProvider;
     private readonly IAuthenticationRepository _authenticationRepository;
     private readonly IMapper _mapper;
+    private readonly ISecurityProvider _securityProvider;
 
-    public LoginCommandHandlerJwt(IJwtProvider jwtProvider, IAuthenticationRepository authenticationRepository, IMapper mapper)
+    public LoginCommandHandlerJwt(IJwtProvider jwtProvider, IAuthenticationRepository authenticationRepository, IMapper mapper, ISecurityProvider securityProvider)
     {
         _jwtProvider = jwtProvider;
         _authenticationRepository = authenticationRepository;
         _mapper = mapper;
+        _securityProvider = securityProvider;
     }
 
     public async Task<Result<LoginResponse>> Handle(LoginCommandJwt request, CancellationToken cancellationToken)
@@ -80,13 +82,15 @@ internal sealed class LoginCommandHandlerJwt : ICommandHandler<LoginCommandJwt, 
                 LoginError.InvalidUsername);
         }
 
-        if (user.LoginPwd != request.password)
+        var matchPassword = _securityProvider.Verify(user.LoginPwd, request.password);
+
+        if (!matchPassword)
         {
             return Result.Failure<LoginResponse>(
                 LoginError.InvalidCredentials);
         }
 
-        string token = _jwtProvider.Generate(user);
+        string token = await _jwtProvider.Generate(user);
 
         return new LoginResponse
         {
