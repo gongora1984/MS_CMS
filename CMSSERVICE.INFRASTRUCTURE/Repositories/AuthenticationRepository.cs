@@ -1,4 +1,5 @@
 ﻿using CMSSERVICE.DOMAIN.Entities;
+using CMSSERVICE.DOMAIN.Enums;
 using CMSSERVICE.DOMAIN.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,9 +37,13 @@ public sealed class AuthenticationRepository : IAuthenticationRepository
             .Set<LoginDetail>()
             .FirstOrDefaultAsync(login => login.LoginUserName == name, cancellationToken);
 
+    public async Task<AppRole?> GetRoleFromEnum(Permission permission, CancellationToken cancellationToken = default) =>
+         await _dbContext
+            .Set<AppRole>()
+            .FirstOrDefaultAsync(role => role.Name == permission.ToString(), cancellationToken);
     public async Task<bool> IsEmailUniqueAsync(string email, CancellationToken cancellationToken = default) =>
-        !await _dbContext
-            .Set<LoginDetail>()
+    !await _dbContext
+    .Set<LoginDetail>()
             .AnyAsync(login => login.LoginId == email, cancellationToken);
 
     public async Task<bool> IsValidCredentialAsync(string email, string password, CancellationToken cancellationToken = default) =>

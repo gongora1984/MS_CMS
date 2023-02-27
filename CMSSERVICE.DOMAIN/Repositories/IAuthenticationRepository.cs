@@ -1,4 +1,5 @@
 ﻿using CMSSERVICE.DOMAIN.Entities;
+using CMSSERVICE.DOMAIN.Enums;
 
 namespace CMSSERVICE.DOMAIN.Repositories;
 
@@ -19,4 +20,6 @@ public interface IAuthenticationRepository
     void Add(LoginDetail newUser);
 
     void Update(LoginDetail existingUser);
+
+    Task<AppRole?> GetRoleFromEnum(Permission permission, CancellationToken cancellationToken = default);
 }

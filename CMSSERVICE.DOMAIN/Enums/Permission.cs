@@ -8,20 +8,20 @@ public enum Permission
     /// <summary>
     /// Client.
     /// </summary>
-    Client = 1,
+    RegisterClient = 1,
 
     /// <summary>
     /// LP.
     /// </summary>
-    LawPractice = 2,
+    RegisterLawPractice = 2,
 
     /// <summary>
     /// LC.
     /// </summary>
-    LocalCounsel = 3,
+    RegisterLocalCounsel = 3,
 
     /// <summary>
     /// LC.
     /// </summary>
-    Admin = 4
+    RegisterAdmin = 4
 }

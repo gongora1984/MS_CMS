@@ -21,42 +21,42 @@ public class PermissionService : IPermissionService
             return new HashSet<string>();
         }
 
-        ////Fetch roles from db if applicable.
-        ////ICollection<Role>[] roles = await _context.Set<Member>()
-        ////    .Include(x => x.Roles)
-        ////    .ThenInclude(x => x.Permissions)
-        ////    .Where(x => x.Id == memberId)
-        ////    .Select(x => x.Roles)
-        ////    .ToArrayAsync();
+        // Fetch roles from db if applicable.
+        ICollection<AppRole>[] roles = await _context.Set<LoginDetail>()
+            .Include(x => x.AppRoles)
+            .ThenInclude(x => x.AppPermissions)
+            .Where(x => x.Id == userId)
+            .Select(x => x.AppRoles)
+            .ToArrayAsync();
 
-        ////return roles
-        ////    .SelectMany(x => x)
-        ////    .SelectMany(x => x.Permissions)
-        ////    .Select(x => x.Name)
-        ////    .ToHashSet();
+        return roles
+            .SelectMany(x => x)
+            .SelectMany(x => x.AppPermissions)
+            .Select(x => x.Name)
+            .ToHashSet();
 
-        var role = string.Empty;
+        ////var role = string.Empty;
 
-        if (userInfo.ClientId != null)
-        {
-            role = "Client";
-        }
+        ////if (userInfo.ClientId != null)
+        ////{
+        ////    role = "Client";
+        ////}
 
-        if (userInfo.LawPracticeId != null)
-        {
-            role = "LawPractice";
-        }
+        ////if (userInfo.LawPracticeId != null)
+        ////{
+        ////    role = "LawPractice";
+        ////}
 
-        if (userInfo.LocalCounselId != null)
-        {
-            role = "LocalCounsel";
-        }
+        ////if (userInfo.LocalCounselId != null)
+        ////{
+        ////    role = "LocalCounsel";
+        ////}
 
-        if (Convert.ToBoolean(userInfo.IsAdmin) || Convert.ToBoolean(userInfo.IsSuperAdmin) || Convert.ToBoolean(userInfo.IsSysAdmin))
-        {
-            role = "Admin";
-        }
+        ////if (Convert.ToBoolean(userInfo.IsAdmin) || Convert.ToBoolean(userInfo.IsSuperAdmin) || Convert.ToBoolean(userInfo.IsSysAdmin))
+        ////{
+        ////    role = "Admin";
+        ////}
 
-        return new HashSet<string> { role };
+        ////return new HashSet<string> { role };
     }
 }

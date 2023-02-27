@@ -125,6 +125,18 @@
         <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailFields.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.AddRolePermissionItems">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.AddRolePermissionItems.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.AddRolePermissionItems.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.AddRolePermissionItems.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
         <member name="T:CMSSERVICE.INFRASTRUCTURE.UnitOfWork">
             <summary>
             Unit Of Work Interface Implementation.

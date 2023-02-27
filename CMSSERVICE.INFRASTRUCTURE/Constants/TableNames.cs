@@ -4,6 +4,14 @@ namespace CMSSERVICE.INFRASTRUCTURE.Constants;
 
 internal static class TableNames
 {
+    internal const string AppRole = nameof(domain.AppRole);
+
+    internal const string AppPermission = nameof(domain.AppPermission);
+
+    internal const string AppRolePermission = nameof(domain.AppRolePermission);
+
+    internal const string AppRoleLoginDetail = nameof(domain.AppRoleLoginDetail);
+
     internal const string BkrCaseSummary = nameof(domain.BkrCaseSummary);
 
     internal const string BkrConditionalOrder = nameof(domain.BkrConditionalOrder);

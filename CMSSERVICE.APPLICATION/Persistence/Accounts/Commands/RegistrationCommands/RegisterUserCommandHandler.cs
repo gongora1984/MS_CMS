@@ -98,6 +98,14 @@ internal sealed class RegisterClientUserCommandHandler : ICommandHandler<Registe
 
         ////string token = _apiProvider.GenerateApiKey(newUser);
 
+        ////var userRole = await _authenticationRepository.GetRoleFromEnum(DOMAIN.Enums.Permission.RegisterClient);
+
+        ////if (userRole != null)
+        ////{
+        ////    var newUserRole = new AppRoleLoginDetail
+        ////}
+
+
         return new RegistrationResponse
         {
             RegistrationStatus = true,

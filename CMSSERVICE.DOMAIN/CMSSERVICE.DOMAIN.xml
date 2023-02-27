@@ -14,22 +14,22 @@
             Permission Enums.
             </summary>
         </member>
-        <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.Client">
+        <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.RegisterClient">
             <summary>
             Client.
             </summary>
         </member>
-        <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.LawPractice">
+        <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.RegisterLawPractice">
             <summary>
             LP.
             </summary>
         </member>
-        <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.LocalCounsel">
+        <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.RegisterLocalCounsel">
             <summary>
             LC.
             </summary>
         </member>
-        <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.Admin">
+        <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.RegisterAdmin">
             <summary>
             LC.
             </summary>
