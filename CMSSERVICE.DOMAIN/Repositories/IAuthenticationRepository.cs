@@ -1,5 +1,4 @@
 ﻿using CMSSERVICE.DOMAIN.Entities;
-using CMSSERVICE.DOMAIN.Enums;
 
 namespace CMSSERVICE.DOMAIN.Repositories;
 
@@ -19,6 +18,8 @@ public interface IAuthenticationRepository
 
     Task AddUser(LoginDetail newUser);
 
+    Task AddUserWithRoles(LoginDetail newUser, AppRole? userRole, CancellationToken cancellationToken = default);
+
     Task UpdateUser(LoginDetail existingUser);
 }
 
@@ -28,5 +29,5 @@ public interface IRoleRepository
 
     Task<List<AppRole>> GetAllAsync(CancellationToken cancellationToken = default);
 
-    Task<AppRole?> GetRoleFromEnum(Roles role, CancellationToken cancellationToken = default);
+    Task<AppRole?> GetRoleFromEnum(string roleName, CancellationToken cancellationToken = default);
 }

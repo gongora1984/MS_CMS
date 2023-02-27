@@ -1,5 +1,4 @@
 ﻿using CMSSERVICE.DOMAIN.Entities;
-using CMSSERVICE.DOMAIN.Enums;
 using CMSSERVICE.DOMAIN.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,15 +7,58 @@ namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 internal class AuthenticationRepository : GenericRepository<LoginDetail>, IAuthenticationRepository
 {
     private readonly ApplicationDbContext _dbContext;
+    private readonly IRoleRepository _roleRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public AuthenticationRepository(ApplicationDbContext dbContext)
+    public AuthenticationRepository(
+        ApplicationDbContext dbContext,
+        IRoleRepository roleRepository,
+        IUnitOfWork unitOfWork)
         : base(dbContext)
     {
         _dbContext = dbContext;
+        _roleRepository = roleRepository;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task AddUser(LoginDetail newUser) =>
         await Add(newUser);
+
+    public async Task AddUserWithRoles(LoginDetail newUser, AppRole? userRole, CancellationToken cancellationToken = default)
+    {
+        using (var transaction = _dbContext.Database.BeginTransaction())
+        {
+            try
+            {
+                await AddUser(newUser);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+                if (userRole != null)
+                {
+                    var newUserRole = new AppRoleLoginDetail
+                    {
+                        AppRoleId = userRole.Id,
+                        LoginDetailId = newUser.Id
+                    };
+
+                    await _roleRepository.AddUserRole(newUserRole);
+
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+                    transaction.Commit();
+                }
+                else
+                {
+                    transaction.Rollback();
+                }
+            }
+            catch
+            {
+                transaction.Rollback();
+            }
+        }
+    }
+
     public async Task<List<LoginDetail>> GetAllAsync(CancellationToken cancellationToken = default) =>
         await _dbContext
             .Set<LoginDetail>()
@@ -69,8 +111,8 @@ internal class RoleRepository : GenericRepository<AppRoleLoginDetail>, IRoleRepo
             .Set<AppRole>()
             .ToListAsync(cancellationToken);
 
-    public async Task<AppRole?> GetRoleFromEnum(Roles role, CancellationToken cancellationToken = default) =>
+    public async Task<AppRole?> GetRoleFromEnum(string roleName, CancellationToken cancellationToken = default) =>
            await _dbContext
               .Set<AppRole>()
-              .FirstOrDefaultAsync(role => role.Name == role.ToString(), cancellationToken);
+              .FirstOrDefaultAsync(role => role.Name == roleName, cancellationToken);
 }

@@ -4,21 +4,9 @@ public static class DomainErrors
 {
     public static class LoginError
     {
-        ////public static readonly Error CompanyNameInUse = new(
-        ////    "Company.CompanyName",
-        ////    "The specified company name is already in use");
-
         public static readonly Error UsernameInUse = new(
             "LoginDetail.LoginId",
             "The specified email is already in use");
-
-        ////public static readonly Func<Guid, Error> NotFound = id => new Error(
-        ////    "Company.Id",
-        ////    $"The company with the identifier {id} was not found.");
-
-        ////public static readonly Func<string, Error> NotFoundByName = name => new Error(
-        ////    "Company.CompanyName",
-        ////    $"The company with the identifier {name} was not found.");
 
         public static readonly Error InvalidUsername = new(
             "LoginDetail.LoginId",
@@ -27,6 +15,20 @@ public static class DomainErrors
         public static readonly Error InvalidCredentials = new(
             "LoginDetail.LoginPwd",
             "The provided credentials are invalid");
+    }
+
+    public static class RegistrationError
+    {
+        public static readonly Error MissingRoleByName = new(
+            "AppRole.Name",
+            "Role not found.");
+    }
+
+    public static class ClientError
+    {
+        public static readonly Error InvalidClientId = new(
+            "Client.ClientId",
+            "Client not found.");
     }
 
     public static class ListItem
