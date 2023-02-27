@@ -30,7 +30,7 @@ internal class ClientRepository : GenericRepository<Client>, IClientRepository
     public async Task<Client?> GetByIdAsync(int id, CancellationToken cancellationToken = default) =>
         await _dbContext
             .Set<Client>()
-            .FirstOrDefaultAsync(login => login.Id == id, cancellationToken);
+            .FirstOrDefaultAsync(client => client.Id == id, cancellationToken);
 
     public async Task UpdateClient(Client existingClient) =>
         await Update(existingClient);

@@ -146,6 +146,7 @@ internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPU
 {
     private readonly IAuthenticationRepository _authenticationRepository;
     private readonly IRoleRepository _roleRepository;
+    private readonly ILawPracticeRepository _lawPracticeRepository;
     private readonly IMapper _mapper;
     private readonly IApiProvider _apiProvider;
     private readonly ISecurityProvider _securityProvider;
@@ -155,13 +156,15 @@ internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPU
         IMapper mapper,
         IApiProvider apiProvider,
         ISecurityProvider securityProvider,
-        IRoleRepository roleRepository)
+        IRoleRepository roleRepository,
+        ILawPracticeRepository lawPracticeRepository)
     {
         _authenticationRepository = authenticationRepository;
         _mapper = mapper;
         _apiProvider = apiProvider;
         _securityProvider = securityProvider;
         _roleRepository = roleRepository;
+        _lawPracticeRepository = lawPracticeRepository;
     }
 
     public async Task<Result<RegistrationResponse>> Handle(RegisterLPUserCommand request, CancellationToken cancellationToken)
@@ -185,6 +188,13 @@ internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPU
             return Result.Failure<RegistrationResponse>(RegistrationError.MissingRoleByName);
         }
 
+        var lpInfo = await _lawPracticeRepository.GetByIdAsync(request.newLPUser.lawPracticeId);
+
+        if (lpInfo == null)
+        {
+            return Result.Failure<RegistrationResponse>(LawPracticeError.InvalidLawPracticeId);
+        }
+
         await _authenticationRepository.AddUserWithRoles(newUser, userRole);
 
         return new RegistrationResponse
@@ -202,6 +212,7 @@ internal sealed class RegisterLCUserCommandHandler : ICommandHandler<RegisterLCU
 {
     private readonly IAuthenticationRepository _authenticationRepository;
     private readonly IRoleRepository _roleRepository;
+    private readonly ILocalCounselRepository _localCounselRepository;
     private readonly IMapper _mapper;
     private readonly IApiProvider _apiProvider;
     private readonly ISecurityProvider _securityProvider;
@@ -211,13 +222,15 @@ internal sealed class RegisterLCUserCommandHandler : ICommandHandler<RegisterLCU
         IMapper mapper,
         IApiProvider apiProvider,
         ISecurityProvider securityProvider,
-        IRoleRepository roleRepository)
+        IRoleRepository roleRepository,
+        ILocalCounselRepository localCounselRepository)
     {
         _authenticationRepository = authenticationRepository;
         _mapper = mapper;
         _apiProvider = apiProvider;
         _securityProvider = securityProvider;
         _roleRepository = roleRepository;
+        _localCounselRepository = localCounselRepository;
     }
 
     public async Task<Result<RegistrationResponse>> Handle(RegisterLCUserCommand request, CancellationToken cancellationToken)
@@ -239,6 +252,13 @@ internal sealed class RegisterLCUserCommandHandler : ICommandHandler<RegisterLCU
         if (userRole == null)
         {
             return Result.Failure<RegistrationResponse>(RegistrationError.MissingRoleByName);
+        }
+
+        var lcInfo = await _localCounselRepository.GetByIdAsync(request.newLCUser.localCounselId);
+
+        if (lcInfo == null)
+        {
+            return Result.Failure<RegistrationResponse>(LocalCounselError.InvalidLocalCounselId);
         }
 
         await _authenticationRepository.AddUserWithRoles(newUser, userRole);

@@ -31,6 +31,20 @@ public static class DomainErrors
             "Client not found.");
     }
 
+    public static class LawPracticeError
+    {
+        public static readonly Error InvalidLawPracticeId = new(
+            "LawPractice.LawPracticeId",
+            "Law Practice not found.");
+    }
+
+    public static class LocalCounselError
+    {
+        public static readonly Error InvalidLocalCounselId = new(
+            "LocalCounsel.LocalCounselId",
+            "Local Counsel not found.");
+    }
+
     public static class ListItem
     {
         public static readonly Error SystemCategoryInUse = new(
