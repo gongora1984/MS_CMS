@@ -17,9 +17,16 @@ public interface IAuthenticationRepository
 
     Task<bool> IsValidCredentialAsync(string email, string password, CancellationToken cancellationToken = default);
 
-    void Add(LoginDetail newUser);
+    Task AddUser(LoginDetail newUser);
 
-    void Update(LoginDetail existingUser);
+    Task UpdateUser(LoginDetail existingUser);
+}
 
-    Task<AppRole?> GetRoleFromEnum(Permission permission, CancellationToken cancellationToken = default);
+public interface IRoleRepository
+{
+    Task AddUserRole(AppRoleLoginDetail newUserRol);
+
+    Task<List<AppRole>> GetAllAsync(CancellationToken cancellationToken = default);
+
+    Task<AppRole?> GetRoleFromEnum(Roles role, CancellationToken cancellationToken = default);
 }

@@ -1,5 +1,4 @@
 ﻿using CMSSERVICE.DOMAIN.Entities;
-using CMSSERVICE.DOMAIN.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -34,20 +33,22 @@ internal sealed class AppRolePermissionConfiguration : IEntityTypeConfiguration<
             .OnDelete(DeleteBehavior.ClientSetNull)
             .HasConstraintName("FKAppRoleAppRolePermission");
 
-        entity.HasData(
-            Create(AppRole.Admin, Permission.RegisterClient),
-            Create(AppRole.Admin, Permission.RegisterLawPractice),
-            Create(AppRole.Admin, Permission.RegisterLocalCounsel),
-            Create(AppRole.Admin, Permission.RegisterAdmin));
+        ////int i = 1;
+        ////entity.HasData(
+        ////    Create(i++, AppRole.Admin, Permission.RegisterClient),
+        ////    Create(i++, AppRole.Admin, Permission.RegisterLawPractice),
+        ////    Create(i++, AppRole.Admin, Permission.RegisterLocalCounsel),
+        ////    Create(i++, AppRole.Admin, Permission.RegisterAdmin));
     }
 
-    private static AppRolePermission Create(
-        AppRole role, Permission permission)
-    {
-        return new AppRolePermission
-        {
-            AppRoleId = role.Id,
-            AppPermissionId = (int)permission
-        };
-    }
+    ////private static AppRolePermission Create(
+    ////    int id, AppRole role, Permission permission)
+    ////{
+    ////    return new AppRolePermission
+    ////    {
+    ////        Id = id,
+    ////        AppRoleId = role.Id,
+    ////        AppPermissionId = (int)permission
+    ////    };
+    ////}
 }

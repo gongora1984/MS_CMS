@@ -18,6 +18,10 @@ internal sealed class AppRoleConfiguration : IEntityTypeConfiguration<AppRole>
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
-        entity.HasData(new AppRole("Admin"));
+        entity.HasData(new AppRole
+        {
+            Id = 1,
+            Name = "Admin"
+        });
     }
 }

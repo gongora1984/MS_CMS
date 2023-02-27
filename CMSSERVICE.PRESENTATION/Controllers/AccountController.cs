@@ -71,10 +71,10 @@ public sealed class AccountController : ApiController
         return Ok(response);
     }
 
-    ////[AllowAnonymous]
+    [AllowAnonymous]
     [HttpPost("registeradmin")]
     ////[Authorize(Policy = "AdminPolicy")]
-    [HasPermission(Permission.RegisterAdmin)]
+    ////[HasPermission(Permission.RegisterAdmin)]
     public async Task<IActionResult> RegisterAdminUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)

@@ -14,18 +14,26 @@ namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationComma
 internal sealed class RegisterAdminUserCommandHandler : ICommandHandler<RegisterAdminUserCommand, RegistrationResponse>
 {
     private readonly IAuthenticationRepository _authenticationRepository;
+    private readonly IRoleRepository _roleRepository;
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IApiProvider _apiProvider;
     private readonly ISecurityProvider _securityProvider;
 
-    public RegisterAdminUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider, ISecurityProvider securityProvider)
+    public RegisterAdminUserCommandHandler(
+        IAuthenticationRepository authenticationRepository,
+        IMapper mapper,
+        IUnitOfWork unitOfWork,
+        IApiProvider apiProvider,
+        ISecurityProvider securityProvider,
+        IRoleRepository roleRepository)
     {
         _authenticationRepository = authenticationRepository;
         _mapper = mapper;
         _unitOfWork = unitOfWork;
         _apiProvider = apiProvider;
         _securityProvider = securityProvider;
+        _roleRepository = roleRepository;
     }
 
     public async Task<Result<RegistrationResponse>> Handle(RegisterAdminUserCommand request, CancellationToken cancellationToken)
@@ -44,11 +52,26 @@ internal sealed class RegisterAdminUserCommandHandler : ICommandHandler<Register
         newUser.IsAdmin = true;
         newUser.LoginPwd = _securityProvider.Hash(request.newAdminUser.loginPwd);
 
-        _authenticationRepository.Add(newUser);
+        await _authenticationRepository.AddUser(newUser);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         ////string token = _apiProvider.GenerateApiKey(newUser);
+
+        var userRole = await _roleRepository.GetRoleFromEnum(DOMAIN.Enums.Roles.Admin);
+
+        if (userRole != null)
+        {
+            var newUserRole = new AppRoleLoginDetail
+            {
+                AppRoleId = userRole.Id,
+                LoginDetailId = newUser.Id
+            };
+
+            await _roleRepository.AddUserRole(newUserRole);
+
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+        }
 
         return new RegistrationResponse
         {
@@ -64,18 +87,26 @@ internal sealed class RegisterAdminUserCommandHandler : ICommandHandler<Register
 internal sealed class RegisterClientUserCommandHandler : ICommandHandler<RegisterClientUserCommand, RegistrationResponse>
 {
     private readonly IAuthenticationRepository _authenticationRepository;
+    private readonly IRoleRepository _roleRepository;
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IApiProvider _apiProvider;
     private readonly ISecurityProvider _securityProvider;
 
-    public RegisterClientUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider, ISecurityProvider securityProvider)
+    public RegisterClientUserCommandHandler(
+        IAuthenticationRepository authenticationRepository,
+        IMapper mapper,
+        IUnitOfWork unitOfWork,
+        IApiProvider apiProvider,
+        ISecurityProvider securityProvider,
+        IRoleRepository roleRepository)
     {
         _authenticationRepository = authenticationRepository;
         _mapper = mapper;
         _unitOfWork = unitOfWork;
         _apiProvider = apiProvider;
         _securityProvider = securityProvider;
+        _roleRepository = roleRepository;
     }
 
     public async Task<Result<RegistrationResponse>> Handle(RegisterClientUserCommand request, CancellationToken cancellationToken)
@@ -92,19 +123,26 @@ internal sealed class RegisterClientUserCommandHandler : ICommandHandler<Registe
         newUser.LocalCounselId = null;
         newUser.LoginPwd = _securityProvider.Hash(request.newClientUser.loginPwd);
 
-        _authenticationRepository.Add(newUser);
+        await _authenticationRepository.AddUser(newUser);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         ////string token = _apiProvider.GenerateApiKey(newUser);
 
-        ////var userRole = await _authenticationRepository.GetRoleFromEnum(DOMAIN.Enums.Permission.RegisterClient);
+        var userRole = await _roleRepository.GetRoleFromEnum(DOMAIN.Enums.Roles.Client);
 
-        ////if (userRole != null)
-        ////{
-        ////    var newUserRole = new AppRoleLoginDetail
-        ////}
+        if (userRole != null)
+        {
+            var newUserRole = new AppRoleLoginDetail
+            {
+                AppRoleId = userRole.Id,
+                LoginDetailId = newUser.Id
+            };
 
+            await _roleRepository.AddUserRole(newUserRole);
+
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+        }
 
         return new RegistrationResponse
         {
@@ -120,18 +158,26 @@ internal sealed class RegisterClientUserCommandHandler : ICommandHandler<Registe
 internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPUserCommand, RegistrationResponse>
 {
     private readonly IAuthenticationRepository _authenticationRepository;
+    private readonly IRoleRepository _roleRepository;
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IApiProvider _apiProvider;
     private readonly ISecurityProvider _securityProvider;
 
-    public RegisterLPUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider, ISecurityProvider securityProvider)
+    public RegisterLPUserCommandHandler(
+        IAuthenticationRepository authenticationRepository,
+        IMapper mapper,
+        IUnitOfWork unitOfWork,
+        IApiProvider apiProvider,
+        ISecurityProvider securityProvider,
+        IRoleRepository roleRepository)
     {
         _authenticationRepository = authenticationRepository;
         _mapper = mapper;
         _unitOfWork = unitOfWork;
         _apiProvider = apiProvider;
         _securityProvider = securityProvider;
+        _roleRepository = roleRepository;
     }
 
     public async Task<Result<RegistrationResponse>> Handle(RegisterLPUserCommand request, CancellationToken cancellationToken)
@@ -148,11 +194,26 @@ internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPU
         newUser.LocalCounselId = null;
         newUser.LoginPwd = _securityProvider.Hash(request.newLPUser.loginPwd);
 
-        _authenticationRepository.Add(newUser);
+        await _authenticationRepository.AddUser(newUser);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         ////string token = _apiProvider.GenerateApiKey(newUser);
+
+        var userRole = await _roleRepository.GetRoleFromEnum(DOMAIN.Enums.Roles.LawPractice);
+
+        if (userRole != null)
+        {
+            var newUserRole = new AppRoleLoginDetail
+            {
+                AppRoleId = userRole.Id,
+                LoginDetailId = newUser.Id
+            };
+
+            await _roleRepository.AddUserRole(newUserRole);
+
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+        }
 
         return new RegistrationResponse
         {
@@ -168,18 +229,26 @@ internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPU
 internal sealed class RegisterLCUserCommandHandler : ICommandHandler<RegisterLCUserCommand, RegistrationResponse>
 {
     private readonly IAuthenticationRepository _authenticationRepository;
+    private readonly IRoleRepository _roleRepository;
     private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IApiProvider _apiProvider;
     private readonly ISecurityProvider _securityProvider;
 
-    public RegisterLCUserCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IApiProvider apiProvider, ISecurityProvider securityProvider)
+    public RegisterLCUserCommandHandler(
+        IAuthenticationRepository authenticationRepository,
+        IMapper mapper,
+        IUnitOfWork unitOfWork,
+        IApiProvider apiProvider,
+        ISecurityProvider securityProvider,
+        IRoleRepository roleRepository)
     {
         _authenticationRepository = authenticationRepository;
         _mapper = mapper;
         _unitOfWork = unitOfWork;
         _apiProvider = apiProvider;
         _securityProvider = securityProvider;
+        _roleRepository = roleRepository;
     }
 
     public async Task<Result<RegistrationResponse>> Handle(RegisterLCUserCommand request, CancellationToken cancellationToken)
@@ -196,11 +265,26 @@ internal sealed class RegisterLCUserCommandHandler : ICommandHandler<RegisterLCU
         newUser.LawPracticeId = null;
         newUser.LoginPwd = _securityProvider.Hash(request.newLCUser.loginPwd);
 
-        _authenticationRepository.Add(newUser);
+        await _authenticationRepository.AddUser(newUser);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         ////string token = _apiProvider.GenerateApiKey(newUser);
+
+        var userRole = await _roleRepository.GetRoleFromEnum(DOMAIN.Enums.Roles.LocalCounsel);
+
+        if (userRole != null)
+        {
+            var newUserRole = new AppRoleLoginDetail
+            {
+                AppRoleId = userRole.Id,
+                LoginDetailId = newUser.Id
+            };
+
+            await _roleRepository.AddUserRole(newUserRole);
+
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+        }
 
         return new RegistrationResponse
         {

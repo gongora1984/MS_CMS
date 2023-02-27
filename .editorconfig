@@ -78,3 +78,6 @@ dotnet_diagnostic.SA1601.severity = none
 
 # S4487: RemoveUnusedVariable
 dotnet_diagnostic.S4487.severity = none
+
+# S1854: RemoveUnusedAssignVariable
+dotnet_diagnostic.S1854.severity = none

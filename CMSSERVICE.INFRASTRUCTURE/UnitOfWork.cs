@@ -27,6 +27,11 @@ internal sealed class UnitOfWork : IUnitOfWork
         return _dbContext.SaveChangesAsync(cancellationToken);
     }
 
+    public void Update<T>(T existingUser)
+    {
+        throw new NotImplementedException();
+    }
+
     /// <summary>
     /// Update Auditable Entities on add or update.
     /// </summary>

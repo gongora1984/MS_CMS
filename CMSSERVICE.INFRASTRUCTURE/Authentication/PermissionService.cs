@@ -22,16 +22,22 @@ public class PermissionService : IPermissionService
         }
 
         // Fetch roles from db if applicable.
-        ICollection<AppRole>[] roles = await _context.Set<LoginDetail>()
-            .Include(x => x.AppRoles)
-            .ThenInclude(x => x.AppPermissions)
+        ICollection<AppRoleLoginDetail>[] appRoles = await _context.Set<LoginDetail>()
+            .Include(x => x.AppRoleLoginDetails)
+            .ThenInclude(x => x.AppRole)
+            .ThenInclude(x => x.AppRolePermissions)
+            .ThenInclude(x => x.AppPermission)
             .Where(x => x.Id == userId)
-            .Select(x => x.AppRoles)
+            .Select(x => x.AppRoleLoginDetails)
             .ToArrayAsync();
 
-        return roles
+        var permissions = appRoles
             .SelectMany(x => x)
-            .SelectMany(x => x.AppPermissions)
+            .SelectMany(x => x.AppRole.AppRolePermissions)
+            .ToList();
+
+        return permissions
+            .Select(x => x.AppPermission)
             .Select(x => x.Name)
             .ToHashSet();
 

@@ -29,112 +29,16 @@
             <param name="user"></param>
             <returns></returns>
         </member>
-        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.InitialDbMigration">
+        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.InitialMigration">
             <inheritdoc />
         </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.InitialDbMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.InitialMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.InitialDbMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.InitialMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.InitialDbMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateListItemTbl">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateListItemTbl.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateListItemTbl.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateListItemTbl.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateListItemTbl1">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateListItemTbl1.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateListItemTbl1.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateListItemTbl1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateClientDptTbl">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateClientDptTbl.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateClientDptTbl.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateClientDptTbl.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailTbl">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailTbl.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailTbl.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailTbl.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLawPracticeTbl">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLawPracticeTbl.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLawPracticeTbl.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLawPracticeTbl.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailIsAdmin">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailIsAdmin.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailIsAdmin.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailIsAdmin.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailFields">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailFields.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailFields.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.UpdateLoginDetailFields.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:CMSSERVICE.INFRASTRUCTURE.Migrations.AddRolePermissionItems">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.AddRolePermissionItems.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.AddRolePermissionItems.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.AddRolePermissionItems.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.InitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="T:CMSSERVICE.INFRASTRUCTURE.UnitOfWork">

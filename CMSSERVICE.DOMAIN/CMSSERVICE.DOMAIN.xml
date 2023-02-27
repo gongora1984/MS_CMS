@@ -31,7 +31,32 @@
         </member>
         <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.RegisterAdmin">
             <summary>
+            ADMIN.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.DOMAIN.Enums.Roles">
+            <summary>
+            Roles Enums.
+            </summary>
+        </member>
+        <member name="F:CMSSERVICE.DOMAIN.Enums.Roles.Client">
+            <summary>
+            Client.
+            </summary>
+        </member>
+        <member name="F:CMSSERVICE.DOMAIN.Enums.Roles.LawPractice">
+            <summary>
+            LP.
+            </summary>
+        </member>
+        <member name="F:CMSSERVICE.DOMAIN.Enums.Roles.LocalCounsel">
+            <summary>
             LC.
+            </summary>
+        </member>
+        <member name="F:CMSSERVICE.DOMAIN.Enums.Roles.Admin">
+            <summary>
+            ADMIN.
             </summary>
         </member>
         <member name="T:CMSSERVICE.DOMAIN.Primitives.Enumeration`1">

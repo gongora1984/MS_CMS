@@ -1,27 +1,27 @@
 ﻿namespace CMSSERVICE.DOMAIN.Enums;
 
 /// <summary>
-/// Permission Enums.
+/// Roles Enums.
 /// </summary>
-public enum Permission
+public enum Roles
 {
     /// <summary>
     /// Client.
     /// </summary>
-    RegisterClient = 1,
+    Client = 1,
 
     /// <summary>
     /// LP.
     /// </summary>
-    RegisterLawPractice = 2,
+    LawPractice = 2,
 
     /// <summary>
     /// LC.
     /// </summary>
-    RegisterLocalCounsel = 3,
+    LocalCounsel = 3,
 
     /// <summary>
     /// ADMIN.
     /// </summary>
-    RegisterAdmin = 4
+    Admin = 4
 }
