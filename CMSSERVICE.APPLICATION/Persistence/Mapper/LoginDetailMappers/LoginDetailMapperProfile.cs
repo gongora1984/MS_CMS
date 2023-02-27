@@ -3,7 +3,7 @@ using CMSSERVICE.DOMAIN.Contracts.Requests;
 using CMSSERVICE.DOMAIN.Contracts.Responses.LoginDetails;
 using CMSSERVICE.DOMAIN.Entities;
 
-namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Mapper.LoginDetailMappers;
+namespace CMSSERVICE.APPLICATION.Persistence.Mapper.LoginDetailMappers;
 
 public class LoginDetailMapperProfile : Profile
 {

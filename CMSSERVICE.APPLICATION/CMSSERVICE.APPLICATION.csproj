@@ -17,4 +17,10 @@
     <ProjectReference Include="..\CMSSERVICE.DOMAIN\CMSSERVICE.DOMAIN.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistence\Clients\Commands\" />
+    <Folder Include="Persistence\LawPractices\Commands\" />
+    <Folder Include="Persistence\LocalCounsels\Commands\" />
+  </ItemGroup>
+
 </Project>
