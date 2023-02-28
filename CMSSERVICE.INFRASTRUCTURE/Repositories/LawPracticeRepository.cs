@@ -32,6 +32,11 @@ internal sealed class LawPracticeRepository : GenericRepository<LawPractice>, IL
             .Set<LawPractice>()
             .FirstOrDefaultAsync(lp => lp.PracticeName == name, cancellationToken);
 
+    public async Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default) =>
+    !await _dbContext
+    .Set<LawPractice>()
+            .AnyAsync(lp => lp.PracticeName == name, cancellationToken);
+
     public async Task UpdateLawPractice(LawPractice existingLawPractice) =>
         await Update(existingLawPractice);
 }

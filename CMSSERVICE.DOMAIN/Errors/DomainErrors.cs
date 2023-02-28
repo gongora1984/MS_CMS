@@ -51,6 +51,10 @@ public static class DomainErrors
         public static readonly Error InvalidClientId = new(
             "Client.ClientId",
             "Client not found.");
+
+        public static readonly Error ClientNameInUse = new(
+            "Client.ClientName",
+            "The specified client name is already in use");
     }
 
     public static class LawPracticeError
@@ -58,6 +62,10 @@ public static class DomainErrors
         public static readonly Error InvalidLawPracticeId = new(
             "LawPractice.LawPracticeId",
             "Law Practice not found.");
+
+        public static readonly Error LawPracticeNameInUse = new(
+            "LawPractice.PracticeName",
+            "The specified law practice name is already in use");
     }
 
     public static class LocalCounselError

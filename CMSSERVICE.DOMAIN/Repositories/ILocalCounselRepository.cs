@@ -10,6 +10,8 @@ public interface ILocalCounselRepository
 
     Task<List<LocalCounsel>> GetAllAsync(CancellationToken cancellationToken = default);
 
+    Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default);
+
     Task AddLocalCounsel(LocalCounsel newLocalCounsel);
 
     Task UpdateLocalCounsel(LocalCounsel existingLocalCounsel);

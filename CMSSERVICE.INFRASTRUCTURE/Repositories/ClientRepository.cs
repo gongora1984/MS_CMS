@@ -34,4 +34,9 @@ internal sealed class ClientRepository : GenericRepository<Client>, IClientRepos
 
     public async Task UpdateClient(Client existingClient) =>
         await Update(existingClient);
+
+    public async Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default) =>
+    !await _dbContext
+    .Set<Client>()
+            .AnyAsync(client => client.ClientName == name, cancellationToken);
 }

@@ -79,5 +79,35 @@
             Get Permission By Name Query Handler.
             </summary>
         </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Clients.Queries.GetAllClientQueryHandler">
+            <summary>
+            Get list of all clients.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Clients.Queries.GetClientByIdQueryHandler">
+            <summary>
+            Get Client By Id Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Clients.Queries.GetClientByNameQueryHandler">
+            <summary>
+            Get Client By Name Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.LawPractices.Queries.GetAllLawPracticeQueryHandler">
+            <summary>
+            Get list of all LP.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.LawPractices.Queries.GetLawPracticeByIdQueryHandler">
+            <summary>
+            Get LP By Id Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.LawPractices.Queries.GetLawPracticeByNameQueryHandler">
+            <summary>
+            Get LP By Name Query Handler.
+            </summary>
+        </member>
     </members>
 </doc>

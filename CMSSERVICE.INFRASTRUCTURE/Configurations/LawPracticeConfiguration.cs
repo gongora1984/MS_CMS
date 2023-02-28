@@ -110,11 +110,11 @@ internal sealed class LawPracticeConfiguration : IEntityTypeConfiguration<LawPra
             .HasColumnName("ServiceEventsURL");
 
         entity.Property(e => e.State)
-            .HasMaxLength(5)
+            .HasMaxLength(15)
             .IsUnicode(false);
 
         entity.Property(e => e.Zip)
-            .HasMaxLength(12)
+            .HasMaxLength(15)
             .IsUnicode(false);
 
         entity.HasOne(d => d.Client)

@@ -10,6 +10,8 @@ public interface IClientRepository
 
     Task<List<Client>> GetAllAsync(CancellationToken cancellationToken = default);
 
+    Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default);
+
     Task AddClient(Client newClient);
 
     Task UpdateClient(Client existingClient);

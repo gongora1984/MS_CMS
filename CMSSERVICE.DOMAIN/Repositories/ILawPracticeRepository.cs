@@ -10,6 +10,8 @@ public interface ILawPracticeRepository
 
     Task<List<LawPractice>> GetAllAsync(CancellationToken cancellationToken = default);
 
+    Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default);
+
     Task AddLawPractice(LawPractice newLawPractice);
 
     Task UpdateLawPractice(LawPractice existingLawPractice);

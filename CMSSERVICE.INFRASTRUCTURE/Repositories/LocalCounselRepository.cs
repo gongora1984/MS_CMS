@@ -32,6 +32,11 @@ internal sealed class LocalCounselRepository : GenericRepository<LocalCounsel>, 
             .Set<LocalCounsel>()
             .FirstOrDefaultAsync(lc => lc.Lcname == name, cancellationToken);
 
+    public async Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default) =>
+    !await _dbContext
+    .Set<LocalCounsel>()
+            .AnyAsync(lc => lc.LccompanyName == name, cancellationToken);
+
     public async Task UpdateLocalCounsel(LocalCounsel existingLocalCounsel) =>
         await Update(existingLocalCounsel);
 }

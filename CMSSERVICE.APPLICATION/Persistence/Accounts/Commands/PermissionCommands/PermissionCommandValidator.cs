@@ -6,7 +6,7 @@ internal class RegisterPermissionCommandValidator : AbstractValidator<RegisterPe
 {
     public RegisterPermissionCommandValidator()
     {
-        RuleFor(x => x.permission.name).NotEmpty().WithMessage("Permission name is required").MaximumLength(250).WithMessage("Maximum length for address 1 is 250 characters.");
+        RuleFor(x => x.permission.name).NotEmpty().WithMessage("Permission name is required").MaximumLength(250).WithMessage("Maximum length for permission name 1 is 250 characters.");
     }
 }
 
@@ -14,7 +14,7 @@ internal class RegisterRoleCommandValidator : AbstractValidator<RegisterRoleComm
 {
     public RegisterRoleCommandValidator()
     {
-        RuleFor(x => x.role.name).NotEmpty().WithMessage("Role name is required").MaximumLength(250).WithMessage("Maximum length for address 1 is 250 characters.");
+        RuleFor(x => x.role.name).NotEmpty().WithMessage("Role name is required").MaximumLength(250).WithMessage("Maximum length for role name 1 is 250 characters.");
     }
 }
 

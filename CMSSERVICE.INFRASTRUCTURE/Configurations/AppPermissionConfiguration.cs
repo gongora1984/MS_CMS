@@ -1,5 +1,4 @@
 ﻿using CMSSERVICE.DOMAIN.Entities;
-using CMSSERVICE.DOMAIN.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -19,14 +18,14 @@ internal sealed class AppPermissionConfiguration : IEntityTypeConfiguration<AppP
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
-        IEnumerable<AppPermission> permissions = Enum
-            .GetValues<Permission>()
-            .Select(p => new AppPermission
-            {
-                Id = (int)p,
-                Name = p.ToString()
-            });
+        ////IEnumerable<AppPermission> permissions = Enum
+        ////    .GetValues<Permission>()
+        ////    .Select(p => new AppPermission
+        ////    {
+        ////        Id = (int)p,
+        ////        Name = p.ToString()
+        ////    });
 
-        entity.HasData(permissions);
+        ////entity.HasData(permissions);
     }
 }
