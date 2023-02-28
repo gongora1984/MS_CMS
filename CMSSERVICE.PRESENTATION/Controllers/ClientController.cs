@@ -1,4 +1,5 @@
 ﻿using CMSSERVICE.DOMAIN.Contracts.Responses.Clients;
+using CMSSERVICE.INFRASTRUCTURE.Authentication;
 using CMSSERVICE.PRESENTATION.Abstractions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -18,6 +19,7 @@ public sealed class ClientController : ApiController
     [HttpGet("AllClients", Name = "All Clients")]
     [ProducesResponseType(typeof(AllClientResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [HasPermission("GetAllClients")]
     public async Task<IActionResult> GetAllClients(CancellationToken cancellationToken)
     {
         ////var command = new GetAllCompaniesQuery();

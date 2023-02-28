@@ -17,6 +17,28 @@ public static class DomainErrors
             "The provided credentials are invalid");
     }
 
+    public static class RoleError
+    {
+        public static readonly Error RoleNotFound = new(
+            "AppRole.Id",
+            "Role not found.");
+
+        public static readonly Error RoleNameInUse = new(
+            "AppRole.Name",
+            "The specified role name is already in use");
+    }
+
+    public static class PermissionError
+    {
+        public static readonly Error PermissionNotFound = new(
+            "AppPermission.Id",
+            "Permission not found.");
+
+        public static readonly Error PermissionNameInUse = new(
+            "AppPermission.Name",
+            "The specified permission name is already in use");
+    }
+
     public static class RegistrationError
     {
         public static readonly Error MissingRoleByName = new(

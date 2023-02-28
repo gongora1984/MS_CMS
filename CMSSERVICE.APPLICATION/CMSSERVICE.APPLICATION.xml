@@ -49,5 +49,35 @@
             Register Local Counsel User Command Validator.
             </summary>
         </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Queries.PermissionQueries.GetAllRoleQueryHandler">
+            <summary>
+            Get list of all roles.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Queries.PermissionQueries.GetAllPermissionQueryHandler">
+            <summary>
+            Get list of all permissions.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Queries.PermissionQueries.GetRoleByIdQueryHandler">
+            <summary>
+            Get Role By Id Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Queries.PermissionQueries.GetPermissionByIdQueryHandler">
+            <summary>
+            Get Permission By Id Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Queries.PermissionQueries.GetRoleByNameQueryHandler">
+            <summary>
+            Get Role By Name Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Queries.PermissionQueries.GetPermissionByNameQueryHandler">
+            <summary>
+            Get Permission By Name Query Handler.
+            </summary>
+        </member>
     </members>
 </doc>

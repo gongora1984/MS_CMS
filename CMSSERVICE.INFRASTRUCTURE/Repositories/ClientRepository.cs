@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 
-internal class ClientRepository : GenericRepository<Client>, IClientRepository
+internal sealed class ClientRepository : GenericRepository<Client>, IClientRepository
 {
     private readonly ApplicationDbContext _dbContext;
 

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 
-internal class LocalCounselRepository : GenericRepository<LocalCounsel>, ILocalCounselRepository
+internal sealed class LocalCounselRepository : GenericRepository<LocalCounsel>, ILocalCounselRepository
 {
     private readonly ApplicationDbContext _dbContext;
 

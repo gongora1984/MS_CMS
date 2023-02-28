@@ -1,4 +1,4 @@
-﻿namespace CMSSERVICE.DOMAIN.Abstractions;
+﻿namespace CMSSERVICE.DOMAIN.Repositories;
 
 public interface IGenericRepository<in T>
     where T : class

@@ -4,20 +4,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 
-internal class AuthenticationRepository : GenericRepository<LoginDetail>, IAuthenticationRepository
+internal sealed class AuthenticationRepository : GenericRepository<LoginDetail>, IAuthenticationRepository
 {
     private readonly ApplicationDbContext _dbContext;
     private readonly IRoleRepository _roleRepository;
+    private readonly IAppRoleLoginDetailRepository _appRoleLoginDetailRepository;
     private readonly IUnitOfWork _unitOfWork;
 
     public AuthenticationRepository(
         ApplicationDbContext dbContext,
         IRoleRepository roleRepository,
+        IAppRoleLoginDetailRepository appRoleLoginDetailRepository,
         IUnitOfWork unitOfWork)
         : base(dbContext)
     {
         _dbContext = dbContext;
         _roleRepository = roleRepository;
+        _appRoleLoginDetailRepository = appRoleLoginDetailRepository;
         _unitOfWork = unitOfWork;
     }
 
@@ -41,7 +44,7 @@ internal class AuthenticationRepository : GenericRepository<LoginDetail>, IAuthe
                         LoginDetailId = newUser.Id
                     };
 
-                    await _roleRepository.AddUserRole(newUserRole);
+                    await _appRoleLoginDetailRepository.AddUserRole(newUserRole);
 
                     await _unitOfWork.SaveChangesAsync(cancellationToken);
 
@@ -91,28 +94,4 @@ internal class AuthenticationRepository : GenericRepository<LoginDetail>, IAuthe
 
     public async Task UpdateUser(LoginDetail existingUser) =>
         await Update(existingUser);
-}
-
-internal class RoleRepository : GenericRepository<AppRoleLoginDetail>, IRoleRepository
-{
-    private readonly ApplicationDbContext _dbContext;
-
-    public RoleRepository(ApplicationDbContext dbContext)
-        : base(dbContext)
-    {
-        _dbContext = dbContext;
-    }
-
-    public async Task AddUserRole(AppRoleLoginDetail newUserRol) =>
-        await Add(newUserRol);
-
-    public async Task<List<AppRole>> GetAllAsync(CancellationToken cancellationToken = default) =>
-        await _dbContext
-            .Set<AppRole>()
-            .ToListAsync(cancellationToken);
-
-    public async Task<AppRole?> GetRoleFromEnum(string roleName, CancellationToken cancellationToken = default) =>
-           await _dbContext
-              .Set<AppRole>()
-              .FirstOrDefaultAsync(role => role.Name == roleName, cancellationToken);
 }

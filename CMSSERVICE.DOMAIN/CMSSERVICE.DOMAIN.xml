@@ -34,6 +34,16 @@
             ADMIN.
             </summary>
         </member>
+        <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.RegisterPermission">
+            <summary>
+            Client.
+            </summary>
+        </member>
+        <member name="F:CMSSERVICE.DOMAIN.Enums.Permission.GetAllClients">
+            <summary>
+            ADMIN.
+            </summary>
+        </member>
         <member name="T:CMSSERVICE.DOMAIN.Enums.Roles">
             <summary>
             Roles Enums.

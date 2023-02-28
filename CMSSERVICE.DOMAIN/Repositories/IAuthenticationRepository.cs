@@ -22,12 +22,3 @@ public interface IAuthenticationRepository
 
     Task UpdateUser(LoginDetail existingUser);
 }
-
-public interface IRoleRepository
-{
-    Task AddUserRole(AppRoleLoginDetail newUserRol);
-
-    Task<List<AppRole>> GetAllAsync(CancellationToken cancellationToken = default);
-
-    Task<AppRole?> GetRoleFromEnum(string roleName, CancellationToken cancellationToken = default);
-}

@@ -23,5 +23,15 @@ public enum Permission
     /// <summary>
     /// ADMIN.
     /// </summary>
-    RegisterAdmin = 4
+    RegisterAdmin = 4,
+
+    /// <summary>
+    /// Client.
+    /// </summary>
+    RegisterPermission = 5,
+
+    /// <summary>
+    /// ADMIN.
+    /// </summary>
+    GetAllClients = 6
 }
