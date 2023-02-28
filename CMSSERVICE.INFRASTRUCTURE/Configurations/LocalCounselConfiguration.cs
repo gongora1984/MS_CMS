@@ -35,7 +35,7 @@ internal class LocalCounselConfiguration : IEntityTypeConfiguration<LocalCounsel
             .HasColumnName("LCBarNumber");
 
         entity.Property(e => e.Lccity)
-            .HasMaxLength(75)
+            .HasMaxLength(150)
             .IsUnicode(false)
         .HasColumnName("LCCity");
 
@@ -72,7 +72,7 @@ internal class LocalCounselConfiguration : IEntityTypeConfiguration<LocalCounsel
             .HasColumnName("LCPhoneNumber");
 
         entity.Property(e => e.Lcstate)
-            .HasMaxLength(2)
+            .HasMaxLength(15)
             .IsUnicode(false)
             .HasColumnName("LCState");
 

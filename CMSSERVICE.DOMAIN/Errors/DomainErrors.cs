@@ -73,6 +73,10 @@ public static class DomainErrors
         public static readonly Error InvalidLocalCounselId = new(
             "LocalCounsel.LocalCounselId",
             "Local Counsel not found.");
+
+        public static readonly Error LocalCounselNameInUse = new(
+            "LocalCounsel.LCName",
+            "The specified local counsel name is already in use");
     }
 
     public static class ListItem

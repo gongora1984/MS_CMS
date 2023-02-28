@@ -71,7 +71,8 @@ public sealed class AccountController : ApiController
     }
 
     [HttpPost("registeradmin")]
-    [HasPermission("RegisterAdmin")]
+    ////[HasPermission("RegisterAdmin")]
+    [HasPermission("Admin")]
     public async Task<IActionResult> RegisterAdminUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)
@@ -96,7 +97,8 @@ public sealed class AccountController : ApiController
     }
 
     [HttpPost("registerclient")]
-    [HasPermission("RegisterClient")]
+    ////[HasPermission("RegisterClient")]
+    [HasPermission("Admin")]
     public async Task<IActionResult> RegisterClientUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)
@@ -121,7 +123,8 @@ public sealed class AccountController : ApiController
     }
 
     [HttpPost("registerlp")]
-    [HasPermission("RegisterLawPractice")]
+    ////[HasPermission("RegisterLawPractice")]
+    [HasPermission("Admin")]
     public async Task<IActionResult> RegisterLawPracticeUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)
@@ -146,7 +149,8 @@ public sealed class AccountController : ApiController
     }
 
     [HttpPost("registerlc")]
-    [HasPermission("RegisterLocalCounsel")]
+    ////[HasPermission("RegisterLocalCounsel")]
+    [HasPermission("Admin")]
     public async Task<IActionResult> RegisterLocalCounselUser(
         [FromBody] UserRequest request,
         CancellationToken cancellationToken)

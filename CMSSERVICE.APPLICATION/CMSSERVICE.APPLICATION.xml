@@ -109,5 +109,20 @@
             Get LP By Name Query Handler.
             </summary>
         </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.LocalCounsels.Queries.GetAllLocalCounselQueryHandler">
+            <summary>
+            Get list of all LC.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.LocalCounsels.Queries.GetLocalCounselByIdQueryHandler">
+            <summary>
+            Get LC By Id Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.LocalCounsels.Queries.GetLocalCounselByNameQueryHandler">
+            <summary>
+            Get LC By Name Query Handler.
+            </summary>
+        </member>
     </members>
 </doc>

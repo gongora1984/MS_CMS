@@ -10,15 +10,15 @@
             ReportMappings = new HashSet<ReportMapping>();
         }
 
-        public string? Lcname { get; set; }
-        public string? LccompanyName { get; set; }
+        public string Lcname { get; set; } = null!;
+        public string LccompanyName { get; set; } = null!;
         public string? LcphoneNumber { get; set; }
         public string? LcemailAddress { get; set; }
-        public string? Lcaddress1 { get; set; }
+        public string Lcaddress1 { get; set; } = null!;
         public string? Lcaddress2 { get; set; }
-        public string? Lccity { get; set; }
-        public string? Lcstate { get; set; }
-        public string? Lczip { get; set; }
+        public string Lccity { get; set; } = null!;
+        public string Lcstate { get; set; } = null!;
+        public string Lczip { get; set; } = null!;
         public int? LccountyId { get; set; }
         public bool? IsLcactive { get; set; }
         public string? LcbarNumber { get; set; }

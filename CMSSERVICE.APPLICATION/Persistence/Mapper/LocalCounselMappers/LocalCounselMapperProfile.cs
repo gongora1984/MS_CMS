@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using CMSSERVICE.DOMAIN.Contracts.Requests;
 using CMSSERVICE.DOMAIN.Contracts.Responses.LocalCounsels;
-using CMSSERVICE.DOMAIN.Entities;
 
 namespace CMSSERVICE.APPLICATION.Persistence.Mapper.LocalCounselMappers;
 
@@ -11,7 +10,7 @@ public class LocalCounselMapperProfile : Profile
     {
         CreateMap<LocalCounsel, LocalCounselResponse>().ReverseMap();
 
-        CreateMap<LocalCounsel, UserRequest>().ReverseMap();
+        CreateMap<LocalCounsel, LocalCounselRequest>().ReverseMap();
 
         CreateMap<LocalCounsel, AllLocalCounselResponse>().ReverseMap();
 

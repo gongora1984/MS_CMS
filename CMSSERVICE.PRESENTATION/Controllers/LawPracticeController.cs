@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace CMSSERVICE.PRESENTATION.Controllers;
 
 [Authorize(AuthenticationSchemes = $"{JwtBearerDefaults.AuthenticationScheme},ApiKey")]
-[Route("api/Client")]
+[Route("api/LawPractice")]
 public sealed class LawPracticeController : ApiController
 {
     public LawPracticeController(ISender sender)
@@ -65,7 +65,7 @@ public sealed class LawPracticeController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("LawPracticeByName/{name}", Name = "LawPractice By Name")]
+    [HttpGet("LawPracticeByName/{name}", Name = "Law Practice By Name")]
     [ProducesResponseType(typeof(LawPracticeResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetLawPracticeByName(string name, CancellationToken cancellationToken)
