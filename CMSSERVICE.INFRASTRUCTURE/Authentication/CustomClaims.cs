@@ -2,5 +2,5 @@
 
 internal static class CustomClaims
 {
-    internal const string Permissions = "jwtcustomclaims";
+    internal const string Permissions = "cmscustomclaims";
 }
