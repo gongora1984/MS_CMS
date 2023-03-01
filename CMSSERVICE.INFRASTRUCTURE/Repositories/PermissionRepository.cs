@@ -4,17 +4,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 
-internal sealed class PermissionRepository : GenericRepository<AppPermission>, IPermissionRepository
+internal sealed class PermissionRepository : IPermissionRepository
 {
     private readonly ApplicationDbContext _dbContext;
     public PermissionRepository(ApplicationDbContext dbContext)
-        : base(dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task AddPermission(AppPermission newPermission) =>
-        await Add(newPermission);
+    public void AddPermission(AppPermission newPermission) =>
+        _dbContext.Set<AppPermission>().Add(newPermission);
 
     public async Task<List<AppPermission>> GetAllAsync(CancellationToken cancellationToken = default) =>
         await _dbContext
@@ -36,6 +35,6 @@ internal sealed class PermissionRepository : GenericRepository<AppPermission>, I
     .Set<AppPermission>()
             .AnyAsync(permission => permission.Name == name, cancellationToken);
 
-    public async Task UpdatePermission(AppPermission existingPermission) =>
-        await Update(existingPermission);
+    public void UpdatePermission(AppPermission existingPermission) =>
+        _dbContext.Set<AppPermission>().Update(existingPermission);
 }

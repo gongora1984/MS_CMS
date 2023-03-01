@@ -4,7 +4,9 @@ namespace CMSSERVICE.DOMAIN.Repositories;
 
 public interface IRoleRepository
 {
-    Task AddRole(AppRole newRol);
+    void AddRole(AppRole newRol);
+
+    void AddUserRole(AppRoleLoginDetail newUserRole);
 
     Task<List<AppRole>> GetAllAsync(CancellationToken cancellationToken = default);
 

@@ -4,18 +4,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 
-internal sealed class RoleRepository : GenericRepository<AppRole>, IRoleRepository
+internal sealed class RoleRepository : IRoleRepository
 {
     private readonly ApplicationDbContext _dbContext;
 
     public RoleRepository(ApplicationDbContext dbContext)
-        : base(dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task AddRole(AppRole newRol) =>
-        await Add(newRol);
+    public void AddRole(AppRole newRol) =>
+        _dbContext.Set<AppRole>().Add(newRol);
+
+    public void AddUserRole(AppRoleLoginDetail newUserRole) =>
+        _dbContext.Set<AppRoleLoginDetail>().Add(newUserRole);
 
     public async Task<List<AppRole>> GetAllAsync(CancellationToken cancellationToken = default) =>
         await _dbContext

@@ -4,7 +4,9 @@ namespace CMSSERVICE.DOMAIN.Repositories;
 
 public interface IRolePermissionRepository
 {
-    Task AddRolePermission(AppRolePermission newRolPermission);
+    void AddRolePermission(AppRolePermission newRolPermission);
+
+    Task<List<AppRolePermission>> GetAllAsync(CancellationToken cancellationToken = default);
 
     Task<AppRolePermission?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
 }

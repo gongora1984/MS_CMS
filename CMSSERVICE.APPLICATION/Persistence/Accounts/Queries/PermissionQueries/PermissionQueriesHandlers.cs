@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using CMSSERVICE.DOMAIN.Contracts.Responses.AppPermissions;
-using CMSSERVICE.DOMAIN.Repositories;
 
 namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Queries.PermissionQueries;
 
@@ -171,6 +170,61 @@ internal sealed class GetPermissionByNameQueryHandler : IQueryHandler<GetPermiss
         }
 
         var rtn = _mapper.Map<PermissionResponse>(permissions);
+
+        return rtn;
+    }
+}
+
+/// <summary>
+/// Get list of all role-permissions.
+/// </summary>
+internal sealed class GetAllRolePermissionQueryHandler : IQueryHandler<GetAllRolePermissionQuery, AllRolePermissionResponse>
+{
+    private readonly IRolePermissionRepository _rolepermissionRepository;
+    private readonly IMapper _mapper;
+
+    public GetAllRolePermissionQueryHandler(IRolePermissionRepository rolepermissionRepository, IMapper mapper)
+    {
+        _rolepermissionRepository = rolepermissionRepository;
+        _mapper = mapper;
+    }
+
+    public async Task<Result<AllRolePermissionResponse>> Handle(GetAllRolePermissionQuery request, CancellationToken cancellationToken)
+    {
+        var permissions = await _rolepermissionRepository.GetAllAsync();
+
+        var rtn = _mapper.Map<AllRolePermissionResponse>(permissions);
+
+        return rtn;
+    }
+}
+
+/// <summary>
+/// Get Role Permission By Id Query Handler.
+/// </summary>
+internal sealed class GetRolePermissionByIdQueryHandler : IQueryHandler<GetRolePermissionByIdQuery, RolePermissionResponse>
+{
+    private readonly IRolePermissionRepository _rolepermissionRepository;
+    private readonly IMapper _mapper;
+
+    public GetRolePermissionByIdQueryHandler(IRolePermissionRepository rolepermissionRepository, IMapper mapper)
+    {
+        _rolepermissionRepository = rolepermissionRepository;
+        _mapper = mapper;
+    }
+
+    public async Task<Result<RolePermissionResponse>> Handle(GetRolePermissionByIdQuery request, CancellationToken cancellationToken)
+    {
+        var role = await _rolepermissionRepository.GetByIdAsync(request.id);
+
+        if (role is null)
+        {
+            return Result.Failure<RolePermissionResponse>(new Error(
+                "AppRolePermission.Id",
+                $"RolePermission with Id {request.id} was not found"));
+        }
+
+        var rtn = _mapper.Map<RolePermissionResponse>(role);
 
         return rtn;
     }

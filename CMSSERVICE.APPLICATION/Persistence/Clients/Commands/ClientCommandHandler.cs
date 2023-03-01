@@ -28,7 +28,7 @@ internal sealed class ClientCommandHandler : ICommandHandler<RegisterClientComma
         {
             var newClient = _mapper.Map<Client>(request.client);
 
-            await _clientRepository.AddClient(newClient);
+            _clientRepository.AddClient(newClient);
 
             await _unitOfWork.SaveChangesAsync();
 

@@ -15,6 +15,10 @@ public static class DomainErrors
         public static readonly Error InvalidCredentials = new(
             "LoginDetail.LoginPwd",
             "The provided credentials are invalid");
+
+        public static readonly Error NotFound = new(
+            "LoginDetail.LoginDetailId",
+            "The provided user id was not found.");
     }
 
     public static class RoleError
@@ -26,6 +30,10 @@ public static class DomainErrors
         public static readonly Error RoleNameInUse = new(
             "AppRole.Name",
             "The specified role name is already in use");
+
+        public static readonly Error RoleMissing = new(
+            "AppRole.Name",
+            "Roles were missing.");
     }
 
     public static class PermissionError

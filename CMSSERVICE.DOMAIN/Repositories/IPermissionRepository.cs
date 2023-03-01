@@ -4,7 +4,7 @@ namespace CMSSERVICE.DOMAIN.Repositories;
 
 public interface IPermissionRepository
 {
-    Task AddPermission(AppPermission newPermission);
+    void AddPermission(AppPermission newPermission);
 
     Task<List<AppPermission>> GetAllAsync(CancellationToken cancellationToken = default);
 
@@ -14,5 +14,5 @@ public interface IPermissionRepository
 
     Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default);
 
-    Task UpdatePermission(AppPermission existingPermission);
+    void UpdatePermission(AppPermission existingPermission);
 }

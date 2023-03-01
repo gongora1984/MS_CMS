@@ -26,3 +26,12 @@ internal class RegisterRolePermissionCommandValidator : AbstractValidator<Regist
         RuleFor(x => x.rolepermission.appRoleId).NotNull().WithMessage("Role Id is required").GreaterThan(0).WithMessage("Permission Id should be greater than 0.");
     }
 }
+
+internal class RegisterUserRoleCommandValidator : AbstractValidator<RegisterUserRoleCommand>
+{
+    public RegisterUserRoleCommandValidator()
+    {
+        RuleFor(x => x.userRoleRequest.loginDetailId).NotNull().WithMessage("User Id is required").GreaterThan(0).WithMessage("User Id should be greater than 0.");
+        RuleFor(x => x.userRoleRequest.roles).Must(x => x == null || x.Any()).WithMessage("Roles are required.");
+    }
+}

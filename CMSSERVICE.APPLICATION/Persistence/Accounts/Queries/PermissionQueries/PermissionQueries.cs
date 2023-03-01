@@ -13,3 +13,7 @@ public record GetAllPermissionQuery : IQuery<AllPermissionResponse>;
 public record GetPermissionByIdQuery(int id) : IQuery<PermissionResponse>;
 
 public record GetPermissionByNameQuery(string name) : IQuery<PermissionResponse>;
+
+public record GetAllRolePermissionQuery : IQuery<AllRolePermissionResponse>;
+
+public record GetRolePermissionByIdQuery(int id) : IQuery<RolePermissionResponse>;

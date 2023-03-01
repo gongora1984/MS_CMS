@@ -12,7 +12,7 @@ public interface ILawPracticeRepository
 
     Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default);
 
-    Task AddLawPractice(LawPractice newLawPractice);
+    void AddLawPractice(LawPractice newLawPractice);
 
-    Task UpdateLawPractice(LawPractice existingLawPractice);
+    void UpdateLawPractice(LawPractice existingLawPractice);
 }

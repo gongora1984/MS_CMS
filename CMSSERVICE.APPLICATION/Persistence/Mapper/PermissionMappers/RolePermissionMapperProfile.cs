@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using CMSSERVICE.DOMAIN.Contracts.Requests;
 using CMSSERVICE.DOMAIN.Contracts.Responses.AppPermissions;
-using CMSSERVICE.DOMAIN.Entities;
 
 namespace CMSSERVICE.APPLICATION.Persistence.Mapper.PermissionMappers;
 
@@ -13,9 +12,9 @@ public class RolePermissionMapperProfile : Profile
 
         CreateMap<AppRolePermission, RolePermissionRequest>().ReverseMap();
 
-        CreateMap<AppRolePermission, AllPermissionResponse>().ReverseMap();
+        CreateMap<AppRolePermission, AllRolePermissionResponse>().ReverseMap();
 
-        CreateMap<List<AppRolePermission>, AllPermissionResponse>()
+        CreateMap<List<AppRolePermission>, AllRolePermissionResponse>()
             .ForMember(
                 dest => dest.Items,
                 src => src.MapFrom(s => s.Select(

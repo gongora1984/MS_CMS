@@ -4,18 +4,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 
-internal sealed class LocalCounselRepository : GenericRepository<LocalCounsel>, ILocalCounselRepository
+internal sealed class LocalCounselRepository : ILocalCounselRepository
 {
     private readonly ApplicationDbContext _dbContext;
 
     public LocalCounselRepository(ApplicationDbContext dbContext)
-        : base(dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task AddLocalCounsel(LocalCounsel newLocalCounsel) =>
-        await Add(newLocalCounsel);
+    public void AddLocalCounsel(LocalCounsel newLocalCounsel) =>
+        _dbContext.Set<LocalCounsel>().Add(newLocalCounsel);
 
     public async Task<List<LocalCounsel>> GetAllAsync(CancellationToken cancellationToken = default) =>
         await _dbContext
@@ -37,6 +36,6 @@ internal sealed class LocalCounselRepository : GenericRepository<LocalCounsel>, 
     .Set<LocalCounsel>()
             .AnyAsync(lc => lc.LccompanyName == name, cancellationToken);
 
-    public async Task UpdateLocalCounsel(LocalCounsel existingLocalCounsel) =>
-        await Update(existingLocalCounsel);
+    public void UpdateLocalCounsel(LocalCounsel existingLocalCounsel) =>
+        _dbContext.Set<LocalCounsel>().Update(existingLocalCounsel);
 }

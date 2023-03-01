@@ -4,18 +4,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 
-internal sealed class LawPracticeRepository : GenericRepository<LawPractice>, ILawPracticeRepository
+internal sealed class LawPracticeRepository : ILawPracticeRepository
 {
     private readonly ApplicationDbContext _dbContext;
 
     public LawPracticeRepository(ApplicationDbContext dbContext)
-        : base(dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task AddLawPractice(LawPractice newLawPractice) =>
-        await Add(newLawPractice);
+    public void AddLawPractice(LawPractice newLawPractice) =>
+        _dbContext.Set<LawPractice>().Add(newLawPractice);
 
     public async Task<List<LawPractice>> GetAllAsync(CancellationToken cancellationToken = default) =>
         await _dbContext
@@ -37,6 +36,6 @@ internal sealed class LawPracticeRepository : GenericRepository<LawPractice>, IL
     .Set<LawPractice>()
             .AnyAsync(lp => lp.PracticeName == name, cancellationToken);
 
-    public async Task UpdateLawPractice(LawPractice existingLawPractice) =>
-        await Update(existingLawPractice);
+    public void UpdateLawPractice(LawPractice existingLawPractice) =>
+        _dbContext.Set<LawPractice>().Update(existingLawPractice);
 }

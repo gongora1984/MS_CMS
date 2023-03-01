@@ -4,17 +4,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 
-internal sealed class RolePermissionRepository : GenericRepository<AppRolePermission>, IRolePermissionRepository
+internal sealed class RolePermissionRepository : IRolePermissionRepository
 {
     private readonly ApplicationDbContext _dbContext;
     public RolePermissionRepository(ApplicationDbContext dbContext)
-        : base(dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task AddRolePermission(AppRolePermission newRolPermission) =>
-        await Add(newRolPermission);
+    public void AddRolePermission(AppRolePermission newRolPermission) =>
+        _dbContext.Set<AppRolePermission>().Add(newRolPermission);
+
+    public async Task<List<AppRolePermission>> GetAllAsync(CancellationToken cancellationToken = default) =>
+        await _dbContext
+            .Set<AppRolePermission>()
+            .ToListAsync(cancellationToken);
 
     public async Task<AppRolePermission?> GetByIdAsync(int id, CancellationToken cancellationToken = default) =>
         await _dbContext

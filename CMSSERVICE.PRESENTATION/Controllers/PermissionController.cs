@@ -58,7 +58,7 @@ public sealed class PermissionController : ApiController
         return Ok(result.Value);
     }
 
-    [HttpPost("CreateRolePermission", Name = "Create RolePermission")]
+    [HttpPost("CreateRolePermission", Name = "Create Role Permission")]
     [ProducesResponseType(typeof(RolePermissionResponse), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [HasPermission("Admin")]
@@ -69,6 +69,26 @@ public sealed class PermissionController : ApiController
         var command = new RegisterRolePermissionCommand(request);
 
         Result<RolePermissionResponse> result = await Sender.Send(command, cancellationToken);
+
+        if (result.IsFailure)
+        {
+            return HandleFailure(result);
+        }
+
+        return Ok(result.Value);
+    }
+
+    [HttpPost("CreateUserRole", Name = "Create User Role")]
+    [ProducesResponseType(typeof(IEnumerable<UserRoleResponse>), StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [HasPermission("Admin")]
+    public async Task<IActionResult> CreateRolePermission(
+            [FromBody] UserRoleRequest request,
+            CancellationToken cancellationToken)
+    {
+        var command = new RegisterUserRoleCommand(request);
+
+        Result<IEnumerable<UserRoleResponse>> result = await Sender.Send(command, cancellationToken);
 
         if (result.IsFailure)
         {
@@ -93,13 +113,26 @@ public sealed class PermissionController : ApiController
 
     [AllowAnonymous]
     [HttpGet("AllPermissions", Name = "All Permissions")]
-    [ProducesResponseType(typeof(AllPermissionResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(RolePermissionResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetAllPermissions(CancellationToken cancellationToken)
     {
         var command = new GetAllPermissionQuery();
 
         Result<AllPermissionResponse> result = await Sender.Send(command, cancellationToken);
+
+        return Ok(result.Value);
+    }
+
+    [AllowAnonymous]
+    [HttpGet("AllRolePermission", Name = "All Roles Permission")]
+    [ProducesResponseType(typeof(AllRolePermissionResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> GetAllRolePermission(CancellationToken cancellationToken)
+    {
+        var command = new GetAllRolePermissionQuery();
+
+        Result<AllRolePermissionResponse> result = await Sender.Send(command, cancellationToken);
 
         return Ok(result.Value);
     }
@@ -126,6 +159,19 @@ public sealed class PermissionController : ApiController
         var command = new GetPermissionByIdQuery(id);
 
         Result<PermissionResponse> response = await Sender.Send(command, cancellationToken);
+
+        return response.IsSuccess ? Ok(response.Value) : NotFound(response.Error);
+    }
+
+    [AllowAnonymous]
+    [HttpGet("RolePermissionById/{id:int}", Name = "Role Permission By Id")]
+    [ProducesResponseType(typeof(RolePermissionResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> GetRolePermissionById(int id, CancellationToken cancellationToken)
+    {
+        var command = new GetRolePermissionByIdQuery(id);
+
+        Result<RolePermissionResponse> response = await Sender.Send(command, cancellationToken);
 
         return response.IsSuccess ? Ok(response.Value) : NotFound(response.Error);
     }

@@ -4,18 +4,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 
-internal sealed class ClientRepository : GenericRepository<Client>, IClientRepository
+internal sealed class ClientRepository : IClientRepository
 {
     private readonly ApplicationDbContext _dbContext;
 
     public ClientRepository(ApplicationDbContext dbContext)
-        : base(dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task AddClient(Client newClient) =>
-        await Add(newClient);
+    public void AddClient(Client newClient) =>
+        _dbContext.Set<Client>().Add(newClient);
 
     public async Task<List<Client>> GetAllAsync(CancellationToken cancellationToken = default) =>
         await _dbContext
@@ -32,8 +31,8 @@ internal sealed class ClientRepository : GenericRepository<Client>, IClientRepos
             .Set<Client>()
             .FirstOrDefaultAsync(client => client.Id == id, cancellationToken);
 
-    public async Task UpdateClient(Client existingClient) =>
-        await Update(existingClient);
+    public void UpdateClient(Client existingClient) =>
+        _dbContext.Set<Client>().Update(existingClient);
 
     public async Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default) =>
     !await _dbContext

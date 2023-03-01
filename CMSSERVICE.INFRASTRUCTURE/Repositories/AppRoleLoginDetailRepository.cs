@@ -3,15 +3,14 @@ using CMSSERVICE.DOMAIN.Repositories;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 
-internal sealed class AppRoleLoginDetailRepository : GenericRepository<AppRoleLoginDetail>, IAppRoleLoginDetailRepository
+internal sealed class AppRoleLoginDetailRepository : IAppRoleLoginDetailRepository
 {
     private readonly ApplicationDbContext _dbContext;
     public AppRoleLoginDetailRepository(ApplicationDbContext dbContext)
-        : base(dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task AddUserRole(AppRoleLoginDetail newUserRol) =>
-        await Add(newUserRol);
+    public void AddUserRole(AppRoleLoginDetail newUserRol) =>
+        _dbContext.Set<AppRoleLoginDetail>().Add(newUserRol);
 }

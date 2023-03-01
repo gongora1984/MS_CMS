@@ -33,7 +33,7 @@ internal sealed class LocalCounselCommandHandler : ICommandHandler<RegisterLocal
                 newLc.LccountyId = null;
             }
 
-            await _localCounselRepository.AddLocalCounsel(newLc);
+            _localCounselRepository.AddLocalCounsel(newLc);
 
             await _unitOfWork.SaveChangesAsync();
 

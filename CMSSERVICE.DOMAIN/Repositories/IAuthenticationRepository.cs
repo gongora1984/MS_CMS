@@ -16,9 +16,9 @@ public interface IAuthenticationRepository
 
     Task<bool> IsValidCredentialAsync(string email, string password, CancellationToken cancellationToken = default);
 
-    Task AddUser(LoginDetail newUser);
+    void AddUser(LoginDetail newUser);
 
     Task AddUserWithRoles(LoginDetail newUser, AppRole? userRole, CancellationToken cancellationToken = default);
 
-    Task UpdateUser(LoginDetail existingUser);
+    void UpdateUser(LoginDetail existingUser);
 }

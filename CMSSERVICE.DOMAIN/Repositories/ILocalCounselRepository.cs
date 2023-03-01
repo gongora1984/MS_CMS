@@ -12,7 +12,7 @@ public interface ILocalCounselRepository
 
     Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default);
 
-    Task AddLocalCounsel(LocalCounsel newLocalCounsel);
+    void AddLocalCounsel(LocalCounsel newLocalCounsel);
 
-    Task UpdateLocalCounsel(LocalCounsel existingLocalCounsel);
+    void UpdateLocalCounsel(LocalCounsel existingLocalCounsel);
 }

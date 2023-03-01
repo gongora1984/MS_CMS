@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CMSSERVICE.INFRASTRUCTURE.Repositories;
 
-internal sealed class AuthenticationRepository : GenericRepository<LoginDetail>, IAuthenticationRepository
+internal sealed class AuthenticationRepository : IAuthenticationRepository
 {
     private readonly ApplicationDbContext _dbContext;
     private readonly IRoleRepository _roleRepository;
@@ -16,7 +16,6 @@ internal sealed class AuthenticationRepository : GenericRepository<LoginDetail>,
         IRoleRepository roleRepository,
         IAppRoleLoginDetailRepository appRoleLoginDetailRepository,
         IUnitOfWork unitOfWork)
-        : base(dbContext)
     {
         _dbContext = dbContext;
         _roleRepository = roleRepository;
@@ -24,8 +23,8 @@ internal sealed class AuthenticationRepository : GenericRepository<LoginDetail>,
         _unitOfWork = unitOfWork;
     }
 
-    public async Task AddUser(LoginDetail newUser) =>
-        await Add(newUser);
+    public void AddUser(LoginDetail newUser) =>
+         _dbContext.Set<LoginDetail>().Add(newUser);
 
     public async Task AddUserWithRoles(LoginDetail newUser, AppRole? userRole, CancellationToken cancellationToken = default)
     {
@@ -33,7 +32,7 @@ internal sealed class AuthenticationRepository : GenericRepository<LoginDetail>,
         {
             try
             {
-                await AddUser(newUser);
+                AddUser(newUser);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
 
                 if (userRole != null)
@@ -44,7 +43,7 @@ internal sealed class AuthenticationRepository : GenericRepository<LoginDetail>,
                         LoginDetailId = newUser.Id
                     };
 
-                    await _appRoleLoginDetailRepository.AddUserRole(newUserRole);
+                    _appRoleLoginDetailRepository.AddUserRole(newUserRole);
 
                     await _unitOfWork.SaveChangesAsync(cancellationToken);
 
@@ -92,6 +91,6 @@ internal sealed class AuthenticationRepository : GenericRepository<LoginDetail>,
             .Set<LoginDetail>()
             .AnyAsync(login => login.LoginId == email && login.LoginPwd == password, cancellationToken);
 
-    public async Task UpdateUser(LoginDetail existingUser) =>
-        await Update(existingUser);
+    public void UpdateUser(LoginDetail existingUser) =>
+        _dbContext.Set<LoginDetail>().Update(existingUser);
 }

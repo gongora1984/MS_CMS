@@ -33,7 +33,7 @@ internal sealed class LawPracticeCommandHandler : ICommandHandler<RegisterLawPra
                 newLp.ClientId = null;
             }
 
-            await _lawPracticeRepository.AddLawPractice(newLp);
+            _lawPracticeRepository.AddLawPractice(newLp);
 
             await _unitOfWork.SaveChangesAsync();
 

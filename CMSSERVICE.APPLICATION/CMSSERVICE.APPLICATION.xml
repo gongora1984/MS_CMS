@@ -14,6 +14,26 @@
             Login Command Handler Jwt.
             </summary>
         </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.PermissionCommands.RegisterPermissionCommandHandler">
+            <summary>
+            Register Permission Command Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.PermissionCommands.RegisterRoleCommandHandler">
+            <summary>
+            Register Role Command Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.PermissionCommands.RegisterRolePermissionCommandHandler">
+            <summary>
+            Register Role Permission Command Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.PermissionCommands.RegisterUserRoleCommandHandler">
+            <summary>
+            Register User-Role Command Handler.
+            </summary>
+        </member>
         <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationCommands.RegisterAdminUserCommandHandler">
             <summary>
             Register Client User Command Handler.
@@ -77,6 +97,16 @@
         <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Queries.PermissionQueries.GetPermissionByNameQueryHandler">
             <summary>
             Get Permission By Name Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Queries.PermissionQueries.GetAllRolePermissionQueryHandler">
+            <summary>
+            Get list of all role-permissions.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.Accounts.Queries.PermissionQueries.GetRolePermissionByIdQueryHandler">
+            <summary>
+            Get Role Permission By Id Query Handler.
             </summary>
         </member>
         <member name="T:CMSSERVICE.APPLICATION.Persistence.Clients.Queries.GetAllClientQueryHandler">

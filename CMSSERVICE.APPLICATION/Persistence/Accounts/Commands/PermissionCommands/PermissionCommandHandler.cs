@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
-using CMSSERVICE.DOMAIN.Abstractions;
 using CMSSERVICE.DOMAIN.Contracts.Responses.AppPermissions;
-using CMSSERVICE.DOMAIN.Entities;
-using CMSSERVICE.DOMAIN.Repositories;
-using static CMSSERVICE.DOMAIN.Errors.DomainErrors;
 
 namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.PermissionCommands;
 
+/// <summary>
+/// Register Permission Command Handler.
+/// </summary>
 internal sealed class RegisterPermissionCommandHandler : ICommandHandler<RegisterPermissionCommand, PermissionResponse>
 {
     private readonly IPermissionRepository _permissionRepository;
@@ -32,7 +31,7 @@ internal sealed class RegisterPermissionCommandHandler : ICommandHandler<Registe
         {
             var newPermission = _mapper.Map<AppPermission>(request.permission);
 
-            await _permissionRepository.AddPermission(newPermission);
+            _permissionRepository.AddPermission(newPermission);
 
             await _unitOfWork.SaveChangesAsync();
 
@@ -45,6 +44,9 @@ internal sealed class RegisterPermissionCommandHandler : ICommandHandler<Registe
     }
 }
 
+/// <summary>
+/// Register Role Command Handler.
+/// </summary>
 internal sealed class RegisterRoleCommandHandler : ICommandHandler<RegisterRoleCommand, RoleResponse>
 {
     private readonly IRoleRepository _roleRepository;
@@ -70,7 +72,7 @@ internal sealed class RegisterRoleCommandHandler : ICommandHandler<RegisterRoleC
         {
             var newPermission = _mapper.Map<AppRole>(request.role);
 
-            await _roleRepository.AddRole(newPermission);
+            _roleRepository.AddRole(newPermission);
 
             await _unitOfWork.SaveChangesAsync();
 
@@ -83,6 +85,9 @@ internal sealed class RegisterRoleCommandHandler : ICommandHandler<RegisterRoleC
     }
 }
 
+/// <summary>
+/// Register Role Permission Command Handler.
+/// </summary>
 internal sealed class RegisterRolePermissionCommandHandler : ICommandHandler<RegisterRolePermissionCommand, RolePermissionResponse>
 {
     private readonly IPermissionRepository _permissionRepository;
@@ -118,7 +123,7 @@ internal sealed class RegisterRolePermissionCommandHandler : ICommandHandler<Reg
         {
             var newPermission = _mapper.Map<AppRolePermission>(request.rolepermission);
 
-            await _rolePermissionRepository.AddRolePermission(newPermission);
+            _rolePermissionRepository.AddRolePermission(newPermission);
 
             await _unitOfWork.SaveChangesAsync();
 
@@ -127,6 +132,71 @@ internal sealed class RegisterRolePermissionCommandHandler : ICommandHandler<Reg
         catch (Exception ex)
         {
             return Result.Failure<RolePermissionResponse>(new Error("Internal Error", ex.Message));
+        }
+    }
+}
+
+/// <summary>
+/// Register User-Role Command Handler.
+/// </summary>
+internal sealed class RegisterUserRoleCommandHandler : ICommandHandler<RegisterUserRoleCommand, IEnumerable<UserRoleResponse>>
+{
+    private readonly IAuthenticationRepository _authenticationRepository;
+    private readonly IRoleRepository _roleRepository;
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
+
+    public RegisterUserRoleCommandHandler(IAuthenticationRepository authenticationRepository, IMapper mapper, IUnitOfWork unitOfWork, IRoleRepository roleRepository)
+    {
+        _authenticationRepository = authenticationRepository;
+        _mapper = mapper;
+        _unitOfWork = unitOfWork;
+        _roleRepository = roleRepository;
+    }
+
+    public async Task<Result<IEnumerable<UserRoleResponse>>> Handle(RegisterUserRoleCommand request, CancellationToken cancellationToken)
+    {
+        try
+        {
+            var rtn = new List<UserRoleResponse>();
+            var userData = await _authenticationRepository.GetByIdAsync(request.userRoleRequest.loginDetailId, cancellationToken);
+            if (userData is null)
+            {
+                return Result.Failure<IEnumerable<UserRoleResponse>>(
+                    LoginError.NotFound);
+            }
+
+            var roles = request.userRoleRequest.roles;
+
+            if (!roles.Any())
+            {
+                return Result.Failure<IEnumerable<UserRoleResponse>>(
+                                RoleError.RoleMissing);
+            }
+
+            foreach (var role in roles)
+            {
+                var roleData = await _roleRepository.GetByNameAsync(role.name, cancellationToken);
+
+                if (roleData != null)
+                {
+                    var newUserRole = new AppRoleLoginDetail
+                    {
+                        LoginDetailId = userData.Id,
+                        AppRoleId = roleData.Id
+                    };
+
+                    _roleRepository.AddUserRole(newUserRole);
+                    await _unitOfWork.SaveChangesAsync();
+                    rtn.Add(_mapper.Map<UserRoleResponse>(newUserRole));
+                }
+            }
+
+            return rtn;
+        }
+        catch (Exception ex)
+        {
+            return Result.Failure<IEnumerable<UserRoleResponse>>(new Error("Internal Error", ex.Message));
         }
     }
 }

@@ -12,7 +12,7 @@ public interface IClientRepository
 
     Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default);
 
-    Task AddClient(Client newClient);
+    void AddClient(Client newClient);
 
-    Task UpdateClient(Client existingClient);
+    void UpdateClient(Client existingClient);
 }
