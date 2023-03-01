@@ -45,6 +45,10 @@ public static class DomainErrors
         public static readonly Error PermissionNameInUse = new(
             "AppPermission.Name",
             "The specified permission name is already in use");
+
+        public static readonly Error PermissionMissing = new(
+            "AppPermission.Name",
+            "Permissions were missing.");
     }
 
     public static class RegistrationError

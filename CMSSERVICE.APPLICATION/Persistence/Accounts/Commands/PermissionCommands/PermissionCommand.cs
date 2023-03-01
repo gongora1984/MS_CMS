@@ -5,5 +5,5 @@ namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.PermissionCommand
 
 public record RegisterPermissionCommand(PermissionRequest permission) : ICommand<PermissionResponse>;
 public record RegisterRoleCommand(RoleRequest role) : ICommand<RoleResponse>;
-public record RegisterRolePermissionCommand(RolePermissionRequest rolepermission) : ICommand<RolePermissionResponse>;
+public record RegisterRolePermissionCommand(RolePermissionRequest rolepermission) : ICommand<IEnumerable<RolePermissionResponse>>;
 public record RegisterUserRoleCommand(UserRoleRequest userRoleRequest) : ICommand<IEnumerable<UserRoleResponse>>;

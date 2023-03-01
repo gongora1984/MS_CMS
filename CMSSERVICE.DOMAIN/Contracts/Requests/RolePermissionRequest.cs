@@ -1,3 +1,3 @@
 ﻿namespace CMSSERVICE.DOMAIN.Contracts.Requests;
 
-public record RolePermissionRequest(int appPermissionId, int appRoleId);
+public record RolePermissionRequest(IEnumerable<PermissionRequest> permissions, int appRoleId);

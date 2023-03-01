@@ -88,7 +88,7 @@ internal sealed class RegisterRoleCommandHandler : ICommandHandler<RegisterRoleC
 /// <summary>
 /// Register Role Permission Command Handler.
 /// </summary>
-internal sealed class RegisterRolePermissionCommandHandler : ICommandHandler<RegisterRolePermissionCommand, RolePermissionResponse>
+internal sealed class RegisterRolePermissionCommandHandler : ICommandHandler<RegisterRolePermissionCommand, IEnumerable<RolePermissionResponse>>
 {
     private readonly IPermissionRepository _permissionRepository;
     private readonly IRoleRepository _roleRepository;
@@ -105,33 +105,53 @@ internal sealed class RegisterRolePermissionCommandHandler : ICommandHandler<Reg
         _rolePermissionRepository = rolePermissionRepository;
     }
 
-    public async Task<Result<RolePermissionResponse>> Handle(RegisterRolePermissionCommand request, CancellationToken cancellationToken)
+    public async Task<Result<IEnumerable<RolePermissionResponse>>> Handle(RegisterRolePermissionCommand request, CancellationToken cancellationToken)
     {
-        if (await _permissionRepository.GetByIdAsync(request.rolepermission.appPermissionId, cancellationToken) is null)
+        var rtn = new List<RolePermissionResponse>();
+
+        var roleData = await _roleRepository.GetByIdAsync(request.rolepermission.appRoleId, cancellationToken);
+
+        if (roleData is null)
         {
-            return Result.Failure<RolePermissionResponse>(
-                PermissionError.PermissionNotFound);
+            return Result.Failure<IEnumerable<RolePermissionResponse>>(
+                RoleError.RoleNotFound);
         }
 
-        if (await _roleRepository.GetByIdAsync(request.rolepermission.appRoleId, cancellationToken) is null)
+        var permissions = request.rolepermission.permissions;
+
+        if (!permissions.Any())
         {
-            return Result.Failure<RolePermissionResponse>(
-                RoleError.RoleNotFound);
+            return Result.Failure<IEnumerable<RolePermissionResponse>>(
+                            PermissionError.PermissionMissing);
         }
 
         try
         {
-            var newPermission = _mapper.Map<AppRolePermission>(request.rolepermission);
+            foreach (var permission in permissions)
+            {
+                var permissionData = await _permissionRepository.GetByNameAsync(permission.name);
 
-            _rolePermissionRepository.AddRolePermission(newPermission);
+                if (permissionData != null)
+                {
+                    var newPermission = new AppRolePermission
+                    {
+                        AppRoleId = roleData.Id,
+                        AppPermissionId = permissionData.Id
+                    };
 
-            await _unitOfWork.SaveChangesAsync();
+                    _rolePermissionRepository.AddRolePermission(newPermission);
 
-            return _mapper.Map<RolePermissionResponse>(newPermission);
+                    await _unitOfWork.SaveChangesAsync();
+
+                    rtn.Add(_mapper.Map<RolePermissionResponse>(newPermission));
+                }
+            }
+
+            return rtn;
         }
         catch (Exception ex)
         {
-            return Result.Failure<RolePermissionResponse>(new Error("Internal Error", ex.Message));
+            return Result.Failure<IEnumerable<RolePermissionResponse>>(new Error("Internal Error", ex.Message));
         }
     }
 }

@@ -59,7 +59,7 @@ public sealed class PermissionController : ApiController
     }
 
     [HttpPost("CreateRolePermission", Name = "Create Role Permission")]
-    [ProducesResponseType(typeof(RolePermissionResponse), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(IEnumerable<RolePermissionResponse>), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [HasPermission("Admin")]
     public async Task<IActionResult> CreateRolePermission(
@@ -68,7 +68,7 @@ public sealed class PermissionController : ApiController
     {
         var command = new RegisterRolePermissionCommand(request);
 
-        Result<RolePermissionResponse> result = await Sender.Send(command, cancellationToken);
+        Result<IEnumerable<RolePermissionResponse>> result = await Sender.Send(command, cancellationToken);
 
         if (result.IsFailure)
         {
