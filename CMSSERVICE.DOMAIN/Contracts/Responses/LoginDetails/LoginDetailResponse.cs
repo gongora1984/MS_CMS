@@ -12,7 +12,7 @@ public class LoginDetailResponse
     public string? City { get; set; }
     public string? State { get; set; }
     public string? Zip { get; set; }
-    public bool IsLocked { get; set; }
+    public bool? IsLocked { get; set; }
     public bool? CanAccessMenu { get; set; }
     public bool? CanAccessReports { get; set; }
     public bool IsClientAdmin { get; set; }

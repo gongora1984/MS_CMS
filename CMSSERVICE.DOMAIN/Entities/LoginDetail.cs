@@ -59,7 +59,7 @@ public partial class LoginDetail : Entity, IAuditableEntity
     public int PendingAttemptCount { get; set; }
     public DateTime? LockedAt { get; set; }
     public string? BarNumber { get; set; }
-    public bool IsLocked { get; set; }
+    public bool? IsLocked { get; set; }
     public bool? CanAccessMenu { get; set; }
     public bool? CanAccessReports { get; set; }
     public bool IsClientAdmin { get; set; }

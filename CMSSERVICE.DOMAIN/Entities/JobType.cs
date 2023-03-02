@@ -16,14 +16,13 @@
         public string JobName { get; set; } = null!;
         public int JobDepartmentId { get; set; }
         public string? JobIconLocation { get; set; }
-        public int JobTemplateId { get; set; }
-        public string JobState { get; set; } = null!;
-        public string JobDataTable { get; set; } = null!;
-        public string JobPkfield { get; set; } = null!;
-        public string JobClientRefField { get; set; } = null!;
+        public string? JobState { get; set; }
+        public string? JobDataTable { get; set; }
+        public string? JobPkfield { get; set; }
+        public string? JobClientRefField { get; set; }
         public string JobSysCode { get; set; } = null!;
         public bool? IsMasterJob { get; set; }
-        public string JobTemplateLocation { get; set; } = null!;
+        public string? JobTemplateLocation { get; set; }
         public bool? IsClientStart { get; set; }
         public bool? IsLawPracticeStart { get; set; }
         public bool? IsLocalCounselStart { get; set; }

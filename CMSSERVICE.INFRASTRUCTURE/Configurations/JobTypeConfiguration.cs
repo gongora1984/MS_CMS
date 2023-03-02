@@ -32,6 +32,7 @@ internal sealed class JobTypeConfiguration : IEntityTypeConfiguration<JobType>
             .HasDefaultValueSql("((1))");
 
         entity.Property(e => e.IsLocalCounselStart)
+            .IsRequired()
             .HasColumnName("isLocalCounselStart")
             .HasDefaultValueSql("((0))");
 
