@@ -109,6 +109,41 @@
             Get Role Permission By Id Query Handler.
             </summary>
         </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseCounties.Queries.GetAllCaseCountyQueryHandler">
+            <summary>
+            Get list of all case county.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseCounties.Queries.GetCaseCountyByIdQueryHandler">
+            <summary>
+            Get Case County By Id Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseCounties.Queries.GetCaseCountyByNameQueryHandler">
+            <summary>
+            Get Case County By Name Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseStates.Queries.GetAllCaseStateQueryHandler">
+            <summary>
+            Get list of all case states.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseStates.Queries.GetCaseStateByIdQueryHandler">
+            <summary>
+            Get Case State By Id Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseStates.Queries.GetCaseStateByNameQueryHandler">
+            <summary>
+            Get Case State By Name Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseStates.Queries.GetCaseStateByAbbrevQueryHandler">
+            <summary>
+            Get Case State By Abbreviation Query Handler.
+            </summary>
+        </member>
         <member name="T:CMSSERVICE.APPLICATION.Persistence.Clients.Queries.GetAllClientQueryHandler">
             <summary>
             Get list of all clients.

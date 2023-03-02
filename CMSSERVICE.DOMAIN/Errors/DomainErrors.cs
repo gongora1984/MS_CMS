@@ -110,6 +110,28 @@ public static class DomainErrors
             $"The list item with the identifier {id} was not found.");
     }
 
+    public static class CaseStateError
+    {
+        public static readonly Error CaseStateNameInUse = new(
+            "CaseState.StateName",
+            "The specified state name is already in use");
+
+        public static readonly Error CaseStateAbbrevInUse = new(
+            "CaseState.StateName",
+            "The specified state abbreviation is already in use");
+    }
+
+    public static class CaseCountyError
+    {
+        public static readonly Error CaseStateId = new(
+            "CaseState.CaseStateId",
+            "State not found.");
+
+        public static readonly Error CaseCountyNameInUse = new(
+            "CaseState.StateName",
+            "The specified county name is already in use");
+    }
+
     public static class State
     {
         public static readonly Func<Guid, Error> NotFound = id => new Error(

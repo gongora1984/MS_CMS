@@ -1,4 +1,10 @@
-﻿global using CMSSERVICE.DOMAIN.Shared;
+﻿global using CMSSERVICE.DOMAIN.Contracts.Requests;
+global using CMSSERVICE.DOMAIN.Contracts.Responses.Common;
+global using CMSSERVICE.DOMAIN.Shared;
+global using CMSSERVICE.INFRASTRUCTURE.Authentication;
+global using CMSSERVICE.PRESENTATION.Abstractions;
 global using MediatR;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.AspNetCore.Authorization;
 global using Microsoft.AspNetCore.Http;
 global using Microsoft.AspNetCore.Mvc;
