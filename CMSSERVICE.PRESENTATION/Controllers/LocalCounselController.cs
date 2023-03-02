@@ -52,7 +52,7 @@ public sealed class LocalCounselController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("LocalCounselById/{id:int}", Name = "Local Counsel By Id")]
+    [HttpGet("LocalCounselById", Name = "Local Counsel By Id")]
     [ProducesResponseType(typeof(LocalCounselResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetLocalCounselById(int id, CancellationToken cancellationToken)
@@ -65,7 +65,7 @@ public sealed class LocalCounselController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("LocalCounselByName/{name}", Name = "Local Counsel By Name")]
+    [HttpGet("LocalCounselByName", Name = "Local Counsel By Name")]
     [ProducesResponseType(typeof(LocalCounselResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetLocalCounselByName(string name, CancellationToken cancellationToken)

@@ -52,7 +52,7 @@ public sealed class LawPracticeController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("LawPracticeById/{id:int}", Name = "Law Practice By Id")]
+    [HttpGet("LawPracticeById", Name = "Law Practice By Id")]
     [ProducesResponseType(typeof(LawPracticeResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetLawPracticeById(int id, CancellationToken cancellationToken)
@@ -65,7 +65,7 @@ public sealed class LawPracticeController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("LawPracticeByName/{name}", Name = "Law Practice By Name")]
+    [HttpGet("LawPracticeByName", Name = "Law Practice By Name")]
     [ProducesResponseType(typeof(LawPracticeResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetLawPracticeByName(string name, CancellationToken cancellationToken)

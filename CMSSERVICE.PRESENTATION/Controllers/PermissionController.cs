@@ -138,7 +138,7 @@ public sealed class PermissionController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("RoleById/{id:int}", Name = "Role By Id")]
+    [HttpGet("RoleById", Name = "Role By Id")]
     [ProducesResponseType(typeof(RoleResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetPermissionById(int id, CancellationToken cancellationToken)
@@ -151,7 +151,7 @@ public sealed class PermissionController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("PermissionById/{id:int}", Name = "Permission By Id")]
+    [HttpGet("PermissionById", Name = "Permission By Id")]
     [ProducesResponseType(typeof(PermissionResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetRoleById(int id, CancellationToken cancellationToken)
@@ -164,7 +164,7 @@ public sealed class PermissionController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("RolePermissionById/{id:int}", Name = "Role Permission By Id")]
+    [HttpGet("RolePermissionById", Name = "Role Permission By Id")]
     [ProducesResponseType(typeof(RolePermissionResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetRolePermissionById(int id, CancellationToken cancellationToken)
@@ -177,7 +177,7 @@ public sealed class PermissionController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("RoleByName/{name}", Name = "Role By Name")]
+    [HttpGet("RoleByName", Name = "Role By Name")]
     [ProducesResponseType(typeof(RoleResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetRoleByName(string name, CancellationToken cancellationToken)
@@ -190,7 +190,7 @@ public sealed class PermissionController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("PermissionByName/{name}", Name = "Permission By Name")]
+    [HttpGet("PermissionByName", Name = "Permission By Name")]
     [ProducesResponseType(typeof(PermissionResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetPermissionByName(string name, CancellationToken cancellationToken)

@@ -91,7 +91,7 @@ public static class DomainErrors
             "The specified local counsel name is already in use");
     }
 
-    public static class ListItem
+    public static class ListItemError
     {
         public static readonly Error SystemCategoryInUse = new(
             "ListItem.SystemCategory",

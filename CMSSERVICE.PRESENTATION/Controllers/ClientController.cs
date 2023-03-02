@@ -52,7 +52,7 @@ public sealed class ClientController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("ClientById/{id:int}", Name = "Client By Id")]
+    [HttpGet("ClientById", Name = "Client By Id")]
     [ProducesResponseType(typeof(ClientResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetClientById(int id, CancellationToken cancellationToken)
@@ -65,7 +65,7 @@ public sealed class ClientController : ApiController
     }
 
     [AllowAnonymous]
-    [HttpGet("ClientByName/{name}", Name = "Client By Name")]
+    [HttpGet("ClientByName", Name = "Client By Name")]
     [ProducesResponseType(typeof(ClientResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetClientByName(string name, CancellationToken cancellationToken)

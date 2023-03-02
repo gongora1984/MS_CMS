@@ -139,6 +139,36 @@
             Get LP By Name Query Handler.
             </summary>
         </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.ListItems.Queries.GetAllListItemQueryHandler">
+            <summary>
+            Get list of all List Items.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.ListItems.Queries.GetListItemByIdQueryHandler">
+            <summary>
+            Get list of all List Items by Id.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.ListItems.Queries.GetListItemByCategoryQueryHandler">
+            <summary>
+            Get list of all List Items by Category.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.ListItems.Queries.GetListItemByTagQueryHandler">
+            <summary>
+            Get list of all List Items by Tag.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.ListItems.Queries.GetListItemBySystemCategoryTagQueryHandler">
+            <summary>
+            Get list of all List Items by Category/Tag.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.ListItems.Queries.GetListItemBySystemCategoryTagDisplayTextQueryHandler">
+            <summary>
+            Get list of all List Items by Category/Tag/Text.
+            </summary>
+        </member>
         <member name="T:CMSSERVICE.APPLICATION.Persistence.LocalCounsels.Queries.GetAllLocalCounselQueryHandler">
             <summary>
             Get list of all LC.
