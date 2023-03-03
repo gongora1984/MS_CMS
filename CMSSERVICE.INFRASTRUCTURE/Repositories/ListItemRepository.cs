@@ -56,4 +56,11 @@ internal sealed class ListItemRepository : IListItemRepository
 
     public void UpdateListItem(ListItem existingListItem) =>
         _dbContext.Set<ListItem>().Update(existingListItem);
+
+    public async Task<int> GetListOrderAsync(string sysCategory, string sysTag, CancellationToken cancellationToken = default)
+    {
+        var items = await GetBySystemCategoryTagAsync(sysCategory, sysTag, cancellationToken);
+
+        return (items != null && items.Any()) ? items.Max(x => x.ListOrder) : 0;
+    }
 }

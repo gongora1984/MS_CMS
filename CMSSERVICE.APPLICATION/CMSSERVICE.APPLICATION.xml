@@ -159,6 +159,26 @@
             Get Client By Name Query Handler.
             </summary>
         </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.JobTypes.Queries.GetAllJobTypeQueryHandler">
+            <summary>
+            Get list of all JT.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.JobTypes.Queries.GetJobTypeByIdQueryHandler">
+            <summary>
+            Get JT By Id Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.JobTypes.Queries.GetJobTypeByNameQueryHandler">
+            <summary>
+            Get JT By Name Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.JobTypes.Queries.GetJobTypeBySysCodeQueryHandler">
+            <summary>
+            Get JT By Name Query Handler.
+            </summary>
+        </member>
         <member name="T:CMSSERVICE.APPLICATION.Persistence.LawPractices.Queries.GetAllLawPracticeQueryHandler">
             <summary>
             Get list of all LP.

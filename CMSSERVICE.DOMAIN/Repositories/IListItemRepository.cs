@@ -20,5 +20,7 @@ public interface IListItemRepository
 
     Task<bool> IsNameUniqueAsync(string sysCategory, string sysTag, string displayText, CancellationToken cancellationToken = default);
 
+    Task<int> GetListOrderAsync(string sysCategory, string sysTag, CancellationToken cancellationToken = default);
+
     void UpdateListItem(ListItem existingListItem);
 }

@@ -132,6 +132,21 @@ public static class DomainErrors
             "The specified county name is already in use");
     }
 
+    public static class JobTypeError
+    {
+        public static readonly Error JobTypeId = new(
+            "JobType.JobTypeId",
+            "Job Type not found.");
+
+        public static readonly Error JobTypeNameInUse = new(
+            "JobType.JobName",
+            "The specified job type name is already in use");
+
+        public static readonly Error JobTypeDeparmentId = new(
+            "JobType.JobDepartmentId",
+            "Job Department not found.");
+    }
+
     public static class State
     {
         public static readonly Func<Guid, Error> NotFound = id => new Error(

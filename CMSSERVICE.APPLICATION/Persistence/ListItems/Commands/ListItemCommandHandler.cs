@@ -37,6 +37,9 @@ internal sealed class RegisterListItemCommandHandler : ICommandHandler<RegisterL
                 newLi.LawPracticeId = null;
             }
 
+            var listOrder = await _listItemRepository.GetListOrderAsync(request.li.SystemCategory, request.li.SystemTag, cancellationToken);
+            newLi.ListOrder = listOrder == 0 ? 1 : listOrder + 1;
+
             _listItemRepository.AddListItem(newLi);
 
             await _unitOfWork.SaveChangesAsync();
