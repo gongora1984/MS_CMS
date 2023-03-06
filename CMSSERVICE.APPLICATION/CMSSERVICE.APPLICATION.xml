@@ -124,6 +124,31 @@
             Get Case County By Name Query Handler.
             </summary>
         </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseDistricts.Queries.GetCaseDistrictByIdQueryHandler">
+            <summary>
+            Get Case District By Id Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseDistricts.Queries.GetAllCaseDistrictQueryHandler">
+            <summary>
+            Get list of all case districts.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseDistricts.Queries.GetAllCaseDistrictInStateQueryHandler">
+            <summary>
+            Get all districts by state Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseDistricts.Queries.GetAllCaseDistrictByNameQueryHandler">
+            <summary>
+            Get all districts by name Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseDistricts.Queries.GetCaseDistrictByNameInStateQueryHandler">
+            <summary>
+            Get case district by name and state Query Handler.
+            </summary>
+        </member>
         <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseStates.Queries.GetAllCaseStateQueryHandler">
             <summary>
             Get list of all case states.
