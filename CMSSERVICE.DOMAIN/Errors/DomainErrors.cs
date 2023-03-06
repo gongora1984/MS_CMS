@@ -112,6 +112,10 @@ public static class DomainErrors
 
     public static class CaseStateError
     {
+        public static readonly Error CaseStateById = new(
+            "CaseState.CaseStateId",
+            "State not found.");
+
         public static readonly Error CaseStateNameInUse = new(
             "CaseState.StateName",
             "The specified state name is already in use");
@@ -123,13 +127,24 @@ public static class DomainErrors
 
     public static class CaseCountyError
     {
-        public static readonly Error CaseStateId = new(
+        public static readonly Error CaseStateById = new(
             "CaseState.CaseStateId",
             "State not found.");
 
         public static readonly Error CaseCountyNameInUse = new(
             "CaseState.StateName",
             "The specified county name is already in use");
+    }
+
+    public static class CaseDistrictError
+    {
+        public static readonly Error CaseDistrictIdById = new(
+            "CaseDistrict.CaseDistrictId",
+            "District not found.");
+
+        public static readonly Error CaseDistrictNameByStateInUse = new(
+            "CaseDistrict.DistrictName",
+            "The specified district name on the specified state is already in use");
     }
 
     public static class JobTypeError

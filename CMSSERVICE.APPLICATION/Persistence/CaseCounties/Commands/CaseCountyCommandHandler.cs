@@ -29,7 +29,7 @@ internal sealed class RegisterCaseCountyCommandHandler : ICommandHandler<Registe
         if (await _caseStateRepository.GetByIdAsync(request.caseCounty.CaseStateId, cancellationToken) is null)
         {
             return Result.Failure<CaseCountyResponse>(
-                CaseCountyError.CaseStateId);
+                CaseCountyError.CaseStateById);
         }
 
         try
