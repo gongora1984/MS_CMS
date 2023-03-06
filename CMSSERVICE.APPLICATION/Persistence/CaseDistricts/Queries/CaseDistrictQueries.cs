@@ -1,4 +1,4 @@
-﻿using CMSSERVICE.DOMAIN.Contracts.Responses.CaseDistricts;
+﻿using CMSSERVICE.DOMAIN.Contracts.Responses.Common;
 
 namespace CMSSERVICE.APPLICATION.Persistence.CaseDistricts.Queries;
 

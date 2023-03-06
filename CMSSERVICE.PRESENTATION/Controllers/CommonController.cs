@@ -6,7 +6,6 @@ using CMSSERVICE.APPLICATION.Persistence.CaseStates.Commands;
 using CMSSERVICE.APPLICATION.Persistence.CaseStates.Queries;
 using CMSSERVICE.APPLICATION.Persistence.JobTypes.Commands;
 using CMSSERVICE.APPLICATION.Persistence.JobTypes.Queries;
-using CMSSERVICE.DOMAIN.Contracts.Responses.CaseDistricts;
 using CMSSERVICE.DOMAIN.Contracts.Responses.JobTypes;
 
 namespace CMSSERVICE.PRESENTATION.Controllers;

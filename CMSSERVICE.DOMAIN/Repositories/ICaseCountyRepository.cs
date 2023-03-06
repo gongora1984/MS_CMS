@@ -13,4 +13,6 @@ public interface ICaseCountyRepository
     Task<CaseCounty?> GetByNameAsync(string name, CancellationToken cancellationToken = default);
 
     Task<bool> IsNameUniqueAsync(string name, CancellationToken cancellationToken = default);
+
+    void UpdateCaseCounty(CaseCounty existingCaseCounty);
 }

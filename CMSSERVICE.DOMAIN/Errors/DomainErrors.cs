@@ -105,9 +105,9 @@ public static class DomainErrors
             "ListItem.SystemCategory, ListItem.SystemTag, ListItem.ListItemDisplayText",
             "The specified category, tag and display text is already in use");
 
-        public static readonly Func<Guid, Error> NotFound = id => new Error(
-            "ListItem.Id",
-            $"The list item with the identifier {id} was not found.");
+        public static readonly Error ListItemById = new(
+            "ListItem.ListItemId",
+            "State not found.");
     }
 
     public static class CaseStateError
@@ -127,6 +127,10 @@ public static class DomainErrors
 
     public static class CaseCountyError
     {
+        public static readonly Error CountyById = new(
+            "CaseCounty.CaseCountyId",
+            "County not found.");
+
         public static readonly Error CaseStateById = new(
             "CaseState.CaseStateId",
             "State not found.");
@@ -138,13 +142,24 @@ public static class DomainErrors
 
     public static class CaseDistrictError
     {
-        public static readonly Error CaseDistrictIdById = new(
+        public static readonly Error CaseDistrictById = new(
             "CaseDistrict.CaseDistrictId",
             "District not found.");
 
         public static readonly Error CaseDistrictNameByStateInUse = new(
             "CaseDistrict.DistrictName",
-            "The specified district name on the specified state is already in use");
+            "The specified district name for the specified state is already in use");
+    }
+
+    public static class CaseCourtError
+    {
+        public static readonly Error CaseCourtById = new(
+            "CaseDistrict.CaseDistrictId",
+            "District not found.");
+
+        public static readonly Error CaseCourtInUse = new(
+            "CaseCourt.CourtName",
+            "The specified court name for the specified county, district and court type is already in use");
     }
 
     public static class JobTypeError

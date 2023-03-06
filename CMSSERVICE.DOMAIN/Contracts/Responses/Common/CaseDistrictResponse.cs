@@ -1,4 +1,4 @@
-﻿namespace CMSSERVICE.DOMAIN.Contracts.Responses.CaseDistricts;
+﻿namespace CMSSERVICE.DOMAIN.Contracts.Responses.Common;
 
 public class CaseDistrictResponse
 {

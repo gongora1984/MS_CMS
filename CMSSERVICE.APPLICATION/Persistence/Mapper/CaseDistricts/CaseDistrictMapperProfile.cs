@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using CMSSERVICE.DOMAIN.Contracts.Requests;
-using CMSSERVICE.DOMAIN.Contracts.Responses.CaseDistricts;
+using CMSSERVICE.DOMAIN.Contracts.Responses.Common;
 
 namespace CMSSERVICE.APPLICATION.Persistence.Mapper.CaseDistricts;
 
