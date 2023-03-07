@@ -36,22 +36,20 @@ internal sealed class RegisterCaseCourtCommandHandler : ICommandHandler<Register
                 CaseCountyError.CountyById);
         }
 
-        if (request.caseCourt.CaseDistrictId is not null && request.caseCourt.CaseDistrictId > 0)
+        if (request.caseCourt.CaseDistrictId is not null
+            && request.caseCourt.CaseDistrictId > 0
+            && await _caseDistrictRepository.GetByIdAsync(Convert.ToInt32(request.caseCourt.CaseDistrictId), cancellationToken) is null)
         {
-            if (await _caseDistrictRepository.GetByIdAsync(Convert.ToInt32(request.caseCourt.CaseDistrictId), cancellationToken) is null)
-            {
-                return Result.Failure<CaseCourtResponse>(
+            return Result.Failure<CaseCourtResponse>(
                     CaseDistrictError.CaseDistrictById);
-            }
         }
 
-        if (request.caseCourt.CourtTypeLid is not null && request.caseCourt.CourtTypeLid > 0)
+        if (request.caseCourt.CourtTypeLid is not null
+            && request.caseCourt.CourtTypeLid > 0
+            && await _listItemRepository.GetByIdAsync(Convert.ToInt32(request.caseCourt.CourtTypeLid), cancellationToken) is null)
         {
-            if (await _listItemRepository.GetByIdAsync(Convert.ToInt32(request.caseCourt.CourtTypeLid), cancellationToken) is null)
-            {
-                return Result.Failure<CaseCourtResponse>(
+            return Result.Failure<CaseCourtResponse>(
                     ListItemError.ListItemById);
-            }
         }
 
         if (!await _caseCourtRepository.IsNameUniqueAsync(

@@ -8,6 +8,8 @@ public interface ICaseCourtRepository
 
     Task<List<CaseCourt>> GetAllAsync(CancellationToken cancellationToken = default);
 
+    Task<CaseCourt?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+
     Task<List<CaseCourt>> GetAllByTypeAsync(int courtTypeLid, CancellationToken cancellationToken = default);
 
     Task<List<CaseCourt>> GetAllByCountyAsync(int countyId, CancellationToken cancellationToken = default);

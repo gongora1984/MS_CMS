@@ -21,6 +21,11 @@ internal sealed class CaseCourtRepository : ICaseCourtRepository
             .Set<CaseCourt>()
             .ToListAsync(cancellationToken);
 
+    public async Task<CaseCourt?> GetByIdAsync(int id, CancellationToken cancellationToken = default) =>
+        await _dbContext
+            .Set<CaseCourt>()
+            .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+
     public async Task<List<CaseCourt>> GetAllByCountyAsync(int countyId, CancellationToken cancellationToken = default) =>
         await _dbContext
             .Set<CaseCourt>()
@@ -46,13 +51,13 @@ internal sealed class CaseCourtRepository : ICaseCourtRepository
             .ToListAsync(cancellationToken);
 
     public async Task<bool> IsNameUniqueAsync(int caseCountyId, int caseDistrictId, int courtTypeLid, string name, CancellationToken cancellationToken = default) =>
-    !await _dbContext
-    .Set<CaseCourt>()
-            .AnyAsync(
-                court => court.CaseCountyId == caseCountyId
-            && court.CaseDistrictId == caseDistrictId
-            && court.CourtTypeLid == courtTypeLid
-            && court.CourtName == name, cancellationToken);
+        !await _dbContext
+        .Set<CaseCourt>()
+                .AnyAsync(
+                    court => court.CaseCountyId == caseCountyId
+                && (caseDistrictId > 0 ? court.CaseDistrictId == caseDistrictId : court.CaseDistrictId == null)
+                && (courtTypeLid > 0 ? court.CourtTypeLid == courtTypeLid : court.CourtTypeLid == null)
+                && court.CourtName == name, cancellationToken);
 
     public void UpdateCaseCourt(CaseCourt existingCaseCourt) =>
         _dbContext.Set<CaseCourt>().Update(existingCaseCourt);

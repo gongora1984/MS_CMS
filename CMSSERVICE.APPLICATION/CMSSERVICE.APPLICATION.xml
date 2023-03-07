@@ -124,6 +124,36 @@
             Get Case County By Name Query Handler.
             </summary>
         </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseCourts.Queries.GetAllCaseCourtQueryHandler">
+            <summary>
+            Get list of all case courts.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseCourts.Queries.GetCaseCourtByIdQueryHandler">
+            <summary>
+            Get Case Court By Id Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseCourts.Queries.GetAllCaseCourtByCountyQueryHandler">
+            <summary>
+            Get list of all case courts by county.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseCourts.Queries.GetAllCaseCourtByDistrictQueryHandler">
+            <summary>
+            Get list of all case courts by district.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseCourts.Queries.GetAllCaseCourtByNameQueryHandler">
+            <summary>
+            Get list of all case courts by name.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseCourts.Queries.GetAllCaseCourtByTypeQueryHandler">
+            <summary>
+            Get list of all case courts by court type.
+            </summary>
+        </member>
         <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseDistricts.Queries.GetCaseDistrictByIdQueryHandler">
             <summary>
             Get Case District By Id Query Handler.
