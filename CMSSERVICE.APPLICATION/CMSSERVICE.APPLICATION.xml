@@ -179,6 +179,36 @@
             Get case district by name and state Query Handler.
             </summary>
         </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseJudges.Queries.GetCaseJudgeByIdHandler">
+            <summary>
+            Get Case Judge By Id Query Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseJudges.Queries.GetByNameCourtIdHandler">
+            <summary>
+            Get By Name and CourtId Handler.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseJudges.Queries.GetAllJudgeQueryHandler">
+            <summary>
+            Get list of all case judges.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseJudges.Queries.GetAllJudgeByNameQueryHandler">
+            <summary>
+            Get list of all case judges by name.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseJudges.Queries.GetAllJudgeByCourtNameQueryHandler">
+            <summary>
+            Get list of all case judges by court name.
+            </summary>
+        </member>
+        <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseJudges.Queries.GetAllJudgeByCourtIdQueryHandler">
+            <summary>
+            Get list of all case judges by court id.
+            </summary>
+        </member>
         <member name="T:CMSSERVICE.APPLICATION.Persistence.CaseStates.Queries.GetAllCaseStateQueryHandler">
             <summary>
             Get list of all case states.

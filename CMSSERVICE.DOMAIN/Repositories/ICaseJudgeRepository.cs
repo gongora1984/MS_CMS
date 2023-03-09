@@ -14,6 +14,10 @@ public interface ICaseJudgeRepository
 
     Task<List<CaseJudge>> GetByCourtNameAsync(string courtName, CancellationToken cancellationToken = default);
 
+    Task<List<CaseJudge>> GetByCourtIdAsync(int caseCourtId, CancellationToken cancellationToken = default);
+
+    Task<CaseJudge?> GetByNameCourtIdAsync(string name, int caseCourtId, CancellationToken cancellationToken = default);
+
     Task<bool> IsNameUniqueAsync(string name, int caseCourtId, CancellationToken cancellationToken = default);
 
     void UpdateCaseJudge(CaseJudge existingCaseJudge);

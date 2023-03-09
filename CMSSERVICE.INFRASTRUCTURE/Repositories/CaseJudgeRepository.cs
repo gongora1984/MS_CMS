@@ -21,6 +21,12 @@ internal sealed class CaseJudgeRepository : ICaseJudgeRepository
             .Set<CaseJudge>()
             .ToListAsync(cancellationToken);
 
+    public async Task<List<CaseJudge>> GetByCourtIdAsync(int caseCourtId, CancellationToken cancellationToken = default) =>
+        await _dbContext
+            .Set<CaseJudge>()
+            .Where(x => x.CaseCourtId == caseCourtId)
+            .ToListAsync(cancellationToken);
+
     public async Task<List<CaseJudge>> GetByCourtNameAsync(string courtName, CancellationToken cancellationToken = default) =>
         await _dbContext
             .Set<CaseJudge>()
@@ -37,6 +43,11 @@ internal sealed class CaseJudgeRepository : ICaseJudgeRepository
             .Set<CaseJudge>()
             .Where(x => x.JudgeName == name)
             .ToListAsync(cancellationToken);
+
+    public async Task<CaseJudge?> GetByNameCourtIdAsync(string name, int caseCourtId, CancellationToken cancellationToken = default) =>
+        await _dbContext
+            .Set<CaseJudge>()
+            .FirstOrDefaultAsync(x => x.JudgeName == name && x.CaseCourtId == caseCourtId, cancellationToken);
 
     public async Task<bool> IsNameUniqueAsync(string name, int caseCourtId, CancellationToken cancellationToken = default) =>
     !await _dbContext

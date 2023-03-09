@@ -154,12 +154,23 @@ public static class DomainErrors
     public static class CaseCourtError
     {
         public static readonly Error CaseCourtById = new(
-            "CaseDistrict.CaseDistrictId",
-            "District not found.");
+            "CaseCourt.CaseCourtId",
+            "Court not found.");
 
         public static readonly Error CaseCourtInUse = new(
             "CaseCourt.CourtName",
             "The specified court name for the specified county, district and court type is already in use");
+    }
+
+    public static class CaseJudgeError
+    {
+        public static readonly Error CaseJudgeById = new(
+            "CaseJudge.CaseJudgeId",
+            "Judge not found.");
+
+        public static readonly Error CaseJudgeInUse = new(
+            "CaseJudge.JudgeName",
+            "The specified judge name for the specified court is already in use");
     }
 
     public static class JobTypeError
