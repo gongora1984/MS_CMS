@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
-using CMSSERVICE.DOMAIN.Abstractions;
 using CMSSERVICE.DOMAIN.Contracts.Responses.Authentication;
 using CMSSERVICE.DOMAIN.Contracts.Responses.LoginDetails;
-using CMSSERVICE.DOMAIN.Entities;
-using CMSSERVICE.DOMAIN.Repositories;
-using static CMSSERVICE.DOMAIN.Errors.DomainErrors;
 
 namespace CMSSERVICE.APPLICATION.Persistence.Accounts.Commands.RegistrationCommands;
 
@@ -121,7 +117,7 @@ internal sealed class RegisterClientUserCommandHandler : ICommandHandler<Registe
 
             if (clientInfo == null)
             {
-                return Result.Failure<RegistrationResponse>(ClientError.InvalidClientId);
+                return Result.Failure<RegistrationResponse>(ClientError.NotFound(request.newClientUser.clientId));
             }
 
             await _authenticationRepository.AddUserWithRoles(newUser, userRole);
@@ -192,7 +188,7 @@ internal sealed class RegisterLPUserCommandHandler : ICommandHandler<RegisterLPU
 
         if (lpInfo == null)
         {
-            return Result.Failure<RegistrationResponse>(LawPracticeError.InvalidLawPracticeId);
+            return Result.Failure<RegistrationResponse>(LawPracticeError.NotFound(request.newLPUser.lawPracticeId));
         }
 
         await _authenticationRepository.AddUserWithRoles(newUser, userRole);
@@ -258,7 +254,7 @@ internal sealed class RegisterLCUserCommandHandler : ICommandHandler<RegisterLCU
 
         if (lcInfo == null)
         {
-            return Result.Failure<RegistrationResponse>(LocalCounselError.InvalidLocalCounselId);
+            return Result.Failure<RegistrationResponse>(LocalCounselError.NotFound(request.newLCUser.localCounselId));
         }
 
         await _authenticationRepository.AddUserWithRoles(newUser, userRole);

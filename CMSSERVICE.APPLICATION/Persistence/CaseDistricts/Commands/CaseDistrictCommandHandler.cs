@@ -23,7 +23,7 @@ internal sealed class RegisterCaseDistrictCommandHandler : ICommandHandler<Regis
         if (await _caseStateRepository.GetByIdAsync(request.caseDistrict.CaseStateId, cancellationToken) is null)
         {
             return Result.Failure<CaseDistrictResponse>(
-                CaseStateError.CaseStateById);
+                CaseStateError.NotFound(request.caseDistrict.CaseStateId));
         }
 
         if (!await _caseDistrictRepository.IsNameUniqueInStateAsync(request.caseDistrict.DistrictName, request.caseDistrict.CaseStateId, cancellationToken))

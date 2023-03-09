@@ -33,7 +33,7 @@ internal sealed class RegisterCaseCourtCommandHandler : ICommandHandler<Register
         if (await _caseCountyRepository.GetByIdAsync(request.caseCourt.CaseCountyId, cancellationToken) is null)
         {
             return Result.Failure<CaseCourtResponse>(
-                CaseCountyError.CountyById);
+                CaseCountyError.NotFound(request.caseCourt.CaseCountyId));
         }
 
         if (request.caseCourt.CaseDistrictId is not null
@@ -41,7 +41,7 @@ internal sealed class RegisterCaseCourtCommandHandler : ICommandHandler<Register
             && await _caseDistrictRepository.GetByIdAsync(Convert.ToInt32(request.caseCourt.CaseDistrictId), cancellationToken) is null)
         {
             return Result.Failure<CaseCourtResponse>(
-                    CaseDistrictError.CaseDistrictById);
+                    CaseDistrictError.NotFound(Convert.ToInt32(request.caseCourt.CaseDistrictId)));
         }
 
         if (request.caseCourt.CourtTypeLid is not null
@@ -49,7 +49,7 @@ internal sealed class RegisterCaseCourtCommandHandler : ICommandHandler<Register
             && await _listItemRepository.GetByIdAsync(Convert.ToInt32(request.caseCourt.CourtTypeLid), cancellationToken) is null)
         {
             return Result.Failure<CaseCourtResponse>(
-                    ListItemError.ListItemById);
+                    CaseCourtError.CourtTypeNotFound(Convert.ToInt32(request.caseCourt.CourtTypeLid)));
         }
 
         if (!await _caseCourtRepository.IsNameUniqueAsync(

@@ -23,9 +23,9 @@ public static class DomainErrors
 
     public static class RoleError
     {
-        public static readonly Error RoleNotFound = new(
-            "AppRole.Id",
-            "Role not found.");
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "AppRole.NotFound",
+            $"The role with the identifier {id} was not found.");
 
         public static readonly Error RoleNameInUse = new(
             "AppRole.Name",
@@ -38,9 +38,9 @@ public static class DomainErrors
 
     public static class PermissionError
     {
-        public static readonly Error PermissionNotFound = new(
-            "AppPermission.Id",
-            "Permission not found.");
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "AppPermission.NotFound",
+            $"The permission with the identifier {id} was not found.");
 
         public static readonly Error PermissionNameInUse = new(
             "AppPermission.Name",
@@ -60,9 +60,9 @@ public static class DomainErrors
 
     public static class ClientError
     {
-        public static readonly Error InvalidClientId = new(
-            "Client.ClientId",
-            "Client not found.");
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "Client.NotFound",
+            $"The client with the identifier {id} was not found.");
 
         public static readonly Error ClientNameInUse = new(
             "Client.ClientName",
@@ -71,9 +71,9 @@ public static class DomainErrors
 
     public static class LawPracticeError
     {
-        public static readonly Error InvalidLawPracticeId = new(
-            "LawPractice.LawPracticeId",
-            "Law Practice not found.");
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "LawPractice.NotFound",
+            $"The law practice with the identifier {id} was not found.");
 
         public static readonly Error LawPracticeNameInUse = new(
             "LawPractice.PracticeName",
@@ -82,9 +82,9 @@ public static class DomainErrors
 
     public static class LocalCounselError
     {
-        public static readonly Error InvalidLocalCounselId = new(
-            "LocalCounsel.LocalCounselId",
-            "Local Counsel not found.");
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "LocalCounsel.NotFound",
+            $"The local counsel with the identifier {id} was not found.");
 
         public static readonly Error LocalCounselNameInUse = new(
             "LocalCounsel.LCName",
@@ -93,6 +93,10 @@ public static class DomainErrors
 
     public static class ListItemError
     {
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "ListItem.NotFound",
+            $"The list item with the identifier {id} was not found.");
+
         public static readonly Error SystemCategoryInUse = new(
             "ListItem.SystemCategory",
             "The specified system category is already in use");
@@ -104,17 +108,13 @@ public static class DomainErrors
         public static readonly Error SystemCategoryTagDisplayInUse = new(
             "ListItem.SystemCategory, ListItem.SystemTag, ListItem.ListItemDisplayText",
             "The specified category, tag and display text is already in use");
-
-        public static readonly Error ListItemById = new(
-            "ListItem.ListItemId",
-            "State not found.");
     }
 
     public static class CaseStateError
     {
-        public static readonly Error CaseStateById = new(
-            "CaseState.CaseStateId",
-            "State not found.");
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "CaseState.NotFound",
+            $"The state with the identifier {id} was not found.");
 
         public static readonly Error CaseStateNameInUse = new(
             "CaseState.StateName",
@@ -127,13 +127,9 @@ public static class DomainErrors
 
     public static class CaseCountyError
     {
-        public static readonly Error CountyById = new(
-            "CaseCounty.CaseCountyId",
-            "County not found.");
-
-        public static readonly Error CaseStateById = new(
-            "CaseState.CaseStateId",
-            "State not found.");
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "CaseCounty.NotFound",
+            $"The county with the identifier {id} was not found.");
 
         public static readonly Error CaseCountyNameInUse = new(
             "CaseState.StateName",
@@ -142,9 +138,9 @@ public static class DomainErrors
 
     public static class CaseDistrictError
     {
-        public static readonly Error CaseDistrictById = new(
-            "CaseDistrict.CaseDistrictId",
-            "District not found.");
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "CaseDistrict.NotFound",
+            $"The district with the identifier {id} was not found.");
 
         public static readonly Error CaseDistrictNameByStateInUse = new(
             "CaseDistrict.DistrictName",
@@ -153,20 +149,24 @@ public static class DomainErrors
 
     public static class CaseCourtError
     {
-        public static readonly Error CaseCourtById = new(
-            "CaseCourt.CaseCourtId",
-            "Court not found.");
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "CaseCourt.NotFound",
+            $"The court with the identifier {id} was not found.");
 
         public static readonly Error CaseCourtInUse = new(
             "CaseCourt.CourtName",
             "The specified court name for the specified county, district and court type is already in use");
+
+        public static readonly Func<int, Error> CourtTypeNotFound = id => new Error(
+            "ListItem.ListItemId",
+            $"The court type with the identifier {id} was not found.");
     }
 
     public static class CaseJudgeError
     {
-        public static readonly Error CaseJudgeById = new(
-            "CaseJudge.CaseJudgeId",
-            "Judge not found.");
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "CaseJudge.NotFound",
+            $"The judge with the identifier {id} was not found.");
 
         public static readonly Error CaseJudgeInUse = new(
             "CaseJudge.JudgeName",
@@ -175,9 +175,9 @@ public static class DomainErrors
 
     public static class JobTypeError
     {
-        public static readonly Error JobTypeId = new(
-            "JobType.JobTypeId",
-            "Job Type not found.");
+        public static readonly Func<int, Error> NotFound = id => new Error(
+            "JobType.NotFound",
+            $"The job type with the identifier {id} was not found.");
 
         public static readonly Error JobTypeNameInUse = new(
             "JobType.JobName",
@@ -188,42 +188,42 @@ public static class DomainErrors
             "Job Department not found.");
     }
 
-    public static class State
-    {
-        public static readonly Func<Guid, Error> NotFound = id => new Error(
-            "State.Id",
-            $"The state with the identifier {id} was not found.");
+    ////public static class State
+    ////{
+    ////    public static readonly Func<Guid, Error> NotFound = id => new Error(
+    ////        "State.Id",
+    ////        $"The state with the identifier {id} was not found.");
 
-        public static readonly Func<string, Error> NotFoundByName = name => new Error(
-            "State.StateDescription",
-            $"The state with the name {name} was not found.");
+    ////    public static readonly Func<string, Error> NotFoundByName = name => new Error(
+    ////        "State.StateDescription",
+    ////        $"The state with the name {name} was not found.");
 
-        public static readonly Func<string, Error> NotFoundByNameBilling = name => new Error(
-            "State.StateDescription",
-            $"The billing state with the name {name} was not found.");
+    ////    public static readonly Func<string, Error> NotFoundByNameBilling = name => new Error(
+    ////        "State.StateDescription",
+    ////        $"The billing state with the name {name} was not found.");
 
-        public static readonly Func<string, Error> NotFoundByNameReturn = name => new Error(
-            "State.StateDescription",
-            $"The return state with the name {name} was not found.");
+    ////    public static readonly Func<string, Error> NotFoundByNameReturn = name => new Error(
+    ////        "State.StateDescription",
+    ////        $"The return state with the name {name} was not found.");
 
-        public static readonly Func<string, Error> NotFoundByAbbreviation = name => new Error(
-            "State.StateAbbreviation",
-            $"The state with the abbreviation {name} was not found.");
+    ////    public static readonly Func<string, Error> NotFoundByAbbreviation = name => new Error(
+    ////        "State.StateAbbreviation",
+    ////        $"The state with the abbreviation {name} was not found.");
 
-        public static readonly Func<string, Error> NotFoundByAbbreviationBilling = name => new Error(
-            "State.StateAbbreviation",
-            $"The billing state with the abbreviation {name} was not found.");
+    ////    public static readonly Func<string, Error> NotFoundByAbbreviationBilling = name => new Error(
+    ////        "State.StateAbbreviation",
+    ////        $"The billing state with the abbreviation {name} was not found.");
 
-        public static readonly Func<string, Error> NotFoundByAbbreviationReturn = name => new Error(
-            "State.StateAbbreviation",
-            $"The return state with the abbreviation {name} was not found.");
+    ////    public static readonly Func<string, Error> NotFoundByAbbreviationReturn = name => new Error(
+    ////        "State.StateAbbreviation",
+    ////        $"The return state with the abbreviation {name} was not found.");
 
-        public static readonly Error StateNameInUse = new(
-           "State.StateDescription",
-           "The specified name is already in use");
+    ////    public static readonly Error StateNameInUse = new(
+    ////       "State.StateDescription",
+    ////       "The specified name is already in use");
 
-        public static readonly Error StateAbbreviationInUse = new(
-           "State.StateAbbreviation",
-           "The specified abbreviation is already in use");
-    }
+    ////    public static readonly Error StateAbbreviationInUse = new(
+    ////       "State.StateAbbreviation",
+    ////       "The specified abbreviation is already in use");
+    ////}
 }

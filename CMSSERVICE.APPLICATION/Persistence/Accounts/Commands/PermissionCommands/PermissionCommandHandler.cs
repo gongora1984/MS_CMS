@@ -114,7 +114,7 @@ internal sealed class RegisterRolePermissionCommandHandler : ICommandHandler<Reg
         if (roleData is null)
         {
             return Result.Failure<IEnumerable<RolePermissionResponse>>(
-                RoleError.RoleNotFound);
+                RoleError.NotFound(request.rolepermission.appRoleId));
         }
 
         var permissions = request.rolepermission.permissions;

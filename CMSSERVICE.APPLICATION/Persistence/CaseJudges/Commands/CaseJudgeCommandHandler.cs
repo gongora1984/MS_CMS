@@ -23,7 +23,7 @@ internal sealed class RegisterCaseJudgeCommandHandler : ICommandHandler<Register
         if (await _caseCourtRepository.GetByIdAsync(request.caseJudge.CaseCourtId, cancellationToken) is null)
         {
             return Result.Failure<CaseJudgeResponse>(
-                CaseCourtError.CaseCourtById);
+                CaseCourtError.NotFound(request.caseJudge.CaseCourtId));
         }
 
         if (!await _caseJudgeRepository.IsNameUniqueAsync(request.caseJudge.JudgeName, request.caseJudge.CaseCourtId, cancellationToken))
