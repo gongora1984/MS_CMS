@@ -19,7 +19,7 @@ public class InfrastructureServiceInstaller : IServiceInstaller
 
         //// services.AddSingleton<ConvertDomainEventsToOutboxMessagesInterceptor>();
 
-        services.AddSingleton<UpdateAuditableEntitiesInterceptor>();
+        ////services.AddSingleton<UpdateAuditableEntitiesInterceptor>();
 
         services.AddDbContext<ApplicationDbContext>(
             (sp, optionsBuilder) =>
