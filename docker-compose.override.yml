@@ -8,6 +8,15 @@ services:
     ports:
       - "80"
       - "443"
+      - "49780:443"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  cmssystemdb:
+    container_name: cmssystemdb
+    environment:
+        - ACCEPT_EULA=Y
+        - MSSQL_SA_PASSWORD=0r4cl3HGC
+    restart: always
+    ports:
+        - "8003:1433"

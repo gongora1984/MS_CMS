@@ -8,7 +8,7 @@ services:
     container_name: "CMSSERVICEDB"
     image: mcr.microsoft.com/mssql/server:2022-latest
     ports:
-        - 8002:1433
+        - 8003:1433
     environment:
         - ACCEPT_EULA=Y
         - MSSQL_SA_PASSWORD=0r4cl3HGC
@@ -21,14 +21,14 @@ services:
       context: .
       dockerfile: CMSSERVICE.WEB/Dockerfile
     ports:
-        - 8002:80
+        - 49780:80
     depends_on:
         - cmssystemdb
     environment:
         - DbHost=cmssystemdb
         - DbName=CMSSERVICE
         - DbUser=sa
-        - DbPassword=0r4cl3HGC1
+        - DbPassword=0r4cl3HGC
         - DbMaxRetryCount=2
         - DbCommandTimeOut=10
         - DbEnableDetailedError=false
