@@ -4,13 +4,41 @@
         <name>CMSSERVICE.WEB</name>
     </assembly>
     <members>
-        <member name="M:CMSSERVICE.WEB.AuthSetup.ApiOptionsSetup.Configure(CMSSERVICE.INFRASTRUCTURE.Authentication.ApiOptions)">
+        <member name="M:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.IsDevelopmentEnv(Microsoft.Extensions.Hosting.IHostEnvironment)">
+            <summary>
+            Checks if the current host environment name is <see cref="F:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.Environments.Development"/>.
+            </summary>
+            <param name="hostEnvironment">An instance of <see cref="T:Microsoft.Extensions.Hosting.IHostEnvironment"/>.</param>
+            <returns>True if the environment name is <see cref="F:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.Environments.Development"/>, otherwise false.</returns>
+        </member>
+        <member name="M:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.IsQaEnv(Microsoft.Extensions.Hosting.IHostEnvironment)">
+            <summary>
+            Checks if the current host environment name is <see cref="F:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.Environments.Qa"/>.
+            </summary>
+            <param name="hostEnvironment">An instance of <see cref="T:Microsoft.Extensions.Hosting.IHostEnvironment"/>.</param>
+            <returns>True if the environment name is <see cref="F:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.Environments.Qa"/>, otherwise false.</returns>
+        </member>
+        <member name="M:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.IsUatEnv(Microsoft.Extensions.Hosting.IHostEnvironment)">
+            <summary>
+            Checks if the current host environment name is <see cref="F:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.Environments.Uat"/>.
+            </summary>
+            <param name="hostEnvironment">An instance of <see cref="T:Microsoft.Extensions.Hosting.IHostEnvironment"/>.</param>
+            <returns>True if the environment name is <see cref="F:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.Environments.Uat"/>, otherwise false.</returns>
+        </member>
+        <member name="M:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.IsProductionEnv(Microsoft.Extensions.Hosting.IHostEnvironment)">
+            <summary>
+            Checks if the current host environment name is <see cref="F:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.Environments.Production"/>.
+            </summary>
+            <param name="hostEnvironment">An instance of <see cref="T:Microsoft.Extensions.Hosting.IHostEnvironment"/>.</param>
+            <returns>True if the environment name is <see cref="F:CMSSERVICE.WEB.Extensions.HostEnvironmentEnvAppExtensions.Environments.Production"/>, otherwise false.</returns>
+        </member>
+        <member name="M:CMSSERVICE.WEB.OptionsConfigurationSetup.ApiOptionsSetup.Configure(CMSSERVICE.INFRASTRUCTURE.OptionsConfiguration.ApiOptions)">
             <summary>
             Bind Api configuration from application configuration  file.
             </summary>
             <param name="options"></param>
         </member>
-        <member name="M:CMSSERVICE.WEB.AuthSetup.JwtOptionsSetup.Configure(CMSSERVICE.INFRASTRUCTURE.Authentication.JwtOptions)">
+        <member name="M:CMSSERVICE.WEB.OptionsConfigurationSetup.JwtOptionsSetup.Configure(CMSSERVICE.INFRASTRUCTURE.OptionsConfiguration.JwtOptions)">
             <summary>
             Bind Jwt Configuration Section.
             </summary>

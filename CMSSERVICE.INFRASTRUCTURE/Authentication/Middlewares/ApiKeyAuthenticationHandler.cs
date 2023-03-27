@@ -1,4 +1,5 @@
 ﻿using CMSSERVICE.DOMAIN.Entities;
+using CMSSERVICE.INFRASTRUCTURE.OptionsConfiguration;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

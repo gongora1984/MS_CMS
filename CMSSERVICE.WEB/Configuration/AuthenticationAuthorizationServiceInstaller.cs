@@ -1,5 +1,5 @@
 ﻿using CMSSERVICE.INFRASTRUCTURE.Authentication.Middlewares;
-using CMSSERVICE.WEB.AuthSetup;
+using CMSSERVICE.WEB.OptionsConfigurationSetup;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -15,6 +15,8 @@ public class AuthenticationAuthorizationServiceInstaller : IServiceInstaller
 
         services.ConfigureOptions<ApiOptionsSetup>();
         services.ConfigureOptions<ApiBearerOptionsSetup>();
+
+        services.ConfigureOptions<DatabaseOptionsSetup>();
 
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer()

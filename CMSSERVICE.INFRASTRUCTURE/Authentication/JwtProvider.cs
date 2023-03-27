@@ -1,4 +1,5 @@
 ﻿using CMSSERVICE.DOMAIN.Entities;
+using CMSSERVICE.INFRASTRUCTURE.OptionsConfiguration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

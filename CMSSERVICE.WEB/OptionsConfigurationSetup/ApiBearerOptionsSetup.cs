@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using CMSSERVICE.INFRASTRUCTURE.OptionsConfiguration;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
 
-namespace CMSSERVICE.WEB.AuthSetup;
+namespace CMSSERVICE.WEB.OptionsConfigurationSetup;
 
 public class ApiBearerOptionsSetup : IPostConfigureOptions<AuthenticationSchemeOptions>
 {

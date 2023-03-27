@@ -1,0 +1,38 @@
+version: '3.4'
+
+networks:
+  cmssystemnet:
+
+services:
+  cmssystemdb:
+    container_name: "CMSSERVICEDB"
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+        - 8002:1433
+    environment:
+        - ACCEPT_EULA=Y
+        - MSSQL_SA_PASSWORD=0r4cl3HGC
+    networks:
+        - cmssystemnet
+  cmsservice.web:
+    container_name: "CmsSystem"
+    image: ${DOCKER_REGISTRY-}cmsserviceweb
+    build:
+      context: .
+      dockerfile: CMSSERVICE.WEB/Dockerfile
+    ports:
+        - 8002:80
+    depends_on:
+        - cmssystemdb
+    environment:
+        - DbHost=cmssystemdb
+        - DbName=CMSSERVICE
+        - DbUser=sa
+        - DbPassword=0r4cl3HGC1
+        - DbMaxRetryCount=2
+        - DbCommandTimeOut=10
+        - DbEnableDetailedError=false
+        - DbEnableSensitiveDataLogging=false
+        - DbTrustServerCertificate=true
+    networks:
+        - cmssystemnet

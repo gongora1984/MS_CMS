@@ -17,11 +17,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:CMSSERVICE.INFRASTRUCTURE.Authentication.JwtOptions">
-            <summary>
-            Jwt Options Class.
-            </summary>
-        </member>
         <member name="M:CMSSERVICE.INFRASTRUCTURE.Authentication.JwtProvider.GetAllValidClaims(CMSSERVICE.DOMAIN.Entities.LoginDetail)">
             <summary>
             Get All Valid Claims.
@@ -100,6 +95,11 @@
         </member>
         <member name="M:CMSSERVICE.INFRASTRUCTURE.Migrations.LoginDetail2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="T:CMSSERVICE.INFRASTRUCTURE.OptionsConfiguration.JwtOptions">
+            <summary>
+            Jwt Options Class.
+            </summary>
         </member>
         <member name="T:CMSSERVICE.INFRASTRUCTURE.UnitOfWork">
             <summary>

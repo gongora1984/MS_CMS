@@ -1,6 +1,7 @@
-﻿using Microsoft.Extensions.Options;
+﻿using CMSSERVICE.INFRASTRUCTURE.OptionsConfiguration;
+using Microsoft.Extensions.Options;
 
-namespace CMSSERVICE.WEB.AuthSetup;
+namespace CMSSERVICE.WEB.OptionsConfigurationSetup;
 
 public class ApiOptionsSetup : IConfigureOptions<ApiOptions>
 {

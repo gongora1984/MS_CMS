@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using CMSSERVICE.INFRASTRUCTURE.OptionsConfiguration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace CMSSERVICE.WEB.AuthSetup;
+namespace CMSSERVICE.WEB.OptionsConfigurationSetup;
 
 public class JwtBearerOptionsSetup : IPostConfigureOptions<JwtBearerOptions>
 {

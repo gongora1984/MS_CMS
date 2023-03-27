@@ -1,4 +1,4 @@
-﻿namespace CMSSERVICE.INFRASTRUCTURE.Authentication;
+﻿namespace CMSSERVICE.INFRASTRUCTURE.OptionsConfiguration;
 
 /// <summary>
 /// Jwt Options Class.

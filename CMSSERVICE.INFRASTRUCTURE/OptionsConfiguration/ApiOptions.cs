@@ -1,4 +1,4 @@
-﻿namespace CMSSERVICE.INFRASTRUCTURE.Authentication;
+﻿namespace CMSSERVICE.INFRASTRUCTURE.OptionsConfiguration;
 
 public class ApiOptions
 {

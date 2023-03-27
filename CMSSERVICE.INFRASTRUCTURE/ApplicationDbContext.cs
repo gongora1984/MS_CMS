@@ -9,6 +9,9 @@ public sealed class ApplicationDbContext : DbContext
     {
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder) =>
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
         modelBuilder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
+        base.OnModelCreating(modelBuilder);
+    }
 }
